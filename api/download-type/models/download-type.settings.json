@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "download_types",
+  "info": {
+    "name": "Download Type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Type": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
