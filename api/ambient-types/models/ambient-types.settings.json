@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ambient_types",
+  "info": {
+    "name": "Ambient Types"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Type": {
+      "type": "string"
+    }
+  }
+}

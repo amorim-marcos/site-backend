@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_ambient_informations_informations",
+  "info": {
+    "name": "Informations",
+    "icon": "info-circle"
+  },
+  "options": {},
+  "attributes": {
+    "Year": {
+      "type": "integer"
+    },
+    "Style": {
+      "type": "string"
+    },
+    "Architect": {
+      "type": "string"
+    },
+    "Photographer": {
+      "type": "string"
+    }
+  }
+}

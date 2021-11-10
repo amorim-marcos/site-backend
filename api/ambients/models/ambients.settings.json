@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ambients",
+  "info": {
+    "name": "Ambients",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Place": {
+      "type": "string"
+    },
+    "Informations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ambient-informations.informations"
+    },
+    "ambient_type": {
+      "model": "ambient-types"
+    }
+  }
+}

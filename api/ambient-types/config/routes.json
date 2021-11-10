@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ambient-types",
+      "handler": "ambient-types.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ambient-types/count",
+      "handler": "ambient-types.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ambient-types/:id",
+      "handler": "ambient-types.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ambient-types",
+      "handler": "ambient-types.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ambient-types/:id",
+      "handler": "ambient-types.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ambient-types/:id",
+      "handler": "ambient-types.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
