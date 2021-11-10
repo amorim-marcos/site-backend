@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "panel_types",
+  "info": {
+    "name": "Panel Types"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
