@@ -36,6 +36,9 @@
     },
     "ambient_type": {
       "model": "ambient-types"
+    },
+    "products": {
+      "collection": "products"
     }
   }
 }

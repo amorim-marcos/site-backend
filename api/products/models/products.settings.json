@@ -105,9 +105,6 @@
     },
     "combine_with": {
       "collection": "products"
-    },
-    "ambients": {
-      "collection": "ambients"
     }
   }
 }
