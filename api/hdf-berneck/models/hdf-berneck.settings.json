@@ -15,12 +15,12 @@
     "HDFBerneck": {
       "type": "component",
       "repeatable": false,
-      "component": "product-page.hdf-berneck"
+      "component": "panel-page.hdf-berneck"
     },
     "HDFBerneckPlus": {
       "type": "component",
       "repeatable": false,
-      "component": "product-page.hdf-berneck"
+      "component": "panel-page.hdf-berneck"
     }
   }
 }

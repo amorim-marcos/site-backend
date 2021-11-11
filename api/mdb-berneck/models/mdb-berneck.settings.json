@@ -14,12 +14,12 @@
     "MDBBerneck": {
       "type": "component",
       "repeatable": false,
-      "component": "product-page.hdf-berneck"
+      "component": "panel-page.hdf-berneck"
     },
     "MDBBerneckPlus": {
       "type": "component",
       "repeatable": false,
-      "component": "product-page.hdf-berneck"
+      "component": "panel-page.hdf-berneck"
     }
   }
 }

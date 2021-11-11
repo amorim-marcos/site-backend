@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/berneck-pinus",
+      "handler": "berneck-pinus.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/berneck-pinus",
+      "handler": "berneck-pinus.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/berneck-pinus",
+      "handler": "berneck-pinus.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

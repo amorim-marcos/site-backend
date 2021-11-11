@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "berneck_pinuses",
+  "info": {
+    "name": "Berneck Pinus"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Subtitle": {
+      "type": "string"
+    },
+    "SubtitleDescription": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "UsesAndApplications": {
+      "type": "text"
+    },
+    "Species": {
+      "type": "string"
+    },
+    "StandardHumity": {
+      "type": "string"
+    },
+    "AverageDensity": {
+      "type": "string"
+    },
+    "AverageMeasure": {
+      "type": "string"
+    },
+    "TechnicalSheet": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "SawnsQualities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sawns-qualities.sawns-qualities"
+    }
+  }
+}
