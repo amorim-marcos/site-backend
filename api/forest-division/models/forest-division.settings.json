@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "forest_divisions",
+  "info": {
+    "name": "Forest division"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeadText": {
+      "type": "text"
+    },
+    "Title1": {
+      "type": "string"
+    },
+    "Text1": {
+      "type": "string"
+    },
+    "Title2": {
+      "type": "string"
+    },
+    "Text2": {
+      "type": "text"
+    },
+    "Title3": {
+      "type": "string"
+    },
+    "Text3": {
+      "type": "text"
+    },
+    "Title4": {
+      "type": "string"
+    },
+    "Text4": {
+      "type": "text"
+    },
+    "Title5": {
+      "type": "string"
+    },
+    "Text5": {
+      "type": "string"
+    },
+    "ForestProductionHighlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "forest-highlights.forest-production-highlights"
+    },
+    "Title6": {
+      "type": "string"
+    },
+    "Text6": {
+      "type": "text"
+    },
+    "PublicResume": {
+      "type": "component",
+      "repeatable": true,
+      "component": "public-resume.public-resume"
+    }
+  }
+}
