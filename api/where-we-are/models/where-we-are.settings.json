@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "where_we_ares",
+  "info": {
+    "name": "Where we are",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "City": {
+      "type": "string"
+    },
+    "OurPlaceInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "our-place-information.our-place-information"
+    },
+    "GoogleMapsURL": {
+      "type": "text"
+    },
+    "State": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "string"
+    },
+    "InaugurationSoon": {
+      "type": "boolean"
+    }
+  }
+}
