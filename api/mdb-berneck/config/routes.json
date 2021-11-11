@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/mdb-berneck",
+      "handler": "mdb-berneck.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/mdb-berneck",
+      "handler": "mdb-berneck.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/mdb-berneck",
+      "handler": "mdb-berneck.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
