@@ -1,0 +1,98 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_commitments",
+  "info": {
+    "name": "Our Commitment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeaderText": {
+      "type": "text"
+    },
+    "CorporativeValues": {
+      "type": "component",
+      "repeatable": true,
+      "component": "corporative-values.corporative-values"
+    },
+    "EthicalCode": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Title1": {
+      "type": "string"
+    },
+    "Text1": {
+      "type": "text"
+    },
+    "Title2": {
+      "type": "string"
+    },
+    "Text2": {
+      "type": "text"
+    },
+    "Title3": {
+      "type": "string"
+    },
+    "Text3": {
+      "type": "text"
+    },
+    "SustainabilityReport": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Title4": {
+      "type": "string"
+    },
+    "Text4": {
+      "type": "text"
+    },
+    "Title5": {
+      "type": "string"
+    },
+    "Text5": {
+      "type": "text"
+    },
+    "Title6": {
+      "type": "string"
+    },
+    "Text6": {
+      "type": "text"
+    },
+    "Title7": {
+      "type": "string"
+    },
+    "Text7": {
+      "type": "text"
+    },
+    "ESGReportFile": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "ESGReportDescription": {
+      "type": "text"
+    }
+  }
+}
