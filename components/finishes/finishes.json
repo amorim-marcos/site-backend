@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_finishes_finishes",
+  "info": {
+    "name": "Finishes",
+    "icon": "list-ul"
+  },
+  "options": {},
+  "attributes": {
+    "Finish": {
+      "type": "string"
+    }
+  }
+}

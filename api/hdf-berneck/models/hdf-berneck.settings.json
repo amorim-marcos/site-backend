@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "hdf_bernecks",
+  "info": {
+    "name": "HDF Berneck"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HDFBerneck": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hdf-berneck.hdf-berneck"
+    },
+    "HDFBerneckPlus": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hdf-berneck-plus.hdf-berneck-plus"
+    }
+  }
+}
