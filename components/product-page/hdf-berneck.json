@@ -1,8 +1,9 @@
 {
-  "collectionName": "components_hdf_berneck_plus_hdf_berneck_pluses",
+  "collectionName": "components_hdf_berneck_hdf_bernecks",
   "info": {
-    "name": "HDFBerneckPlus",
-    "icon": "address-book"
+    "name": "ProductPage",
+    "icon": "pager",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,7 +23,7 @@
       "pluginOptions": {}
     },
     "SubtitleDescription": {
-      "type": "string"
+      "type": "text"
     },
     "Width": {
       "type": "string"

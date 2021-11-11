@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "hdf_bernecks",
   "info": {
-    "name": "HDF Berneck"
+    "name": "HDF Berneck",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -14,12 +15,12 @@
     "HDFBerneck": {
       "type": "component",
       "repeatable": false,
-      "component": "hdf-berneck.hdf-berneck"
+      "component": "product-page.hdf-berneck"
     },
     "HDFBerneckPlus": {
       "type": "component",
       "repeatable": false,
-      "component": "hdf-berneck-plus.hdf-berneck-plus"
+      "component": "product-page.hdf-berneck"
     }
   }
 }
