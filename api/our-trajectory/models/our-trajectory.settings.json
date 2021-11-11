@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_trajectories",
+  "info": {
+    "name": "Our trajectory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Year": {
+      "type": "component",
+      "repeatable": true,
+      "component": "trajectory-year.year"
+    }
+  }
+}

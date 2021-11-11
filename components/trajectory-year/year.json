@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_trajectory_year_years",
+  "info": {
+    "name": "Year",
+    "icon": "history"
+  },
+  "options": {},
+  "attributes": {
+    "Year": {
+      "type": "integer",
+      "private": false,
+      "required": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}
