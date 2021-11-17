@@ -12,9 +12,17 @@ async function dump(){
         fs.mkdirSync(configExportPath);
     }
 
-    await dumpConfig('permission', 'users-permissions', configExportPath + '/users-permisions.json')
-
-    process.exit()
+    try{
+        await dumpConfig('permission', 'users-permissions', configExportPath + '/users-permissions_permission.json')
+        await dumpConfig('role', 'users-permissions', configExportPath + '/users-permisions_role.json')
+        await dumpConfig('permission', 'strapi', configExportPath + '/strapi_permission.json')
+        await dumpConfig('role', null, configExportPath + '/strapi_role.json')
+        await dumpConfig('i18n_locale', null, configExportPath + '/strapi_role.json')
+        process.exit()
+    }catch(e){
+        console.log(e)
+        process.exit(1)
+    }
 }
 
 dump()
