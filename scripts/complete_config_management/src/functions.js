@@ -1,3 +1,4 @@
+const { resolveObjectURL } = require('buffer');
 const fs = require('fs')
 const strapi = require('strapi')
 
@@ -32,17 +33,20 @@ function dataToJson(modelName, pluginName){
 
 }
 
-async function saveAsFile(exportedData, filePath){
-    const output = fs.createWriteStream(filePath)
-    output.write(JSON.stringify(exportedData))
-    output.write('\n')
-    output.end()
-    return true
+function saveAsFile(exportedData, filePath){
+    return new Promise(async (resolve, reject) => {
+        fs.writeFile(filePath, JSON.stringify(exportedData), 'utf8', () => {
+            resolve(true)
+        })
+    })
 }
 
-async function dumpConfig(modelName, pluginName, filePath){
-    const exportedData = await dataToJson(modelName, pluginName)
-    saveAsFile(exportedData, filePath)
+function dumpConfig(modelName, pluginName, filePath){
+    return new Promise(async (resolve, reject) => {
+        const exportedData = await dataToJson(modelName, pluginName)
+        await saveAsFile(exportedData, filePath)
+        resolve(true)
+    })
 }
 
 module.exports = {
