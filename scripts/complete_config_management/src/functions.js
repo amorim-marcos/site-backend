@@ -3,7 +3,7 @@ const strapi = require('strapi')
 
 CHUNK_SIZE = 100
 
-function dataToJson(modelName, pluginName){
+async function dataToJson(modelName, pluginName){
     const app = await strapi().load();
 
     const count = (pluginName) ? await app.query(modelName, pluginName).count() : await app.query(modelName).count()
@@ -13,7 +13,7 @@ function dataToJson(modelName, pluginName){
     const pageCount = Math.ceil(count / CHUNK_SIZE)
   
     for (let page = 0; page < pageCount; page++) {
-        const results 
+        let results 
         
         results = (pluginName) 
             ? await app.query(modelName, pluginName).find({ _limit: CHUNK_SIZE, _start: page * CHUNK_SIZE})
@@ -28,7 +28,7 @@ function dataToJson(modelName, pluginName){
     return exportedData
 }
 
-function saveAsFile(exportedData, filePath){
+async function saveAsFile(exportedData, filePath){
     const output = filePath ? fs.createWriteStream(filePath) : process.stdout
     output.write(JSON.stringify(exportedData))
     output.write('\n')
@@ -36,7 +36,7 @@ function saveAsFile(exportedData, filePath){
 }
 
 
-export default {
+module.exports = {
     dataToJson,
     saveAsFile
 }
