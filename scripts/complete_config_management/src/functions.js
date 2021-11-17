@@ -29,14 +29,18 @@ async function dataToJson(modelName, pluginName){
 }
 
 async function saveAsFile(exportedData, filePath){
-    const output = filePath ? fs.createWriteStream(filePath) : process.stdout
+    const output = fs.createWriteStream(filePath)
     output.write(JSON.stringify(exportedData))
     output.write('\n')
     output.end()
 }
 
+function dumpConfig(modelName, pluginName, filePath){
+    saveAsFile(dataToJson(modelName, pluginName, filePath))
+}
 
 module.exports = {
     dataToJson,
-    saveAsFile
+    saveAsFile,
+    dumpConfig
 }

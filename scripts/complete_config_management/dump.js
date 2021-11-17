@@ -1,2 +1,5 @@
-const { dataToJson, saveAsFile } = require('./src/functions')
+const { dumpConfig } = require('./src/functions')
 
+function dump(){
+    
+}
