@@ -15,9 +15,9 @@ async function dump(){
     try{
         await dumpConfig('permission', 'users-permissions', configExportPath + '/users-permissions_permission.json')
         await dumpConfig('role', 'users-permissions', configExportPath + '/users-permisions_role.json')
-        await dumpConfig('permission', 'strapi', configExportPath + '/strapi_permission.json')
-        await dumpConfig('role', null, configExportPath + '/strapi_role.json')
-        await dumpConfig('i18n_locale', null, configExportPath + '/strapi_role.json')
+        await dumpConfig('strapi::permission', null, configExportPath + '/strapi_permission.json')
+        await dumpConfig('strapi::role', null, configExportPath + '/strapi_role.json')
+        // await dumpConfig('i18n_locale', null, configExportPath + '/strapi_role.json')
         process.exit()
     }catch(e){
         console.log(e)
