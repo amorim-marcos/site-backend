@@ -3,10 +3,7 @@ const { dumpConfig } = require('./src/functions')
 
 async function dump(){
     let migrationsPath = process.cwd() + "/migrations/configs"
-    let dateObj = new Date();
-    let todayDate = dateObj.toISOString().split('T')[0]
-    
-    let configExportPath = migrationsPath + "/" + todayDate
+    let configExportPath = migrationsPath
 
     if (!fs.existsSync(configExportPath)){
         fs.mkdirSync(configExportPath);
