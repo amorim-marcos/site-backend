@@ -59,21 +59,30 @@ function dumpConfig(modelName, pluginName, filePath){
 }
 
 
-function restoreConfig(modelName, pluginName, filePath){
-    const input = fs.readFileSync(filePath)
+function restoreConfig(modelName, pluginName, filePath, keyComposition){
+    return new Promise(async (resolve, reject) => {
+        try{
+            const input = fs.readFileSync(filePath)
 
-    const app = await strapi().load()
+            const app = await strapi().load()
+        
+            dataToImport = JSON.parse(input)
+        
+            const importer = createMergeImporter(app.db, modelName, pluginName, keyComposition);
+        
+            for (const config of dataToImport) {
+              await importer.import(config);
+            }
 
-    dataToImport = JSON.parse(input)
+            resolve(importer.printStatistics())
+        }catch(e){
+            reject(e)
+        }
+    })
 
-    const importer = createMergeImporter(app.db, modelName, pluginName);
-
-    for (const config of dataToImport) {
-      await importer.import(config);
-    }
 }
 
-const createMergeImporter = (db, modelName, pluginName) => {
+const createMergeImporter = (db, modelName, pluginName, keyComposition) => {
     const stats = {
         created: 0,
         merged: 0,
@@ -85,20 +94,37 @@ const createMergeImporter = (db, modelName, pluginName) => {
         },
 
         async import(conf) {
-            const model = (pluginName) ? await db.query(modelName, pluginName).model : await db.query(modelName)
-
-            const existingConf = model.find({ key: conf.key });
+            const model = (pluginName) ? await db.query(modelName, pluginName) : await db.query(modelName)
+            
+            keyObject = buildMergeKeyObject(keyComposition, conf)
+            
+            const existingConf = await model.findOne(keyObject)
 
             if (existingConf) {
                 stats.merged += 1;
-                await model.update({ key: conf.key }, _.merge(existingConf, conf));
+                await model.update(keyObject, _.merge(existingConf, conf));
             } else {
                 stats.created += 1;
                 await model.create(conf);
             }
         },
     };
-};
+}
+
+function buildMergeKeyObject(keyComposition, conf){
+    let obj = {}
+
+    for(const key of keyComposition){
+        if(conf[key] && conf[key].id){ // if is object that contains id, it means a relationship connected by id.
+            obj[key] = conf[key].id
+        }else{
+            obj[key] = conf[key]
+        }
+        
+    }
+
+    return obj
+}
 
 module.exports = {
     dumpConfig,
