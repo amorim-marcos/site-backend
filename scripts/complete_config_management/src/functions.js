@@ -1,6 +1,6 @@
-const { resolveObjectURL } = require('buffer');
 const fs = require('fs')
 const strapi = require('strapi')
+const _ = require('lodash');
 
 CHUNK_SIZE = 100
 
@@ -58,8 +58,49 @@ function dumpConfig(modelName, pluginName, filePath){
     })
 }
 
+
+function restoreConfig(modelName, pluginName, filePath){
+    const input = fs.readFileSync(filePath)
+
+    const app = await strapi().load()
+
+    dataToImport = JSON.parse(input)
+
+    const importer = createMergeImporter(app.db, modelName, pluginName);
+
+    for (const config of dataToImport) {
+      await importer.import(config);
+    }
+}
+
+const createMergeImporter = (db, modelName, pluginName) => {
+    const stats = {
+        created: 0,
+        merged: 0,
+    };
+
+    return {
+        printStatistics() {
+            return `${stats.created} created, ${stats.merged} merged`;
+        },
+
+        async import(conf) {
+            const model = (pluginName) ? await db.query(modelName, pluginName).model : await db.query(modelName)
+
+            const existingConf = model.find({ key: conf.key });
+
+            if (existingConf) {
+                stats.merged += 1;
+                await model.update({ key: conf.key }, _.merge(existingConf, conf));
+            } else {
+                stats.created += 1;
+                await model.create(conf);
+            }
+        },
+    };
+};
+
 module.exports = {
-    dataToJson,
-    saveAsFile,
-    dumpConfig
+    dumpConfig,
+    restoreConfig
 }
