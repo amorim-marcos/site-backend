@@ -10,7 +10,7 @@ async function restore(){
         await restoreConfig('permission', 'users-permissions', configExportPath + '/users-permissions_permission.json', ['type', 'controller', 'action', 'role'])     
         await restoreConfig('strapi::permission', null, configExportPath + '/strapi_permission.json', ['action', 'subject', 'role'])
         await restoreConfig('strapi::role', null, configExportPath + '/strapi_role.json', ['name', 'code'])
-        // await dumpConfig('i18n_locale', null, configExportPath + '/strapi_role.json')
+        await restoreConfig('plugins::i18n.locale', null, configExportPath + '/i18nlocale.json', ['code'])
         process.exit()
     }catch(e){
         console.log(e)
