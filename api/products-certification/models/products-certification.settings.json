@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products_certifications",
+  "info": {
+    "name": "Products Certification"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Certifier": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Certificates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certificates.certificates"
+    }
+  }
+}

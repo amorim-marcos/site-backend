@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/products-certifications",
+      "handler": "products-certification.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/products-certifications/count",
+      "handler": "products-certification.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/products-certifications/:id",
+      "handler": "products-certification.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/products-certifications",
+      "handler": "products-certification.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/products-certifications/:id",
+      "handler": "products-certification.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/products-certifications/:id",
+      "handler": "products-certification.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

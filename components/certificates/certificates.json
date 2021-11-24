@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_certificates_certificates",
+  "info": {
+    "name": "Certificates",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "CertificateName": {
+      "type": "string"
+    },
+    "CertificateFile": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}
