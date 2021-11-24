@@ -54,7 +54,7 @@
         }
       }
     },
-    "Image": {
+    "PatternImage": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
