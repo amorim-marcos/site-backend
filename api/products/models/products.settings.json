@@ -108,6 +108,9 @@
     },
     "product_collections": {
       "collection": "product-collection"
+    },
+    "product_coloration": {
+      "model": "product-colorations"
     }
   }
 }
