@@ -105,6 +105,9 @@
     },
     "combine_with": {
       "collection": "products"
+    },
+    "product_collections": {
+      "collection": "product-collection"
     }
   }
 }
