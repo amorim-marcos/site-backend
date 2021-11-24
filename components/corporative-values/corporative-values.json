@@ -2,12 +2,14 @@
   "collectionName": "components_corporative_values_corporative_values",
   "info": {
     "name": "CorporativeValues",
-    "icon": "business-time"
+    "icon": "business-time",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Value": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

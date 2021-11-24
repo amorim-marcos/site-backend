@@ -2,12 +2,14 @@
   "collectionName": "components_forest_highlights_forest_production_highlights",
   "info": {
     "name": "ForestProductionHighlights",
-    "icon": "tree"
+    "icon": "tree",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Highlight": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Image": {
       "model": "file",
@@ -16,7 +18,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {}
     }
   }

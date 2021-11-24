@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "who_we_ares",
   "info": {
-    "name": "Who we are"
+    "name": "Who we are",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -21,7 +22,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text1": {
       "pluginOptions": {
@@ -29,7 +31,8 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Title2": {
       "pluginOptions": {
@@ -37,7 +40,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text2": {
       "pluginOptions": {
@@ -45,7 +49,8 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Title3": {
       "pluginOptions": {
@@ -53,7 +58,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text3": {
       "pluginOptions": {
@@ -61,7 +67,8 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }

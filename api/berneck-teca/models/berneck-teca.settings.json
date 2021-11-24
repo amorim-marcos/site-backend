@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "berneck_tecas",
   "info": {
-    "name": "Berneck Teca"
+    "name": "Berneck Teca",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,28 +13,36 @@
   "pluginOptions": {},
   "attributes": {
     "Subtitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "SubtitleDescription": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "UsesAndApplication": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Machinability": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "Thickness": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Length": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Width": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "TechnicalSheet": {
       "collection": "file",
@@ -42,7 +51,7 @@
         "files"
       ],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {}
     }
   }

@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "forest_divisions",
   "info": {
-    "name": "Forest division"
+    "name": "Forest division",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,37 +13,48 @@
   "pluginOptions": {},
   "attributes": {
     "HeadText": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Title1": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text1": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Title2": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text2": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Title3": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text3": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Title4": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text4": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Title5": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text5": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ForestProductionHighlights": {
       "type": "component",
@@ -50,15 +62,18 @@
       "component": "forest-highlights.forest-production-highlights"
     },
     "Title6": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text6": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "PublicResume": {
       "type": "component",
       "repeatable": true,
-      "component": "public-resume.public-resume"
+      "component": "public-resume.public-resume",
+      "required": true
     }
   }
 }

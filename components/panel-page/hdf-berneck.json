@@ -19,29 +19,36 @@
         "files"
       ],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {}
     },
     "SubtitleDescription": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Width": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Length": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "UsesAndApplications": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Thickness": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Subtitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }
