@@ -34,7 +34,21 @@
         }
       }
     },
-    "Image": {
+    "SmallIconImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "TopMenuImage": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
