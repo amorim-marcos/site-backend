@@ -7,11 +7,14 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "complete-config:dump": "node scripts/complete_config_management/dump",
+    "complete-config:restore": "node scripts/complete_config_management/restore"
   },
   "devDependencies": {},
   "dependencies": {
     "knex": "0.21.18",
+    "lodash": "^4.17.21",
     "mysql": "^2.18.1",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",

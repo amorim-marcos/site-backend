@@ -1,0 +1,115 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_commitments",
+  "info": {
+    "name": "Our Commitment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeaderText": {
+      "type": "text",
+      "required": true
+    },
+    "CorporativeValues": {
+      "type": "component",
+      "repeatable": true,
+      "component": "corporative-values.corporative-values"
+    },
+    "EthicalCode": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Title1": {
+      "type": "string",
+      "required": true
+    },
+    "Text1": {
+      "type": "text",
+      "required": true
+    },
+    "Title2": {
+      "type": "string",
+      "required": true
+    },
+    "Text2": {
+      "type": "text",
+      "required": true
+    },
+    "Title3": {
+      "type": "string",
+      "required": true
+    },
+    "Text3": {
+      "type": "text",
+      "required": true
+    },
+    "SustainabilityReport": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Title4": {
+      "type": "string",
+      "required": true
+    },
+    "Text4": {
+      "type": "text",
+      "required": true
+    },
+    "Title5": {
+      "type": "string",
+      "required": true
+    },
+    "Text5": {
+      "type": "text",
+      "required": true
+    },
+    "Title6": {
+      "type": "string",
+      "required": true
+    },
+    "Text6": {
+      "type": "text",
+      "required": true
+    },
+    "Title7": {
+      "type": "string",
+      "required": true
+    },
+    "Text7": {
+      "type": "text",
+      "required": true
+    },
+    "ESGReportFile": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "ESGReportDescription": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

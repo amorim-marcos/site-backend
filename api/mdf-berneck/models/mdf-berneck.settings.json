@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "mdf_bernecks",
+  "info": {
+    "name": "MDF Berneck"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MDFBerneck": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panel-page.hdf-berneck"
+    },
+    "MDFBerneckPlus": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panel-page.hdf-berneck"
+    }
+  }
+}

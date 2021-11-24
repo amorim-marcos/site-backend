@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ambients",
+  "info": {
+    "name": "Ambients",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Place": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Informations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ambient-informations.informations",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "ambient_type": {
+      "model": "ambient-types"
+    },
+    "products": {
+      "collection": "products"
+    },
+    "GalleryOfImages": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "forest_certifications",
+  "info": {
+    "name": "Forest Certification",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "Certifier": {
+      "type": "string",
+      "required": true
+    },
+    "Certificates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certificates.certificates"
+    }
+  }
+}

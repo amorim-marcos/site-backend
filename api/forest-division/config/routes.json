@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/forest-division",
+      "handler": "forest-division.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/forest-division",
+      "handler": "forest-division.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/forest-division",
+      "handler": "forest-division.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

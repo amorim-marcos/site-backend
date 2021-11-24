@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/our-trajectory",
+      "handler": "our-trajectory.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/our-trajectory",
+      "handler": "our-trajectory.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/our-trajectory",
+      "handler": "our-trajectory.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

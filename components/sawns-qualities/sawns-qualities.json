@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_sawns_qualities_sawns_qualities",
+  "info": {
+    "name": "SawnsQualities",
+    "icon": "wave-square"
+  },
+  "options": {},
+  "attributes": {
+    "Number": {
+      "type": "integer"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "COL": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "UsesAndApplications": {
+      "type": "text"
+    },
+    "Thickness": {
+      "type": "string"
+    },
+    "Length": {
+      "type": "string"
+    },
+    "Width": {
+      "type": "string"
+    }
+  }
+}

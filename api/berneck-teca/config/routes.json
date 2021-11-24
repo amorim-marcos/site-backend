@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/berneck-teca",
+      "handler": "berneck-teca.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/berneck-teca",
+      "handler": "berneck-teca.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/berneck-teca",
+      "handler": "berneck-teca.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

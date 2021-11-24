@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_available_at_available_ats",
+  "info": {
+    "name": "Available at",
+    "icon": "coins"
+  },
+  "options": {},
+  "attributes": {
+    "panel_type": {
+      "model": "panel-types"
+    },
+    "Thickness": {
+      "type": "string"
+    },
+    "Dimensions": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/hdf-berneck",
+      "handler": "hdf-berneck.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/hdf-berneck",
+      "handler": "hdf-berneck.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/hdf-berneck",
+      "handler": "hdf-berneck.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
