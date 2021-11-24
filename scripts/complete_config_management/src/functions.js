@@ -82,6 +82,17 @@ function restoreConfig(modelName, pluginName, filePath, keyComposition){
 
 }
 
+const cleanModelTable = (db, modelName, pluginName) => {
+    return new Promise(async (resolve, reject) => {
+        const model = (pluginName) ? await db.query(modelName, pluginName) : await db.query(modelName)
+        try{
+            resolve(await model.delete({}))
+        }catch(e){
+            reject(e)
+        }
+    })
+}
+
 const createMergeImporter = (db, modelName, pluginName, keyComposition) => {
     const stats = {
         created: 0,
