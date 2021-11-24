@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "videos",
   "info": {
-    "name": "Videos"
+    "name": "Videos",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "VideoURL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "product_colorations",
   "info": {
-    "name": "Product Colorations"
+    "name": "Product Colorations",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "BackgroundImageSmall": {
       "model": "file",
@@ -21,7 +23,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false,
+      "required": true,
       "pluginOptions": {}
     }
   }

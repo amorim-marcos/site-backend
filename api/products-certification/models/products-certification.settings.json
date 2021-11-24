@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "products_certifications",
   "info": {
-    "name": "Products Certification"
+    "name": "Products Certification",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "Certifier": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Certificates": {
       "type": "component",

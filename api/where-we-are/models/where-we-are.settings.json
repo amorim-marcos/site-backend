@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "City": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "OurPlaceInformation": {
       "type": "component",
@@ -24,16 +26,21 @@
       "component": "our-place-information.our-place-information"
     },
     "GoogleMapsURL": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "State": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Country": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "InaugurationSoon": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

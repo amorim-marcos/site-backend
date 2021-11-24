@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "download_types",
   "info": {
-    "name": "Download Type"
+    "name": "Download Type",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "Type": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }
