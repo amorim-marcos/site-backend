@@ -59,7 +59,7 @@ function dumpConfig(modelName, pluginName, filePath){
 }
 
 
-function restoreConfig(app, modelName, pluginName, filePath, keyComposition){
+function restoreConfig(app, modelName, pluginName, filePath){
     return new Promise(async (resolve, reject) => {
         try{
             const input = fs.readFileSync(filePath)
@@ -68,10 +68,10 @@ function restoreConfig(app, modelName, pluginName, filePath, keyComposition){
         
             await cleanModelTable(app, modelName, pluginName)
 
-            const importer = createMergeImporter(app, modelName, pluginName, keyComposition);
+            const importer = createImporter(app, modelName, pluginName);
         
             for (const config of dataToImport) {
-              await importer.import(config);
+              await importer.import(config)
             }
 
             resolve(importer.printStatistics())
@@ -93,7 +93,7 @@ const cleanModelTable = (app, modelName, pluginName) => {
     })
 }
 
-const createMergeImporter = (app, modelName, pluginName, keyComposition) => {
+const createImporter = (app, modelName, pluginName) => {
     const stats = {
         created: 0,
         merged: 0,
