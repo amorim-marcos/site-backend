@@ -59,16 +59,16 @@ function dumpConfig(modelName, pluginName, filePath){
 }
 
 
-function restoreConfig(modelName, pluginName, filePath, keyComposition){
+function restoreConfig(app, modelName, pluginName, filePath, keyComposition){
     return new Promise(async (resolve, reject) => {
         try{
             const input = fs.readFileSync(filePath)
-
-            const app = await strapi().load()
-        
+            
             dataToImport = JSON.parse(input)
         
-            const importer = createMergeImporter(app.db, modelName, pluginName, keyComposition);
+            await cleanModelTable(app, modelName, pluginName)
+
+            const importer = createMergeImporter(app, modelName, pluginName, keyComposition);
         
             for (const config of dataToImport) {
               await importer.import(config);
@@ -82,18 +82,18 @@ function restoreConfig(modelName, pluginName, filePath, keyComposition){
 
 }
 
-const cleanModelTable = (db, modelName, pluginName) => {
+const cleanModelTable = (app, modelName, pluginName) => {
     return new Promise(async (resolve, reject) => {
-        const model = (pluginName) ? await db.query(modelName, pluginName) : await db.query(modelName)
+        const model = (pluginName) ? await app.db.query(modelName, pluginName) : await app.db.query(modelName)
         try{
-            resolve(await model.delete({}))
+            resolve(app.connections.default.truncate(model.model.__schema__.collectionName))
         }catch(e){
             reject(e)
         }
     })
 }
 
-const createMergeImporter = (db, modelName, pluginName, keyComposition) => {
+const createMergeImporter = (app, modelName, pluginName, keyComposition) => {
     const stats = {
         created: 0,
         merged: 0,
@@ -104,20 +104,75 @@ const createMergeImporter = (db, modelName, pluginName, keyComposition) => {
             return `${stats.created} created, ${stats.merged} merged`;
         },
 
-        async import(conf) {
-            const model = (pluginName) ? await db.query(modelName, pluginName) : await db.query(modelName)
-            
-            keyObject = buildMergeKeyObject(keyComposition, conf)
-            
-            const existingConf = await model.findOne(keyObject)
+        formatFields(fields){
+            let fieldsString = ``
 
-            if (existingConf) {
-                stats.merged += 1;
-                await model.update(keyObject, _.merge(existingConf, conf));
-            } else {
-                stats.created += 1;
-                await model.create(conf);
+            for(let field of fields){
+                let fieldName = (typeof field === 'string') ? field : field[0]
+                fieldsString = (fieldsString === ``) ? `${fieldName}` : fieldsString + `, ${fieldName}`
+                 
             }
+
+            return fieldsString
+        },
+
+        formatValues(totalVariables){
+            let variables = `?` // at least there is one primary key.
+
+            for(i=1; i<totalVariables; i++){
+                variables = variables + `, ?`
+            }
+
+            return variables
+        },
+
+        preapareParameters(fields, conf){
+            let parameters = []
+            for(let field of fields){
+                let fieldName
+                let fieldDef
+                let parameter
+
+                if(typeof field !== 'string'){
+                    fieldName = field[0]
+                    fieldDef = field[1]
+
+                    if(fieldDef.type == 'json'){
+                        parameter = JSON.stringify(conf[fieldName])    
+                    }else{
+                        parameter = (conf[fieldName] && conf[fieldName].id != undefined) ? conf[fieldName].id : conf[fieldName]
+                    }                   
+                }else{
+                    fieldName = field
+                    parameter = conf[fieldName]
+                }
+                parameters.push(parameter) 
+            }
+            return parameters
+        },
+
+        async import(conf) {
+            const model = (pluginName) ? await app.db.query(modelName, pluginName) : await app.db.query(modelName)
+            const conn = app.connections.default
+
+            const collectionName = model.model.__schema__.collectionName
+            const primaryKey = model.model.primaryKey
+
+            const otherFields = Object.entries(model.model.__schema__.attributes).filter((attribute) => attribute[1].type != undefined)
+
+            const fields = otherFields
+            fields.push(primaryKey)
+
+            const formattedFields = this.formatFields(otherFields)
+            const formattedVariablesParameters = this.formatValues(otherFields.length)
+            const query = `
+                INSERT INTO \`${collectionName}\` (${formattedFields})
+                VALUES (${formattedVariablesParameters})
+            `
+
+            const preparedParameterValues = this.preapareParameters(fields, conf)
+
+            await conn.raw(query, preparedParameterValues)
         },
     };
 }
