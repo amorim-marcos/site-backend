@@ -107,10 +107,8 @@ const createImporter = (app, modelName, pluginName) => {
         formatFields(fields){
             let fieldsString = ``
 
-            for(let field of fields){
-                let fieldName = (typeof field === 'string') ? field : field[0]
+            for(let fieldName of fields){
                 fieldsString = (fieldsString === ``) ? `${fieldName}` : fieldsString + `, ${fieldName}`
-                 
             }
 
             return fieldsString
@@ -128,6 +126,7 @@ const createImporter = (app, modelName, pluginName) => {
 
         preapareParameters(fields, conf){
             let parameters = []
+            let fieldsNames = []
             for(let field of fields){
                 let fieldName
                 let fieldDef
@@ -138,17 +137,24 @@ const createImporter = (app, modelName, pluginName) => {
                     fieldDef = field[1]
 
                     if(fieldDef.type == 'json'){
-                        parameter = JSON.stringify(conf[fieldName])    
-                    }else{
+                        parameter = JSON.stringify(conf[fieldName])   
+                        fieldsNames.push(fieldName) 
+                    }else if(!Array.isArray(conf[fieldName])){
                         parameter = (conf[fieldName] && conf[fieldName].id != undefined) ? conf[fieldName].id : conf[fieldName]
-                    }                   
+                        fieldsNames.push(fieldName) 
+                    }                
                 }else{
                     fieldName = field
                     parameter = conf[fieldName]
+                    fieldsNames.push(fieldName) 
                 }
-                parameters.push(parameter) 
+
+                if(parameter !== undefined){
+                    parameters.push(parameter) 
+                }
             }
-            return parameters
+
+            return { fields: fieldsNames, parameters: parameters }
         },
 
         async import(conf) {
@@ -158,21 +164,20 @@ const createImporter = (app, modelName, pluginName) => {
             const collectionName = model.model.__schema__.collectionName
             const primaryKey = model.model.primaryKey
 
-            const otherFields = Object.entries(model.model.__schema__.attributes).filter((attribute) => attribute[1].type != undefined)
+            const otherFields = Object.entries(model.model.__schema__.attributes)
+            otherFields.push(primaryKey)
+            
+            const { fields, parameters } = this.preapareParameters(otherFields, conf)
+            
+            const formattedFields = this.formatFields(fields)
+            const formattedVariablesParameters = this.formatValues(fields.length)
 
-            const fields = otherFields
-            fields.push(primaryKey)
-
-            const formattedFields = this.formatFields(otherFields)
-            const formattedVariablesParameters = this.formatValues(otherFields.length)
             const query = `
                 INSERT INTO \`${collectionName}\` (${formattedFields})
                 VALUES (${formattedVariablesParameters})
             `
 
-            const preparedParameterValues = this.preapareParameters(fields, conf)
-
-            await conn.raw(query, preparedParameterValues)
+            await conn.raw(query, parameters)
         },
     };
 }
