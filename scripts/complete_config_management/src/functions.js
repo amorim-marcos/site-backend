@@ -59,19 +59,19 @@ function dumpConfig(modelName, pluginName, filePath){
 }
 
 
-function restoreConfig(modelName, pluginName, filePath, keyComposition){
+function restoreConfig(app, modelName, pluginName, filePath){
     return new Promise(async (resolve, reject) => {
         try{
             const input = fs.readFileSync(filePath)
-
-            const app = await strapi().load()
-        
+            
             dataToImport = JSON.parse(input)
         
-            const importer = createMergeImporter(app.db, modelName, pluginName, keyComposition);
+            await cleanModelTable(app, modelName, pluginName)
+
+            const importer = createImporter(app, modelName, pluginName);
         
             for (const config of dataToImport) {
-              await importer.import(config);
+              await importer.import(config)
             }
 
             resolve(importer.printStatistics())
@@ -82,7 +82,18 @@ function restoreConfig(modelName, pluginName, filePath, keyComposition){
 
 }
 
-const createMergeImporter = (db, modelName, pluginName, keyComposition) => {
+const cleanModelTable = (app, modelName, pluginName) => {
+    return new Promise(async (resolve, reject) => {
+        const model = (pluginName) ? await app.db.query(modelName, pluginName) : await app.db.query(modelName)
+        try{
+            resolve(app.connections.default.truncate(model.model.__schema__.collectionName))
+        }catch(e){
+            reject(e)
+        }
+    })
+}
+
+const createImporter = (app, modelName, pluginName) => {
     const stats = {
         created: 0,
         merged: 0,
@@ -93,20 +104,80 @@ const createMergeImporter = (db, modelName, pluginName, keyComposition) => {
             return `${stats.created} created, ${stats.merged} merged`;
         },
 
-        async import(conf) {
-            const model = (pluginName) ? await db.query(modelName, pluginName) : await db.query(modelName)
-            
-            keyObject = buildMergeKeyObject(keyComposition, conf)
-            
-            const existingConf = await model.findOne(keyObject)
+        formatFields(fields){
+            let fieldsString = ``
 
-            if (existingConf) {
-                stats.merged += 1;
-                await model.update(keyObject, _.merge(existingConf, conf));
-            } else {
-                stats.created += 1;
-                await model.create(conf);
+            for(let fieldName of fields){
+                fieldsString = (fieldsString === ``) ? `${fieldName}` : fieldsString + `, ${fieldName}`
             }
+
+            return fieldsString
+        },
+
+        formatValues(totalVariables){
+            let variables = `?` // at least there is one primary key.
+
+            for(i=1; i<totalVariables; i++){
+                variables = variables + `, ?`
+            }
+
+            return variables
+        },
+
+        preapareParameters(fields, conf){
+            let parameters = []
+            let fieldsNames = []
+            for(let field of fields){
+                let fieldName
+                let fieldDef
+                let parameter
+
+                if(typeof field !== 'string'){
+                    fieldName = field[0]
+                    fieldDef = field[1]
+
+                    if(fieldDef.type == 'json'){
+                        parameter = JSON.stringify(conf[fieldName])   
+                        fieldsNames.push(fieldName) 
+                    }else if(!Array.isArray(conf[fieldName])){
+                        parameter = (conf[fieldName] && conf[fieldName].id != undefined) ? conf[fieldName].id : conf[fieldName]
+                        fieldsNames.push(fieldName) 
+                    }                
+                }else{
+                    fieldName = field
+                    parameter = conf[fieldName]
+                    fieldsNames.push(fieldName) 
+                }
+
+                if(parameter !== undefined){
+                    parameters.push(parameter) 
+                }
+            }
+
+            return { fields: fieldsNames, parameters: parameters }
+        },
+
+        async import(conf) {
+            const model = (pluginName) ? await app.db.query(modelName, pluginName) : await app.db.query(modelName)
+            const conn = app.connections.default
+
+            const collectionName = model.model.__schema__.collectionName
+            const primaryKey = model.model.primaryKey
+
+            const otherFields = Object.entries(model.model.__schema__.attributes)
+            otherFields.push(primaryKey)
+            
+            const { fields, parameters } = this.preapareParameters(otherFields, conf)
+            
+            const formattedFields = this.formatFields(fields)
+            const formattedVariablesParameters = this.formatValues(fields.length)
+
+            const query = `
+                INSERT INTO \`${collectionName}\` (${formattedFields})
+                VALUES (${formattedVariablesParameters})
+            `
+
+            await conn.raw(query, parameters)
         },
     };
 }
