@@ -5,17 +5,26 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
+    "develop-test": "NODE_ENV=test strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
     "complete-config:dump": "node scripts/complete_config_management/dump",
-    "complete-config:restore": "node scripts/complete_config_management/restore"
+    "complete-config:restore": "node scripts/complete_config_management/restore",
+    "test": "mocha --timeout 60000"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "supertest": "^6.1.6"
+  },
   "dependencies": {
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
     "knex": "0.21.18",
     "lodash": "^4.17.21",
+    "mocha": "^9.1.3",
     "mysql": "^2.18.1",
+    "shelljs": "^0.8.4",
+    "sqlite3": "^5.0.2",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-bookshelf": "3.6.8",
