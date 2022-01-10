@@ -12,7 +12,8 @@ const { expect } = require("chai");
 process.env.NODE_ENV = "test";
 
 describe("app", () => {
-  before(async () => {
+  before(async function(){
+    this.timeout(60000)
     await setupStrapi();
   });
 
