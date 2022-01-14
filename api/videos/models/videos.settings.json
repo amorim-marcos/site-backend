@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "VideoURL": {
+    "video_url": {
       "type": "string",
       "required": true
     }

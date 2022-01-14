@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Year": {
+    "year": {
       "type": "component",
       "repeatable": true,
       "component": "trajectory-year.year"

@@ -12,39 +12,39 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Subtitle": {
+    "subtitle": {
       "type": "string",
       "required": true
     },
-    "SubtitleDescription": {
+    "subtitle_description": {
       "type": "text",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true
     },
-    "UsesAndApplication": {
+    "uses_and_applications": {
       "type": "text",
       "required": true
     },
-    "Machinability": {
+    "machinability": {
       "type": "richtext",
       "required": true
     },
-    "Thickness": {
+    "thickness": {
       "type": "string",
       "required": true
     },
-    "Length": {
+    "_length": {
       "type": "string",
       "required": true
     },
-    "Width": {
+    "_width": {
       "type": "string",
       "required": true
     },
-    "TechnicalSheet": {
+    "technical_sheet": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [

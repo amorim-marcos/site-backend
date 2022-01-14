@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Place": {
+    "place": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,7 +24,7 @@
         }
       }
     },
-    "Informations": {
+    "informations": {
       "type": "component",
       "repeatable": false,
       "component": "ambient-informations.informations",
@@ -40,7 +40,7 @@
     "products": {
       "collection": "products"
     },
-    "GalleryOfImages": {
+    "gallery_of_images": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [

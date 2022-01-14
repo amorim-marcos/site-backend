@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "mdb_bernecks",
   "info": {
-    "name": "MDB Berneck"
+    "name": "MDP Berneck",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,12 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "MDBBerneck": {
+    "mdp_berneck": {
       "type": "component",
       "repeatable": false,
       "component": "panel-page.hdf-berneck"
     },
-    "MDBBerneckPlus": {
+    "mdp_berneck_plus": {
       "type": "component",
       "repeatable": false,
       "component": "panel-page.hdf-berneck"

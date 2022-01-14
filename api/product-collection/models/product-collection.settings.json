@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "BackgroundImageLarge": {
+    "background_image_large": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -26,7 +26,7 @@
       "required": true,
       "pluginOptions": {}
     },
-    "BackgroundImageSmall": {
+    "background_image_small": {
       "model": "file",
       "via": "related",
       "allowedTypes": [

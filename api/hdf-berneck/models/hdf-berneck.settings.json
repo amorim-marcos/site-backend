@@ -12,12 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HDFBerneck": {
+    "hdf_berneck": {
       "type": "component",
       "repeatable": false,
       "component": "panel-page.hdf-berneck"
     },
-    "HDFBerneckPlus": {
+    "hdf_berneck_plus": {
       "type": "component",
       "repeatable": false,
       "component": "panel-page.hdf-berneck"

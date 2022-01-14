@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true,
       "pluginOptions": {
@@ -25,7 +25,7 @@
         }
       }
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true,
       "pluginOptions": {
@@ -34,7 +34,7 @@
         }
       }
     },
-    "SmallIconImage": {
+    "small_icon_image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -48,7 +48,7 @@
         }
       }
     },
-    "TopMenuImage": {
+    "top_menu_image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [

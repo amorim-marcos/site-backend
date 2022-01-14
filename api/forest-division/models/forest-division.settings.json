@@ -12,64 +12,64 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeadText": {
+    "head_text": {
       "type": "text",
       "required": true
     },
-    "Title1": {
+    "title1": {
       "type": "string",
       "required": true
     },
-    "Text1": {
+    "text1": {
       "type": "string",
       "required": true
     },
-    "Title2": {
+    "title2": {
       "type": "string",
       "required": true
     },
-    "Text2": {
+    "text2": {
       "type": "text",
       "required": true
     },
-    "Title3": {
+    "title3": {
       "type": "string",
       "required": true
     },
-    "Text3": {
+    "text3": {
       "type": "text",
       "required": true
     },
-    "Title4": {
+    "title4": {
       "type": "string",
       "required": true
     },
-    "Text4": {
+    "text4": {
       "type": "text",
       "required": true
     },
-    "Title5": {
+    "title5": {
       "type": "string",
       "required": true
     },
-    "Text5": {
+    "text5": {
       "type": "string",
       "required": true
     },
-    "ForestProductionHighlights": {
+    "forest_production_highlights": {
       "type": "component",
       "repeatable": true,
       "component": "forest-highlights.forest-production-highlights"
     },
-    "Title6": {
+    "title6": {
       "type": "string",
       "required": true
     },
-    "Text6": {
+    "text6": {
       "type": "text",
       "required": true
     },
-    "PublicResume": {
+    "public_resume": {
       "type": "component",
       "repeatable": true,
       "component": "public-resume.public-resume",
