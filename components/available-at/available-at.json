@@ -9,10 +9,10 @@
     "panel_type": {
       "model": "panel-types"
     },
-    "Thickness": {
+    "thickness": {
       "type": "string"
     },
-    "Dimensions": {
+    "dimensions": {
       "type": "string"
     }
   }

@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "Value": {
+    "value": {
       "type": "text",
       "required": true
     }

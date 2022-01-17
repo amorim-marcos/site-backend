@@ -1,17 +1,17 @@
 {
   "collectionName": "components_certificates_certificates",
   "info": {
-    "name": "Certificates",
+    "name": "certificates",
     "icon": "book",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "CertificateName": {
+    "certificate_name": {
       "type": "string",
       "required": true
     },
-    "CertificateFile": {
+    "certificate_file": {
       "model": "file",
       "via": "related",
       "allowedTypes": [

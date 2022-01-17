@@ -7,20 +7,20 @@
   },
   "options": {},
   "attributes": {
-    "Year": {
+    "year": {
       "type": "integer",
       "private": false,
       "required": true
     },
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true
     },
-    "Photo": {
+    "photo": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
