@@ -13,6 +13,8 @@ module.exports = {
   },
   migrations: {
     tableName: 'knex_migrations',
-    directory: 'migrations/schemas'
+    directory: 'migrations/schemas',
+    // Default stub is content stub. If need other stub, using it passing as parameter.
+    stub: 'migrations/stubs/content.stub.js', 
   }
 }
