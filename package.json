@@ -11,7 +11,11 @@
     "strapi": "strapi",
     "complete-config:dump": "node scripts/complete_config_management/dump",
     "complete-config:restore": "node scripts/complete_config_management/restore",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "migrate:all": "knex migrate:latest",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback"
   },
   "devDependencies": {
     "supertest": "^6.1.6"
