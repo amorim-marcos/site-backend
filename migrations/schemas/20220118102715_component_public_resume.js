@@ -1,4 +1,4 @@
-const table_name = ''
+const table_name = 'components_public_resume_public_resumes'
 
 exports.up = function(knex) {
     return knex.schema.hasTable(table_name).then(function(exists) {
