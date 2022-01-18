@@ -12,15 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Certifier": {
+    "certifier": {
       "type": "string",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "string",
       "required": true
     },
-    "Certificates": {
+    "certificates": {
       "type": "component",
       "repeatable": true,
       "component": "certificates.certificates"

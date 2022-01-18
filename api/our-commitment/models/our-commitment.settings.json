@@ -12,16 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeaderText": {
+    "header_text": {
       "type": "text",
       "required": true
     },
-    "CorporativeValues": {
+    "corporative_values": {
       "type": "component",
       "repeatable": true,
       "component": "corporative-values.corporative-values"
     },
-    "EthicalCode": {
+    "ethical_code": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -31,31 +31,47 @@
       "required": true,
       "pluginOptions": {}
     },
-    "Title1": {
+    "section1_title": {
       "type": "string",
       "required": true
     },
-    "Text1": {
+    "seection1_text": {
       "type": "text",
       "required": true
     },
-    "Title2": {
+    "section2_title": {
       "type": "string",
       "required": true
     },
-    "Text2": {
+    "section2_text": {
       "type": "text",
       "required": true
     },
-    "Title3": {
+    "carbon_sequestration": {
+      "type": "decimal",
+      "required": true
+    },
+    "atmospheric_emissions": {
+      "type": "decimal",
+      "required": true
+    },
+    "section3_title": {
       "type": "string",
       "required": true
     },
-    "Text3": {
+    "section3_text": {
       "type": "text",
       "required": true
     },
-    "SustainabilityReport": {
+    "cogenerated_energy": {
+      "type": "integer",
+      "required": true
+    },   
+    "reused_water": {
+      "type": "integer",
+      "required": true
+    },   
+    "sustainability_report": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -65,39 +81,43 @@
       "required": true,
       "pluginOptions": {}
     },
-    "Title4": {
+    "section4_title": {
       "type": "string",
       "required": true
     },
-    "Text4": {
+    "section4_text": {
       "type": "text",
       "required": true
     },
-    "Title5": {
+    "section5_title": {
       "type": "string",
       "required": true
     },
-    "Text5": {
+    "section5_text": {
       "type": "text",
       "required": true
     },
-    "Title6": {
+    "collaborators_number": {
+      "type": "integer",
+      "required": true
+    },  
+    "section6_title": {
       "type": "string",
       "required": true
     },
-    "Text6": {
+    "section6_text": {
       "type": "text",
       "required": true
     },
-    "Title7": {
+    "section7_title": {
       "type": "string",
       "required": true
     },
-    "Text7": {
+    "section7_text": {
       "type": "text",
       "required": true
     },
-    "ESGReportFile": {
+    "esg_report_file": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -107,7 +127,7 @@
       "required": true,
       "pluginOptions": {}
     },
-    "ESGReportDescription": {
+    "esg_report_description": {
       "type": "text",
       "required": true
     }

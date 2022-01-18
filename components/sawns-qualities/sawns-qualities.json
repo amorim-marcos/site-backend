@@ -6,28 +6,28 @@
   },
   "options": {},
   "attributes": {
-    "Number": {
+    "number": {
       "type": "integer"
     },
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "COL": {
+    "col": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
-    "UsesAndApplications": {
+    "uses_and_applications": {
       "type": "text"
     },
-    "Thickness": {
+    "thickness": {
       "type": "string"
     },
-    "Length": {
+    "_length": {
       "type": "string"
     },
-    "Width": {
+    "_width": {
       "type": "string"
     }
   }

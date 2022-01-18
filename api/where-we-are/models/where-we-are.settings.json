@@ -12,32 +12,32 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "City": {
+    "city": {
       "type": "string",
       "required": true
     },
-    "OurPlaceInformation": {
+    "our_place_information": {
       "type": "component",
       "repeatable": false,
       "component": "our-place-information.our-place-information"
     },
-    "GoogleMapsURL": {
+    "google_maps_url": {
       "type": "text",
       "required": true
     },
-    "State": {
+    "state": {
       "type": "string",
       "required": true
     },
-    "Country": {
+    "country": {
       "type": "string",
       "required": true
     },
-    "InaugurationSoon": {
+    "inauguration_soon": {
       "type": "boolean",
       "required": true,
       "default": false

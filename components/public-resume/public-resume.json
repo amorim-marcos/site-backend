@@ -7,11 +7,11 @@
   },
   "options": {},
   "attributes": {
-    "PublicResumeName": {
+    "public_resume_name": {
       "type": "string",
       "required": true
     },
-    "PublicResumeFile": {
+    "public_resume_file": {
       "model": "file",
       "via": "related",
       "allowedTypes": [

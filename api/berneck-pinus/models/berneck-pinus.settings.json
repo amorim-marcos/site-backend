@@ -12,39 +12,39 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Subtitle": {
+    "header_subtitle": {
       "type": "string",
       "required": true
     },
-    "SubtitleDescription": {
+    "header_subtitle_description": {
       "type": "text",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true
     },
-    "UsesAndApplications": {
+    "uses_and_applications": {
       "type": "text",
       "required": true
     },
-    "Species": {
+    "species": {
       "type": "string",
       "required": true
     },
-    "StandardHumity": {
+    "standard_humity": {
       "type": "string",
       "required": true
     },
-    "AverageDensity": {
+    "average_density": {
       "type": "string",
       "required": true
     },
-    "AverageMeasure": {
+    "average_measure": {
       "type": "string",
       "required": true
     },
-    "TechnicalSheet": {
+    "technical_sheet": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -54,7 +54,7 @@
       "required": true,
       "pluginOptions": {}
     },
-    "SawnsQualities": {
+    "sawns_qualities": {
       "type": "component",
       "repeatable": true,
       "component": "sawns-qualities.sawns-qualities"

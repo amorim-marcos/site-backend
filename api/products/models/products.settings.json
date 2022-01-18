@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -25,7 +25,7 @@
       },
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -34,7 +34,7 @@
       },
       "required": true
     },
-    "Presentation": {
+    "presentation": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -43,7 +43,7 @@
       },
       "required": true
     },
-    "Background": {
+    "background_image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -57,7 +57,7 @@
         }
       }
     },
-    "PatternImage": {
+    "pattern_image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -71,7 +71,7 @@
         }
       }
     },
-    "Video": {
+    "video_url": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -79,7 +79,7 @@
         }
       }
     },
-    "Ebook": {
+    "ebook": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -96,7 +96,7 @@
     "product_texture": {
       "model": "products-textures"
     },
-    "Available_at": {
+    "available_at": {
       "type": "component",
       "repeatable": true,
       "component": "available-at.available-at",

@@ -6,16 +6,16 @@
   },
   "options": {},
   "attributes": {
-    "Structure": {
+    "structure": {
       "type": "text"
     },
-    "Localization": {
+    "localization": {
       "type": "string"
     },
-    "Phones": {
+    "phones": {
       "type": "string"
     },
-    "AirportDistance": {
+    "airport_distance": {
       "type": "text"
     }
   }

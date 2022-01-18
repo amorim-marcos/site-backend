@@ -4,16 +4,27 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
+    "develop": "npm-run-all migrate:all 'strapi develop'",
+    "develop:nomigrate": "strapi develop",
     "develop-test": "NODE_ENV=test strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "complete-config:dump": "node scripts/complete_config_management/dump",
-    "complete-config:restore": "node scripts/complete_config_management/restore",
-    "test": "mocha --exit"
+    "local-config:dump": "node scripts/complete_config_management/dump",
+    "local-config:restore": "node scripts/complete_config_management/restore",
+    "strapi-config:dump": "strapi config:dump -f migrations/configs/core_store.json",
+    "strapi-config:restore": "strapi config:restore -f migrations/configs/core_store.json",
+    "complete-config:dump": "npm-run-all local-config:dump strapi-config:dump",
+    "complete-config:restore": "npm-run-all local-config:restore strapi-config:restore",
+    "test": "mocha --exit",
+    "migrate:all": "knex migrate:latest",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "migrate:make": "knex migrate:make"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "supertest": "^6.1.6"
   },
   "dependencies": {

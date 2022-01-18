@@ -7,11 +7,11 @@
   },
   "options": {},
   "attributes": {
-    "Highlight": {
+    "highlight": {
       "type": "string",
       "required": true
     },
-    "Image": {
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [

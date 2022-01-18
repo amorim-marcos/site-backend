@@ -11,12 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "MDFBerneck": {
+    "mdf_berneck": {
       "type": "component",
       "repeatable": false,
       "component": "panel-page.hdf-berneck"
     },
-    "MDFBerneckPlus": {
+    "mdf_berneck_plus": {
       "type": "component",
       "repeatable": false,
       "component": "panel-page.hdf-berneck"

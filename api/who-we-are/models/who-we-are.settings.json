@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Title1": {
+    "header_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "Text1": {
+    "header_text": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,7 +34,7 @@
       "type": "text",
       "required": true
     },
-    "Title2": {
+    "section1_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -43,7 +43,7 @@
       "type": "string",
       "required": true
     },
-    "Text2": {
+    "section1_text": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -52,7 +52,7 @@
       "type": "text",
       "required": true
     },
-    "Title3": {
+    "section2_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -61,7 +61,7 @@
       "type": "string",
       "required": true
     },
-    "Text3": {
+    "section2_text": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -69,6 +69,14 @@
       },
       "type": "text",
       "required": true
-    }
+    },
+    "exportation_volume": {
+      "type": "integer",
+      "required": true
+    },
+    "comercial_relationship": {
+      "type": "integer",
+      "required": true
+    }    
   }
 }

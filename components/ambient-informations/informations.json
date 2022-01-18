@@ -6,16 +6,16 @@
   },
   "options": {},
   "attributes": {
-    "Year": {
+    "year": {
       "type": "integer"
     },
-    "Style": {
+    "style": {
       "type": "string"
     },
-    "Architect": {
+    "architect": {
       "type": "string"
     },
-    "Photographer": {
+    "photographer": {
       "type": "string"
     }
   }

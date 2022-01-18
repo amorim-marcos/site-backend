@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Tag": {
+    "tag": {
       "type": "string",
       "required": true,
       "pluginOptions": {

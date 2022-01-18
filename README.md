@@ -21,7 +21,7 @@ O Headless CMS utilizado foi o Strapi 3, conectando com banco MySQL.
 - Definida a variável `NODE_ENV` em `.env`. Use `development` para ambiente de desenvolvimento e `production` para ambiente de produção;
 - É possível trocar o host e a porta de execução alterando os valores de `HOST` e `PORT` no `.env`;
 
-#### Banco de dados
+#### Conexão com o banco de dados
 
 Para configurar o banco de dados, defina as váriaveis associadas em seu arquivo `.env`:
 
@@ -30,6 +30,62 @@ Para configurar o banco de dados, defina as váriaveis associadas em seu arquivo
 - `DATABASE_NAME`: nome do banco de dados onde ocorrerão as operações da aplicação.
 - `DATABASE_USERNAME`: Usuário de acesso do seu banco mysql.
 - `DATABASE_PASSWORD`: Senha de acesso associada ao seu mysql.
+
+#### Migração dos dados
+
+É essencial que seja compartilhada a mesma versão de bancos de dados nos diferentes ambientes. Isto é alcançado realizando migrações dos dados de conteúdo, e também salvando as diversas configurações (ver seção Configurações Padrões). Do resto o Strapi cuida.
+
+##### Rodar uma migração 
+
+Para rodar apenas uma migração, rode:
+
+```
+npm run migrate:up
+```
+
+##### Rodando todas as migrações
+
+Para rodar apenas todas as migrações faltantes, rode:
+
+```
+npm run migrate:all
+```
+
+##### Retornando de uma migração
+
+Para desfazer apenas uma migração, rode:
+
+```
+npm run migrate:down
+```
+
+##### Retornando todas as migrações
+
+Para desfazer todas migrações, rode:
+
+```
+npm run migrate:down
+```
+
+##### Criando um arquivo de migração
+
+Para criar um arquivo de migração, rode:
+
+```
+npm run migrate:make {nome da migração}
+```
+
+Isto criará um arquivo baseado no stub `migrations/stubs/content.stub.js`, que é considerado o padrão. Há ainda alguns stubs extras para facilitar a criação:
+
+- `component.stub.js`: cria um template para criar uma tabela que possui dados de componente Strapi.
+- `content_component_rel.stub.js`: cria um template para criar uma tabela que contém a relação entre um conteúdo Strapi e um componente Strapi. 
+- `rel.stub.js`: cria um template para criar uma tabela que contém uma relação 1xN ou NxN entre conteúdos Strapi. 
+
+Para criar um arquivo baseado em um destes outros stubs, basta passar ele como parâmetro:
+
+```
+npm run migrate:make {nome da migração} -- --stub migrations/stubs/{arquivo de stub}
+```
 
 #### Configurações padrões
 
@@ -49,3 +105,16 @@ Para salvar as configurações padrões, rode o comando `npm run complete-config
 
 O processo de restaurar as configurações permite que uma configuração salva em um arquivo `.json` seja recarregada no banco de dados. Para realizar uma restauração de configuração, rode o comando `npm run complete-config:restore`. Por serem consideradas configurações que devem ser compartilhadas independentemente do ambiente, **as tabelas serão totalmente rescritas**. Por isso, sempre garanta que alterações em dados feitas pelo painel sempre estejam versionadas nos arquivos `.json` de configuração.
 
+## Execução
+
+### Desenvolvimento
+
+Há dois modos de execução principais de desenvolvimento.
+
+O primeiro, com o comando padrão `npm run develop`, envolve sempre rodar as migrações por completo antes do comando `strapi develop`. Assim, garante-se que as tabelas estão atualizadas devidamente no branch antes de rodar o desenvolvimento.
+
+O segundo, é ignorar o migrate da tabela, rodando o comando `npm run develop:nomigrate`.
+
+### Produção
+
+Para executar em produção, configure o arquivo `.env` devidamente, setando `NODE_ENV` como `production`. Após, faça o build do painel administrativo com `npm run build`. Por fim, inicie a aplicação com `npm start`. 
