@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "subtitle": {
+    "header_subtitle": {
       "type": "string",
       "required": true
     },
-    "subtitle_description": {
+    "header_subtitle_description": {
       "type": "text",
       "required": true
     },

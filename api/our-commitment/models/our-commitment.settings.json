@@ -31,30 +31,46 @@
       "required": true,
       "pluginOptions": {}
     },
-    "title1": {
+    "section1_title": {
       "type": "string",
       "required": true
     },
-    "text1": {
+    "seection1_text": {
       "type": "text",
       "required": true
     },
-    "title2": {
+    "section2_title": {
       "type": "string",
       "required": true
     },
-    "text2": {
+    "section2_text": {
       "type": "text",
       "required": true
     },
-    "title3": {
+    "carbon_sequestration": {
+      "type": "decimal",
+      "required": true
+    },
+    "atmospheric_emissions": {
+      "type": "decimal",
+      "required": true
+    },
+    "section3_title": {
       "type": "string",
       "required": true
     },
-    "text3": {
+    "section3_text": {
       "type": "text",
       "required": true
     },
+    "cogenerated_energy": {
+      "type": "integer",
+      "required": true
+    },   
+    "reused_water": {
+      "type": "integer",
+      "required": true
+    },   
     "sustainability_report": {
       "model": "file",
       "via": "related",
@@ -65,35 +81,39 @@
       "required": true,
       "pluginOptions": {}
     },
-    "title4": {
+    "section4_title": {
       "type": "string",
       "required": true
     },
-    "text4": {
+    "section4_text": {
       "type": "text",
       "required": true
     },
-    "title5": {
+    "section5_title": {
       "type": "string",
       "required": true
     },
-    "text5": {
+    "section5_text": {
       "type": "text",
       "required": true
     },
-    "title6": {
+    "collaborators_number": {
+      "type": "integer",
+      "required": true
+    },  
+    "section6_title": {
       "type": "string",
       "required": true
     },
-    "text6": {
+    "section6_text": {
       "type": "text",
       "required": true
     },
-    "title7": {
+    "section7_title": {
       "type": "string",
       "required": true
     },
-    "text7": {
+    "section7_text": {
       "type": "text",
       "required": true
     },

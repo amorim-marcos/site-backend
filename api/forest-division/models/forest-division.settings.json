@@ -12,47 +12,75 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "head_text": {
+    "header_text": {
       "type": "text",
       "required": true
     },
-    "title1": {
+    "section1_title": {
       "type": "string",
       "required": true
     },
-    "text1": {
+    "section1_text": {
       "type": "string",
       "required": true
     },
-    "title2": {
+    "planted_forests": {
+      "type": "integer",
+      "required": true
+    },
+    "preserved_native_forests": {
+      "type": "integer",
+      "required": true
+    },
+    "value_chain_counties": {
+      "type": "integer",
+      "required": true
+    },
+    "community_development": {
+      "type": "integer",
+      "required": true
+    },
+    "section2_title": {
       "type": "string",
       "required": true
     },
-    "text2": {
+    "section2_text": {
       "type": "text",
       "required": true
     },
-    "title3": {
+    "section3_title": {
       "type": "string",
       "required": true
     },
-    "text3": {
+    "section3_text": {
       "type": "text",
       "required": true
     },
-    "title4": {
+    "monitored_farms": {
+      "type": "integer",
+      "required": true
+    },
+    "monitored_animals": {
+      "type": "integer",
+      "required": true
+    },
+    "monitored_animals_and_farms_text": {
       "type": "string",
       "required": true
     },
-    "text4": {
+    "section4_title": {
+      "type": "string",
+      "required": true
+    },
+    "section4_text": {
       "type": "text",
       "required": true
     },
-    "title5": {
+    "section5_title": {
       "type": "string",
       "required": true
     },
-    "text5": {
+    "section5_text": {
       "type": "string",
       "required": true
     },
@@ -61,11 +89,11 @@
       "repeatable": true,
       "component": "forest-highlights.forest-production-highlights"
     },
-    "title6": {
+    "section6_title": {
       "type": "string",
       "required": true
     },
-    "text6": {
+    "section6_text": {
       "type": "text",
       "required": true
     },
