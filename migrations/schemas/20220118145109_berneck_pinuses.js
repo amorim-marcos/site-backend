@@ -1,4 +1,4 @@
-const table_name = ''
+const table_name = 'berneck_pinuses'
 
 exports.up = function(knex) {
     return knex.schema.hasTable(table_name).then(function(exists) {
