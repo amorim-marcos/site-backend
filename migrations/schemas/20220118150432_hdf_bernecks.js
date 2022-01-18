@@ -1,4 +1,4 @@
-const table_name = 'mdf_bernecks'
+const table_name = 'hdf_bernecks'
 
 exports.up = function(knex) {
     return knex.schema.hasTable(table_name).then(function(exists) {
