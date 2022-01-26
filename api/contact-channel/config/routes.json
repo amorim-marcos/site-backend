@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contact-channels",
+      "handler": "contact-channel.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contact-channels/count",
+      "handler": "contact-channel.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contact-channels/:id",
+      "handler": "contact-channel.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contact-channels",
+      "handler": "contact-channel.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/contact-channels/:id",
+      "handler": "contact-channel.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/contact-channels/:id",
+      "handler": "contact-channel.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
