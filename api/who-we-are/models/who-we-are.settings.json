@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -77,6 +77,6 @@
     "comercial_relationship": {
       "type": "integer",
       "required": true
-    }    
+    }
   }
 }

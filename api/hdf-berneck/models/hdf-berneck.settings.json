@@ -8,19 +8,33 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "hdf_berneck": {
       "type": "component",
       "repeatable": false,
-      "component": "panel-page.hdf-berneck"
+      "component": "panel-page.hdf-berneck",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "hdf_berneck_plus": {
       "type": "component",
       "repeatable": false,
-      "component": "panel-page.hdf-berneck"
+      "component": "panel-page.hdf-berneck",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
