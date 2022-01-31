@@ -9,7 +9,6 @@
   "attributes": {
     "year": {
       "type": "integer",
-      "private": false,
       "required": true
     },
     "title": {
