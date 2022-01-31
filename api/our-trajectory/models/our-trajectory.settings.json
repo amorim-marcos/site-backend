@@ -2,19 +2,29 @@
   "kind": "singleType",
   "collectionName": "our_trajectories",
   "info": {
-    "name": "Our trajectory"
+    "name": "Our trajectory",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "year": {
       "type": "component",
       "repeatable": true,
-      "component": "trajectory-year.year"
+      "component": "trajectory-year.year",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

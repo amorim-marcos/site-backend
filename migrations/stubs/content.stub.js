@@ -14,6 +14,7 @@ exports.up = function(knex) {
                 table.integer('created_by').nullable()
                 table.integer('updated_by').nullable()
                 table.timestamps(true, true)
+                // table.datetime('published_at') // include it if content have draft system
             });  
         }
     })

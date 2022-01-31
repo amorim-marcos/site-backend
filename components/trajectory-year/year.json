@@ -9,7 +9,6 @@
   "attributes": {
     "year": {
       "type": "integer",
-      "private": false,
       "required": true
     },
     "title": {
@@ -20,7 +19,7 @@
       "type": "text",
       "required": true
     },
-    "photo": {
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
