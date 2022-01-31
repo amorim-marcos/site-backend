@@ -20,7 +20,7 @@
       "type": "text",
       "required": true
     },
-    "photo": {
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
