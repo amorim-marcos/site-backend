@@ -15,7 +15,6 @@ exports.up = function(knex) {
                 table.string('_lengh')
                 table.string('_width')
         
-                table.datetime('published_at').nullable()
                 table.integer('created_by').nullable()
                 table.integer('updated_by').nullable()
                 table.timestamps(true, true)

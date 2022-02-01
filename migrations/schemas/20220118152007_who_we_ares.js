@@ -16,7 +16,6 @@ exports.up = function(knex) {
                 table.integer('comercial_relationship', 11)
                 table.string('locale')
         
-                table.datetime('published_at').nullable()
                 table.integer('created_by').nullable()
                 table.integer('updated_by').nullable()
                 table.timestamps(true, true)
