@@ -13,7 +13,6 @@ exports.up = function(knex) {
                 table.string('country')
                 table.tinyint('inauguration_soon', 1)
 
-                table.datetime('published_at').nullable()
                 table.integer('created_by').nullable()
                 table.integer('updated_by').nullable()
                 table.timestamps(true, true)

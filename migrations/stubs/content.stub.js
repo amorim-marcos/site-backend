@@ -10,7 +10,7 @@ exports.up = function(knex) {
                  * The content fields come here
                  */
         
-                table.datetime('published_at').nullable()
+                // table.datetime('published_at').nullable() // only use if draft system is enabled.
                 table.integer('created_by').nullable()
                 table.integer('updated_by').nullable()
                 table.timestamps(true, true)
