@@ -18,10 +18,7 @@ exports.seed = function(knex) {
           return knex('our_commitments_components').insert(our_commitment_data.component_rel)
         })
 
-      await knex('upload_file_morph').truncate()
-        .then(function(){
-          return knex('upload_file_morph').insert(our_commitment_data.uploaded_files_morph)
-        })
+      await knex('upload_file_morph').insert(our_commitment_data.uploaded_files_morph)
 
       return knex.raw('SET FOREIGN_KEY_CHECKS=1')
     })

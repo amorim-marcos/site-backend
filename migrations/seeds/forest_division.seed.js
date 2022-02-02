@@ -23,6 +23,8 @@ exports.seed = function(knex) {
           return knex('forest_divisions_components').insert(forest_division_data.component_rel);
         });
 
+      await knex('upload_file_morph').insert(forest_division_data.uploaded_files_morph)
+
       return knex.raw('SET FOREIGN_KEY_CHECKS=1')
     })
 };
