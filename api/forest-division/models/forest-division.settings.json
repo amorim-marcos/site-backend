@@ -35,7 +35,7 @@
       }
     },
     "section1_text": {
-      "type": "string",
+      "type": "text",
       "required": true,
       "pluginOptions": {
         "i18n": {
@@ -170,7 +170,7 @@
       }
     },
     "section5_text": {
-      "type": "string",
+      "type": "text",
       "required": true,
       "pluginOptions": {
         "i18n": {
