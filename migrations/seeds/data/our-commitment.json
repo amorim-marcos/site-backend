@@ -97,18 +97,6 @@
             "our_commitment_id": 1
         }
     ],
-    "uploaded_files": [
-        {
-            "id": 1,
-            "name": "Empty_PDF_Example.pdf",
-            "hash": "Empty_PDF_Example",
-            "ext": ".pdf",
-            "mime": "application/pdf",
-            "size": 7.66,
-            "url": "/uploads/Empty_PDF_Example.pdf",
-            "provider": "local"
-        }
-    ],
     "uploaded_files_morph": [
         {
             "upload_file_id": 1,
