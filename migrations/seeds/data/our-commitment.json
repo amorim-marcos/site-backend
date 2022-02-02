@@ -99,6 +99,7 @@
     ],
     "uploaded_files": [
         {
+            "id": 1,
             "name": "Empty_PDF_Example.pdf",
             "hash": "Empty_PDF_Example",
             "ext": ".pdf",
