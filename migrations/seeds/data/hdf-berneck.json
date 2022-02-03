@@ -1,0 +1,96 @@
+{
+    "single_type": {
+        "locale": "pt-BR"
+    },
+    "hdf_bernecks": [
+        {
+            "id": 1,
+            "subtitle": "Painel de Fibra de Alta Densidade",
+            "subtitle_description": "É produzido 100% com Pinus, que possui fibras longas, proporcionando uma maior maleabilidade ao painel além de coloração bem clara, que assegura excelente resultado para os processos de pintura e impressão.",
+            "uses_and_applications": "O HDF BERNECK® garante excelente resultado e custo/benefício em fundo de móveis, lateral e fundo de gavetas, capas de portas, peças curvas, para a produção de pisos, artesanatos, bem como na fabricação de painéis de grandes espessuras (tipo colmeias).",
+            "description": "É formado por fibras de madeira de alta densidade, High Density Fiberboard. Por ser produzido em prensa contínua de última geração, possui excelente estabilidade dimensional, superfície uniforme e lisa com espessuras a partir de 2,5 mm.",
+            "thickness": "2,5 / 2,8 / 3 / 4 / 6",
+            "_width": "2750",
+            "_length": "1850 / 2130 / 2200"
+        },
+        {
+            "id": 2,
+            "subtitle": "É Plus porque tem mais proteção à umidade",
+            "subtitle_description": "A qualidade do HDF BERNECK® aliada à máxima proteção contra umidade e cupins.",
+            "uses_and_applications": "Indicado, por exemplo, para fundo de móveis e gavetas, peças curvas e pequenos nichos.",
+            "description": "O HDF PLUS BERNECK® é o painel formado por fibras de madeira de alta densidade, High Density Fiberboard, produzido em prensa contínua com resinas especiais que garantem maior resistência à umidade. Possui a coloração esverdeada como identificação internacional do produto com maior resistência à umidade, diferenciando-o dos painéis Standard. Essa pigmentação pode variar a cada lote de produção e não está associada ao princípio ativo de hidro resistência, ou seja, não é a prova dágua. Vale inovar nos projetos com HDF PLUS. Um ótimo investimento, com incomparável custo benefício.",
+            "thickness": "6",
+            "_width": "2750",
+            "_length": "1850"
+        }
+    ],
+    "finishes": [
+        {
+            "id": 1,
+            "finish": "Natural (sem revestimento)"
+        },
+        {
+            "id": 2,
+            "finish": "Natural (sem revestimento)"
+        },
+        {
+            "id": 3,
+            "finish": "Com laminado de baixa pressão BP BERNECK®"
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "hdf_berneck",
+            "order": 1,
+            "component_type": "components_hdf_berneck_hdf_bernecks",
+            "component_id": 1,
+            "hdf_berneck_id": 1
+        },
+        {
+            "field": "hdf_berneck_plus",
+            "order": 2,
+            "component_type": "components_hdf_berneck_hdf_bernecks",
+            "component_id": 2,
+            "hdf_berneck_id": 1
+        }
+    ],
+    "hdf_bernecks_component_rel": [
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 1,
+            "components_hdf_berneck_hdf_berneck_id": 1
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 2,
+            "components_hdf_berneck_hdf_berneck_id": 2
+        },
+        {
+            "field": "finishes",
+            "order": 2,
+            "component_type": "components_finishes_finishes",
+            "component_id": 3,
+            "components_hdf_berneck_hdf_berneck_id": 2
+        }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 1,
+            "related_id": 1,
+            "related_type": "components_hdf_berneck_hdf_bernecks",
+            "field": "technical_sheet",
+            "order": 1
+        },
+        {
+            "upload_file_id": 1,
+            "related_id": 2,
+            "related_type": "components_hdf_berneck_hdf_bernecks",
+            "field": "technical_sheet",
+            "order": 1
+        }
+    ]
+}
