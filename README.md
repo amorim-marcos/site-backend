@@ -87,6 +87,16 @@ Para criar um arquivo baseado em um destes outros stubs, basta passar ele como p
 npm run migrate:make {nome da migração} -- --stub migrations/stubs/{arquivo de stub}
 ```
 
+##### Preenchendo o banco de dados com dados de teste
+
+Foram criados *seeders* para inclusão mais facilitada de dados locais. Para preencher o banco com novos dados, rode
+
+```
+npx knex seed:run
+```
+
+**Nota**: Evite rodar esse comando em produção. 
+
 #### Configurações padrões
 
 O Strapi salva algumas configurações que seriam diretamente no banco de dados que são importantes de serem compartilhadas entre ambientes. Para facilitar o compartilhamento destas configurações entre ambientes, criamos um script que realiza o *dump* e o *restore* dessas configurações.
