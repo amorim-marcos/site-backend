@@ -58,7 +58,7 @@
         }
       }
     },
-    "seection1_text": {
+    "section1_text": {
       "type": "text",
       "required": true,
       "pluginOptions": {

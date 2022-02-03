@@ -1,0 +1,117 @@
+{
+    "single_type": {
+        "locale": "pt-BR",
+        "header_subtitle": "Madeira Serrada de Pinus",
+        "header_subtitle_description": "Garante dimensões estáveis e uniformes de madeira serrada e aplainada.",
+        "description": "O BERNECK PINUS possui dimensões estáveis e uniformes, acabamento de qualidade e teor de umidade constante de 12% (± 2%) por ser todo seco em estufas. É produzido em equipamentos com a tecnologia mais avançada do mundo, com alta capacidade de produção. A BERNECK oferece grande volume de produção e ampla gama de dimensões adequadas aos mais variados usos.",
+        "uses_and_applications": "A madeira é classificada de acordo com os requerimentos dos diferentes usos finais, tal como embalagens, móveis, construção civil e molduras.",
+        "species": "Pinus taeda e Pinus elliottii",
+        "standard_humity": "12% (±2%)",
+        "average_density": "± 480 kg/m³ (101/103/108) / ± 400 kg/m³ (104/102)",
+        "average_measure": "-1/+2mm"
+    },
+    "sawns_qualities": [
+        {
+            "id": 1,
+            "number": 101,
+            "name": "Qualidade 101",
+            "col": "A",
+            "description": "BERNECK® PINUS - 101 é proveniente de peças laterais da tora, o que confere maior densidade e menores tamanhos de nós. Pode ser entregue aplainada.BERNECK® PINUS - 101 é proveniente de peças laterais da tora, o que confere maior densidade e menores tamanhos de nós. Pode ser entregue aplainada.",
+            "uses_and_applications": "Móveis / Estofados / Construção Civil / Molduras / Estrutural",
+            "thickness": "19 / 22 / 25 / 28 / 32 / 38 / 45 / 50",
+            "_length": "75 / 90 / 95 / 100 / 120 / 125 / 145 / 150",
+            "_width": "2000 / 2130 / 2440 / 3050 / 3660 / 3960 / 4000"
+        },
+        {
+            "id": 2,
+            "number": 103,
+            "name": "Qualidade 103",
+            "col": "B",
+            "description": "BERNECK® PINUS - 103 é proveniente de peças laterais desclassificadas da qualidade 101.",
+            "uses_and_applications": "Móveis / Construção Civil / Molduras / Embalagens",
+            "thickness": "19 / 22 / 25 / 28 / 32 / 38 / 45 / 50",
+            "_length": "75 / 90 / 95 / 100 / 120 / 125 / 145 / 150",
+            "_width": "2000 / 2130 / 2440 / 3050 / 3660 / 3960 / 4000"
+        },
+        {
+            "id": 3,
+            "number": 108,
+            "name": "Qualidade 101",
+            "col": "A",
+            "description": "BERNECK® PINUS - 101 é proveniente de peças laterais da tora, o que confere maior densidade e menores tamanhos de nós. Pode ser entregue aplainada.BERNECK® PINUS - 101 é proveniente de peças laterais da tora, o que confere maior densidade e menores tamanhos de nós. Pode ser entregue aplainada.",
+            "uses_and_applications": "Móveis / Estofados / Construção Civil / Molduras / Estrutural",
+            "thickness": "19 / 22 / 25 / 28 / 32 / 38 / 45 / 50",
+            "_length": "75 / 90 / 95 / 100 / 120 / 125 / 145 / 150",
+            "_width": "2000 / 2130 / 2440 / 3050 / 3660 / 3960 / 4000"
+        },
+        {
+            "id": 4,
+            "number": 104,
+            "name": "Qualidade 103",
+            "col": "B",
+            "description": "BERNECK® PINUS - 103 é proveniente de peças laterais desclassificadas da qualidade 101.",
+            "uses_and_applications": "Móveis / Construção Civil / Molduras / Embalagens",
+            "thickness": "19 / 22 / 25 / 28 / 32 / 38 / 45 / 50",
+            "_length": "75 / 90 / 95 / 100 / 120 / 125 / 145 / 150",
+            "_width": "2000 / 2130 / 2440 / 3050 / 3660 / 3960 / 4000"
+        },
+        {
+            "id": 5,
+            "number": 102,
+            "name": "Qualidade 101",
+            "col": "A",
+            "description": "BERNECK® PINUS - 101 é proveniente de peças laterais da tora, o que confere maior densidade e menores tamanhos de nós. Pode ser entregue aplainada.BERNECK® PINUS - 101 é proveniente de peças laterais da tora, o que confere maior densidade e menores tamanhos de nós. Pode ser entregue aplainada.",
+            "uses_and_applications": "Móveis / Estofados / Construção Civil / Molduras / Estrutural",
+            "thickness": "19 / 22 / 25 / 28 / 32 / 38 / 45 / 50",
+            "_length": "75 / 90 / 95 / 100 / 120 / 125 / 145 / 150",
+            "_width": "2000 / 2130 / 2440 / 3050 / 3660 / 3960 / 4000"
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "sawns_qualities",
+            "order": 1,
+            "component_type": "components_sawns_qualities_sawns_qualities",
+            "component_id": 1,
+            "berneck_pinus_id": 1
+        },
+        {
+            "field": "sawns_qualities",
+            "order": 2,
+            "component_type": "components_sawns_qualities_sawns_qualities",
+            "component_id": 2,
+            "berneck_pinus_id": 1
+        },
+        {
+            "field": "sawns_qualities",
+            "order": 3,
+            "component_type": "components_sawns_qualities_sawns_qualities",
+            "component_id": 3,
+            "berneck_pinus_id": 1
+        },
+        {
+            "field": "sawns_qualities",
+            "order": 4,
+            "component_type": "components_sawns_qualities_sawns_qualities",
+            "component_id": 4,
+            "berneck_pinus_id": 1
+        },
+        {
+            "field": "sawns_qualities",
+            "order": 5,
+            "component_type": "components_sawns_qualities_sawns_qualities",
+            "component_id": 5,
+            "berneck_pinus_id": 1
+        }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 1,
+            "related_id": 1,
+            "related_type": "berneck_pinuses",
+            "field": "technical_sheet",
+            "order": 1
+        }
+    ]
+}
+

@@ -1,0 +1,107 @@
+{
+    "single_type": {
+        "locale": "pt-BR"
+    },
+    "hdf_bernecks": [
+        {
+            "id": 3,
+            "subtitle": "Painel de Fibra de Média Densidade",
+            "subtitle_description": "Produzido em prensas contínuas de altíssima tecnologia, o que assegura um painel homogêneo, ótimo para os processos de usinagem e baixo relevo. Por ser produzido com Pinus, que possui fibras longas, possui maleabilidade superior e coloração bem clara, excelente para os processos de pintura e impressão.",
+            "uses_and_applications": "O MDF BERNECK® assegura excelente resultado em todos os tipos de móveis para peças com usinagens profundas e trabalhos de baixo relevo, além de embalagens, aplicações na construção civil, artesanatos, etc.",
+            "description": "Produzido em prensas contínuas de altíssima tecnologia, o que assegura um painel homogêneo, ótimo para os processos de usinagem e baixo relevo. Por ser produzido com Pinus, que possui fibras longas, possui maleabilidade superior e coloração bem clara, excelente para os processos de pintura e impressão.",
+            "thickness": "9 / 12 / 15 / 18 / 22 / 25",
+            "_width": "2750",
+            "_length": "1850 a 2200"
+        },
+        {
+            "id": 4,
+            "subtitle": "É Plus porque tem mais proteção à umidade",
+            "subtitle_description": "A qualidade do MDF BERNECK® aliada à máxima proteção contra umidade e cupins.",
+            "uses_and_applications": "Indicado para móveis de cozinhas, banheiros, lavanderias e ambientes comerciais.",
+            "description": "O MDF PLUS BERNECK é o painel formado por fibras de madeira de média densidade, Medium Density Fiberboard, produzido em prensa contínua com resinas especiais que garantem maior resistência à umidade. O MDF PLUS BERNECK® assegura excelente resultado em todos os tipos de móveis para peças com trabalhos de baixo relevo e ótimas condições para corte e bordas arredondadas para pintura. Possui a coloração esverdeada como identificação internacional do produto com maior resistência à umidade, diferenciando-o dos painéis Standard. Essa pigmentação pode variar a cada lote de produção e não está associada ao princípio ativo de hidro resistência, pois não é à prova d´água. Vale inovar nos projetos com MDF PLUS. Um ótimo investimento, com incomparável custo benefício.",
+            "thickness": "6",
+            "_width": "2750",
+            "_length": "1850"
+        }
+    ],
+    "finishes": [
+        {
+            "id": 4,
+            "finish": "Natural (sem revestimento)"
+        },
+        {
+            "id": 5,
+            "finish": "Revestido com laminado de baixa pressão BP BERNECK®"
+        },
+        {
+            "id": 6,
+            "finish": "Natural (sem revestimento)"
+        },
+        {
+            "id": 7,
+            "finish": "Revestido com laminado de baixa pressão BP BERNECK®"
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "mdf_berneck",
+            "order": 1,
+            "component_type": "components_hdf_berneck_hdf_bernecks",
+            "component_id": 3,
+            "mdf_berneck_id": 1
+        },
+        {
+            "field": "mdf_berneck_plus",
+            "order": 2,
+            "component_type": "components_hdf_berneck_hdf_bernecks",
+            "component_id": 4,
+            "mdf_berneck_id": 1
+        }
+    ],
+    "hdf_bernecks_component_rel": [
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 4,
+            "components_hdf_berneck_hdf_berneck_id": 3
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 5,
+            "components_hdf_berneck_hdf_berneck_id": 3
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 6,
+            "components_hdf_berneck_hdf_berneck_id": 4
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 7,
+            "components_hdf_berneck_hdf_berneck_id": 4
+        }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 1,
+            "related_id": 3,
+            "related_type": "components_hdf_berneck_hdf_bernecks",
+            "field": "technical_sheet",
+            "order": 1
+        },
+        {
+            "upload_file_id": 1,
+            "related_id": 4,
+            "related_type": "components_hdf_berneck_hdf_bernecks",
+            "field": "technical_sheet",
+            "order": 1
+        }
+    ]
+}

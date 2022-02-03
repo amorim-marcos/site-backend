@@ -1,0 +1,178 @@
+{
+    "single_type": {
+        "locale": "pt-BR"
+    },
+    "trajectory_years": [
+        {
+            "id": 1,
+            "year": 1950,
+            "title": "Nascemos em raízes fortes",
+            "description": "Nossa fundação foi marcada por grandes desafios: nossas duas fábricas no Paraná foram destruídas por incêndios independentes no ano de sua abertura. A perseverança e a certeza de cultivar negócios sustentáveis não nos permitiu desistir, seguimos investindo em madeira e colhendo seus frutos desde então. A resiliência de nosso fundador Bernardo von Muller Berneck faz parte da nossa essência."
+        },
+        {
+            "id": 2,
+            "year": 1960,
+            "title": "Madeira para o mundo",
+            "description": "Modernizando nossas tecnologias e ampliando nossos negócios, conquistamos 7 unidades produtoras de matéria-prima para a produção de compensado. Em 1966 nossa identidade corporativa ganhou forma, revelando a essência da empresa: da tora à lâmina torneada, prensa e os compensados produzidos e comercializados, do Brasil para o mundo."
+        },
+        {
+            "id": 3,
+            "year": 1970,
+            "title": "Nascemos em raízes fortes",
+            "description": "Nossa fundação foi marcada por grandes desafios: nossas duas fábricas no Paraná foram destruídas por incêndios independentes no ano de sua abertura. A perseverança e a certeza de cultivar negócios sustentáveis não nos permitiu desistir, seguimos investindo em madeira e colhendo seus frutos desde então. A resiliência de nosso fundador Bernardo von Muller Berneck faz parte da nossa essência."
+        },
+        {
+            "id": 4,
+            "year": 1980,
+            "title": "Madeira para o mundo",
+            "description": "Modernizando nossas tecnologias e ampliando nossos negócios, conquistamos 7 unidades produtoras de matéria-prima para a produção de compensado. Em 1966 nossa identidade corporativa ganhou forma, revelando a essência da empresa: da tora à lâmina torneada, prensa e os compensados produzidos e comercializados, do Brasil para o mundo."
+        },
+        {
+            "id": 5,
+            "year": 1990,
+            "title": "Nascemos em raízes fortes",
+            "description": "Nossa fundação foi marcada por grandes desafios: nossas duas fábricas no Paraná foram destruídas por incêndios independentes no ano de sua abertura. A perseverança e a certeza de cultivar negócios sustentáveis não nos permitiu desistir, seguimos investindo em madeira e colhendo seus frutos desde então. A resiliência de nosso fundador Bernardo von Muller Berneck faz parte da nossa essência."
+        },
+        {
+            "id": 6,
+            "year": 2000,
+            "title": "Madeira para o mundo",
+            "description": "Modernizando nossas tecnologias e ampliando nossos negócios, conquistamos 7 unidades produtoras de matéria-prima para a produção de compensado. Em 1966 nossa identidade corporativa ganhou forma, revelando a essência da empresa: da tora à lâmina torneada, prensa e os compensados produzidos e comercializados, do Brasil para o mundo."
+        },
+        {
+            "id": 7,
+            "year": 2010,
+            "title": "Nascemos em raízes fortes",
+            "description": "Nossa fundação foi marcada por grandes desafios: nossas duas fábricas no Paraná foram destruídas por incêndios independentes no ano de sua abertura. A perseverança e a certeza de cultivar negócios sustentáveis não nos permitiu desistir, seguimos investindo em madeira e colhendo seus frutos desde então. A resiliência de nosso fundador Bernardo von Muller Berneck faz parte da nossa essência."
+        },
+        {
+            "id": 8,
+            "year": 2010,
+            "title": "Madeira para o mundo",
+            "description": "Modernizando nossas tecnologias e ampliando nossos negócios, conquistamos 7 unidades produtoras de matéria-prima para a produção de compensado. Em 1966 nossa identidade corporativa ganhou forma, revelando a essência da empresa: da tora à lâmina torneada, prensa e os compensados produzidos e comercializados, do Brasil para o mundo."
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "year",
+            "order": 1,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 1,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 2,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 2,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 3,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 3,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 4,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 4,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 5,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 5,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 6,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 6,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 7,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 7,
+            "our_trajectory_id": 1
+        },
+        {
+            "field": "year",
+            "order": 8,
+            "component_type": "components_trajectory_year_years",
+            "component_id": 8,
+            "our_trajectory_id": 1
+        }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 3,
+            "related_id": 1,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 2,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 3,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 4,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 4,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 5,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 6,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 7,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 3,
+            "related_id": 8,
+            "related_type": "components_trajectory_year_years",
+            "field": "image",
+            "order": 1
+        }
+    ]
+}

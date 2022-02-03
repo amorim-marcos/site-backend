@@ -79,13 +79,24 @@ Isto criará um arquivo baseado no stub `migrations/stubs/content.stub.js`, que 
 
 - `component.stub.js`: cria um template para criar uma tabela que possui dados de componente Strapi.
 - `content_component_rel.stub.js`: cria um template para criar uma tabela que contém a relação entre um conteúdo Strapi e um componente Strapi. 
-- `rel.stub.js`: cria um template para criar uma tabela que contém uma relação 1xN ou NxN entre conteúdos Strapi. 
+- `rel.stub.js`: cria um template para criar uma tabela que contém uma relação 1xN ou NxN entre conteúdos Strapi.
+- `alterTable.stub.js`: cria um template para modificar uma tabela. 
 
 Para criar um arquivo baseado em um destes outros stubs, basta passar ele como parâmetro:
 
 ```
 npm run migrate:make {nome da migração} -- --stub migrations/stubs/{arquivo de stub}
 ```
+
+##### Preenchendo o banco de dados com dados de teste
+
+Foram criados *seeders* para inclusão mais facilitada de dados locais. Para preencher o banco com novos dados, rode
+
+```
+npx knex seed:run
+```
+
+**Nota**: Evite rodar esse comando em produção. 
 
 #### Configurações padrões
 

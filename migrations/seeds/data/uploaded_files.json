@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Empty_PDF_Example.pdf",
+        "hash": "Empty_PDF_Example",
+        "ext": ".pdf",
+        "mime": "application/pdf",
+        "size": 7.66,
+        "url": "/uploads/Empty_PDF_Example.pdf",
+        "provider": "local"
+    },
+    {
+        "id": 2,
+        "name": "Example_Image_JPG.png",
+        "hash": "Example_Image_JPG",
+        "width": 1280,
+        "height": 1006,
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 48.28,
+        "url": "/uploads/Example_Image_JPG.png",
+        "provider": "local"
+    },
+    {
+        "id": 3,
+        "name": "Example_Image_PNG.png",
+        "hash": "Example_Image_PNG",
+        "width": 1280,
+        "height": 1280,
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 132.47,
+        "url": "/uploads/Example_Image_PNG.png",
+        "provider": "local"
+    }
+]
