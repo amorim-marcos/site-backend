@@ -79,7 +79,8 @@ Isto criará um arquivo baseado no stub `migrations/stubs/content.stub.js`, que 
 
 - `component.stub.js`: cria um template para criar uma tabela que possui dados de componente Strapi.
 - `content_component_rel.stub.js`: cria um template para criar uma tabela que contém a relação entre um conteúdo Strapi e um componente Strapi. 
-- `rel.stub.js`: cria um template para criar uma tabela que contém uma relação 1xN ou NxN entre conteúdos Strapi. 
+- `rel.stub.js`: cria um template para criar uma tabela que contém uma relação 1xN ou NxN entre conteúdos Strapi.
+- `alterTable.stub.js`: cria um template para modificar uma tabela. 
 
 Para criar um arquivo baseado em um destes outros stubs, basta passar ele como parâmetro:
 
