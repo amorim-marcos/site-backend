@@ -120,11 +120,17 @@ O processo de restaurar as configurações permite que uma configuração salva 
 
 ### Desenvolvimento
 
+#### Strapi
+
 Há dois modos de execução principais de desenvolvimento.
 
 O primeiro, com o comando padrão `npm run develop`, envolve sempre rodar as migrações por completo antes do comando `strapi develop`. Assim, garante-se que as tabelas estão atualizadas devidamente no branch antes de rodar o desenvolvimento.
 
 O segundo, é ignorar o migrate da tabela, rodando o comando `npm run develop:nomigrate`.
+
+#### Meilisearch
+
+Para executar o Meilisearch, rode o comando `docker-compose up` para ter acesso a saída da aplicação ou `docker-compose up -d` para executar em background.
 
 ### Produção
 
