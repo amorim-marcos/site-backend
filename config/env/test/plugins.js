@@ -1,0 +1,6 @@
+module.exports = () => ({
+  meilisearch: {
+    host: "http://localhost:7700",
+    apiKey: "test_api_key",
+  }
+})
