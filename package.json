@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
+    "develop:init": "npm-run-all migrate:all 'complete-config:restore' 'knex:init' 'strapi develop'",
     "develop": "npm-run-all migrate:all 'strapi develop'",
     "develop:nomigrate": "strapi develop",
     "develop-test": "NODE_ENV=test strapi develop",
@@ -17,6 +18,7 @@
     "complete-config:dump": "npm-run-all local-config:dump strapi-config:dump",
     "complete-config:restore": "npm-run-all local-config:restore strapi-config:restore",
     "test": "mocha --exit",
+    "knex:init": "knex seed:run",
     "migrate:all": "knex migrate:latest",
     "migrate:up": "knex migrate:up",
     "migrate:down": "knex migrate:down",
