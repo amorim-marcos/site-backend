@@ -153,6 +153,11 @@ npm run develop:nomigrate
 
 #### Meilisearch
 
+Para configurar o Meilisearch, crie o arquivo `docker-compose.yml` a partir de uma cópia do `docker-compose.yml.example` e preencha as informações adequadamente. Na sequência, configure as seguintes variáveis de ambiente em `.env`:
+
+- `MEILI_HOST`: O endereço no qual o serviço Meili estará disponível. 
+- `MEILISEARCH_API_KEY`: A API Key para que a aplicação possa acessar o serviço Meili. É o mesmo valor que a master key definida no arquivo docker-compose.
+
 Para executar o Meilisearch, rode o comando
 
 ```
