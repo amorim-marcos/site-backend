@@ -93,7 +93,7 @@ npm run migrate:make {nome da migração} -- --stub migrations/stubs/{arquivo de
 Foram criados *seeders* para inclusão mais facilitada de dados locais. Para preencher o banco com novos dados, rode
 
 ```
-npx knex seed:run
+npm run knex:init
 ```
 
 **Nota**: Evite rodar esse comando em produção. 
@@ -120,11 +120,61 @@ O processo de restaurar as configurações permite que uma configuração salva 
 
 ### Desenvolvimento
 
-Há dois modos de execução principais de desenvolvimento.
+#### Strapi
 
-O primeiro, com o comando padrão `npm run develop`, envolve sempre rodar as migrações por completo antes do comando `strapi develop`. Assim, garante-se que as tabelas estão atualizadas devidamente no branch antes de rodar o desenvolvimento.
+Há três modos de execução principais de desenvolvimento.
 
-O segundo, é ignorar o migrate da tabela, rodando o comando `npm run develop:nomigrate`.
+O primeiro, é o comando sugerido para utilizar ao puxar um novo branch ou ao configurar um novo repositório
+
+```
+npm run develop:init
+```
+
+Este comando executará os passos necessários para inicializar a aplicação por completo:
+
+- Roda todas as migrações do banco de dados;
+- Carrega todas as configurações salvas na pasta de configuração;
+- Roda os seeders configurados;
+- Finalmente inicializa o servidor Strapi.
+
+O segundo, é o comando padrão
+
+```
+npm run develop
+```
+
+que envolve sempre rodar as migrações por completo antes do comando `strapi develop`. Assim, garante-se que as tabelas estão atualizadas devidamente no branch antes de rodar o desenvolvimento.
+
+O terceiro, é ignorar o migrate da tabela, rodando o comando
+
+```
+npm run develop:nomigrate
+```
+
+#### Meilisearch
+
+Para configurar o Meilisearch, crie o arquivo `docker-compose.yml` a partir de uma cópia do `docker-compose.yml.example` e preencha as informações adequadamente. Na sequência, configure as seguintes variáveis de ambiente em `.env`:
+
+- `MEILI_HOST`: O endereço no qual o serviço Meili estará disponível. 
+- `MEILISEARCH_API_KEY`: A API Key para que a aplicação possa acessar o serviço Meili. É o mesmo valor que a master key definida no arquivo docker-compose.
+
+Para executar o Meilisearch, rode o comando
+
+```
+npm run meili:run
+```
+
+Caso deseje executar o container em background, use o comando
+
+```
+npm run meili:run -- -d
+```
+
+Se for necessário limpar os dados de pesquisa rode
+
+```
+npm run meili:clear
+```
 
 ### Produção
 

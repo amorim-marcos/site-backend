@@ -112,3 +112,15 @@ exports
 *.cache
 build
 .strapi-updater.json
+
+############################
+# Meilisearch
+############################
+
+.meilisearch/storage/
+.meilisearch/dumps/
+
+############################
+# Docker
+############################
+docker-compose.yml
