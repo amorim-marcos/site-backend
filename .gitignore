@@ -119,3 +119,8 @@ build
 
 .meilisearch/storage/
 .meilisearch/dumps/
+
+############################
+# Docker
+############################
+docker-compose.yml
