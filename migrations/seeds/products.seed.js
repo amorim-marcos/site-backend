@@ -32,6 +32,21 @@ exports.seed = function(knex) {
         .then(function () {
           return knex('products__combine_with').insert(products_data.combine_with);
         })
+        
+      await knex('panel_types').truncate()
+        .then(function () {
+          return knex('panel_types').insert(products_data.panel_types);
+        })
+
+      await knex('components_available_at_available_ats').truncate()
+        .then(function () {
+            return knex('components_available_at_available_ats').insert(products_data.available_ats);
+        });
+
+      await knex('products_components').truncate()
+        .then(function () {
+          return knex('products_components').insert(products_data.component_rel);
+        });
       return knex.raw('SET FOREIGN_KEY_CHECKS=1')
     })
 };

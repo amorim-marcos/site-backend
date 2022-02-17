@@ -39,5 +39,29 @@
             "product-collection_id": 1
         }
     ],
-    "combine_with": []
+    "combine_with": [],
+    "panel_types": [
+        {
+            "id": 1,
+            "locale": "pt-BR",
+            "name": "MDF"
+        }
+    ],
+    "available_ats": [
+        {
+            "id": 1,
+            "panel_type": 1,
+            "thickness": "thickness",
+            "dimensions": "dimensions"
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "available_at",
+            "order": 1,
+            "component_type": "components_available_at_available_ats",
+            "component_id": 1,
+            "product_id": 1
+        }
+    ]
 }
