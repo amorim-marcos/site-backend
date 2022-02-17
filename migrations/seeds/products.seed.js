@@ -47,6 +47,9 @@ exports.seed = function(knex) {
         .then(function () {
           return knex('products_components').insert(products_data.component_rel);
         });
+
+      await knex('upload_file_morph').insert(products_data.uploaded_files_morph)
+
       return knex.raw('SET FOREIGN_KEY_CHECKS=1')
     })
 };

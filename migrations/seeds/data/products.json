@@ -63,5 +63,28 @@
             "component_id": 1,
             "product_id": 1
         }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 2,
+            "related_id": 1,
+            "related_type": "products",
+            "field": "background_image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 1,
+            "related_type": "products",
+            "field": "pattern_image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 1,
+            "related_id": 1,
+            "related_type": "products",
+            "field": "ebook",
+            "order": 1
+        }
     ]
 }
