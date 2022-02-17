@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_test_points_test_points",
+  "info": {
+    "name": "test_points",
+    "icon": "binoculars"
+  },
+  "options": {},
+  "attributes": {
+    "point_text": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_quality_norms_quality_norms",
+  "info": {
+    "name": "quality_norms",
+    "icon": "atom"
+  },
+  "options": {},
+  "attributes": {
+    "norm": {
+      "type": "string"
+    }
+  }
+}

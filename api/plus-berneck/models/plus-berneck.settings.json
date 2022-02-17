@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "plus_bernecks",
+  "info": {
+    "name": "Plus Berneck",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header_subtitle": {
+      "type": "string"
+    },
+    "header_text": {
+      "type": "text"
+    },
+    "section1_text": {
+      "type": "text"
+    },
+    "quality_norms_text": {
+      "type": "text"
+    },
+    "quality_norms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quality-norms.quality-norms"
+    },
+    "section2_title": {
+      "type": "string"
+    },
+    "section2_text": {
+      "type": "text"
+    },
+    "test_points": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test-points.test-points"
+    },
+    "important_points": {
+      "type": "component",
+      "repeatable": true,
+      "component": "important-points.important-points"
+    },
+    "body_proof": {
+      "type": "component",
+      "repeatable": true,
+      "component": "body-proof.body-proof"
+    }
+  }
+}
