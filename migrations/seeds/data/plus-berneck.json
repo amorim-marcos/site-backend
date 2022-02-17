@@ -1,0 +1,170 @@
+{
+    "single_type": {
+        "id": 1,
+        "locale": "pt-BR",
+        "header_subtitle": "É Plus porque tem mais proteção à umidade",
+        "header_text": "Os painéis da Linha PLUS BERNECK® são indicados para fabricação de móveis a serem aplicados em ambientes como cozinhas, banheiros e lavanderias.",
+        "section1_text": "Há quase 70 anos, a BERNECK® é a marca da madeira e das grandes soluções para seus projetos. Agora ainda mais, com toda a qualidade e maior resistência que a linha PLUS BERNECK® oferece.",
+        "quality_norms_text": "Os produtos da linha PLUS BERNECK® seguem as normas ABNT NBR 14.810 e ABNT NBR 15.316 (V313) e registram indicadores superiores aos estabelecidos pela normativa.",
+        "section2_title": "Fizemos o teste. Está comprovado e aprovado.",
+        "section2_text": "Para ilustrar melhor as características dos produtos PLUS BERNECK®, fizemos um teste com o objetivo de avaliar como os painéis reagem à absorção de umidade e ao ganho de espessura, comparando-os com os painéis standard."
+    },
+    "quality_norms": [
+        {
+            "id": 1,
+            "norm": "ABNT NBR 15.316"
+        },
+        {
+            "id": 2,
+            "norm": "ABNT NBR 14.810"
+        }
+    ],
+    "test_points": [
+        {
+            "id": 1,
+            "point_text": "Pesamos e medimos a espessura dos corpos de prova: amostras de 15mm de MDF e MDP Standard, e MDF e MDP Plus, todas sem revestimento."
+        },
+        {
+            "id": 2,
+            "point_text": "Acondicionamos as amostras por 16 dias em estufa com temperatura constante de 25ºC e umidade relativa do ar de 90%."
+        },
+        {
+            "id": 3,
+            "point_text": "Após este período, novamente pesamos e medidos a espessura dos corpos de prova."
+        }   
+    ],
+    "important_points": [
+        {
+            "id": 1,
+            "point_text": "Utilize a linha BERNECK PLUS em áreas que não tenham contato direto com água."
+        },
+        {
+            "id": 2,
+            "point_text": "É indispensável proteger todas as faces e bordas do painel contra ação da umidade, inclusive as não aparentes, pois este produto não é isento a mofo."
+        },
+        {
+            "id": 3,
+            "point_text": "Ambientes com focos de cupim devem ser tratados antes da instalação de qualquer móvel, inclusive os com a linha PLUS BERNECK®."
+        }   
+    ],
+    "body_proof": [
+        {
+            "id": 1,
+            "item": "MDF STD",
+            "absorbed_water": 47.0,
+            "absorption": 13.10,
+            "thickness_increase": 0.94,
+            "swelling": 6.40
+        },
+        {
+            "id": 2,
+            "item": "MDP STD",
+            "absorbed_water": 25.7,
+            "absorption": 7.40,
+            "thickness_increase": 0.74,
+            "swelling": 4.90
+        },
+        {
+            "id": 3,
+            "item": "MDF PLUS BERNECK",
+            "absorbed_water": 17.5,
+            "absorption": 5.90,
+            "thickness_increase": 0.61,
+            "swelling": 4.10
+        },
+        {
+            "id": 4,
+            "item": "MDF PLUS BERNECK",
+            "absorbed_water": 5.0,
+            "absorption": 1.40,
+            "thickness_increase": 0.57,
+            "swelling": 3.80
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "quality_norms",
+            "order": 1,
+            "component_type": "components_quality_norms_quality_norms",
+            "component_id": 1,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "quality_norms",
+            "order": 2,
+            "component_type": "components_quality_norms_quality_norms",
+            "component_id": 2,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "test_points",
+            "order": 1,
+            "component_type": "components_test_points_test_points",
+            "component_id": 1,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "test_points",
+            "order": 2,
+            "component_type": "components_test_points_test_points",
+            "component_id": 2,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "test_points",
+            "order": 3,
+            "component_type": "components_test_points_test_points",
+            "component_id": 3,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "important_points",
+            "order": 1,
+            "component_type": "components_important_points_important_points",
+            "component_id": 1,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "important_points",
+            "order": 2,
+            "component_type": "components_important_points_important_points",
+            "component_id": 2,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "important_points",
+            "order": 3,
+            "component_type": "components_important_points_important_points",
+            "component_id": 3,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "body_proof",
+            "order": 1,
+            "component_type": "components_body_proof_body_proofs",
+            "component_id": 1,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "body_proof",
+            "order": 2,
+            "component_type": "components_body_proof_body_proofs",
+            "component_id": 2,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "body_proof",
+            "order": 3,
+            "component_type": "components_body_proof_body_proofs",
+            "component_id": 3,
+            "plus_berneck_id": 1
+        },
+        {
+            "field": "body_proof",
+            "order": 4,
+            "component_type": "components_body_proof_body_proofs",
+            "component_id": 4,
+            "plus_berneck_id": 1
+        }
+    ]
+}
