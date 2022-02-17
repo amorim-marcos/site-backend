@@ -10,45 +10,99 @@
     "timestamps": true,
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "header_subtitle": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "header_text": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "section1_text": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "quality_norms_text": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "quality_norms": {
       "type": "component",
       "repeatable": true,
-      "component": "quality-norms.quality-norms"
+      "component": "quality-norms.quality-norms",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "section2_title": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "section2_text": {
-      "type": "text"
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "test_points": {
       "type": "component",
       "repeatable": true,
-      "component": "test-points.test-points"
+      "component": "test-points.test-points",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "important_points": {
       "type": "component",
       "repeatable": true,
-      "component": "important-points.important-points"
+      "component": "important-points.important-points",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "body_proof": {
       "type": "component",
       "repeatable": true,
-      "component": "body-proof.body-proof"
+      "component": "body-proof.body-proof",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

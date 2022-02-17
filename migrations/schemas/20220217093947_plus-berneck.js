@@ -12,6 +12,7 @@ exports.up = function(knex) {
                 table.text('quality_norms_text', 'longtext')
                 table.string('section1_title')
                 table.text('section2_text', 'longtext')
+                table.string('locale')
         
                 // table.datetime('published_at').nullable() // only use if draft system is enabled.
                 table.integer('created_by').nullable()
