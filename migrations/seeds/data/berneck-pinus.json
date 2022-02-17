@@ -111,6 +111,41 @@
             "related_type": "berneck_pinuses",
             "field": "technical_sheet",
             "order": 1
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 1,
+            "related_type": "components_sawns_qualities_sawns_qualities",
+            "field": "image",
+            "order": 1 
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 2,
+            "related_type": "components_sawns_qualities_sawns_qualities",
+            "field": "image",
+            "order": 1 
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 3,
+            "related_type": "components_sawns_qualities_sawns_qualities",
+            "field": "image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 4,
+            "related_type": "components_sawns_qualities_sawns_qualities",
+            "field": "image",
+            "order": 1 
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 5,
+            "related_type": "components_sawns_qualities_sawns_qualities",
+            "field": "image",
+            "order": 1 
         }
     ]
 }
