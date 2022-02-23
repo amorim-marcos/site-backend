@@ -5,6 +5,7 @@
     "hdf_bernecks": [
         {
             "id": 3,
+            "page_title": "MDF Berneck",
             "subtitle": "Painel de Fibra de Média Densidade",
             "subtitle_description": "Produzido em prensas contínuas de altíssima tecnologia, o que assegura um painel homogêneo, ótimo para os processos de usinagem e baixo relevo. Por ser produzido com Pinus, que possui fibras longas, possui maleabilidade superior e coloração bem clara, excelente para os processos de pintura e impressão.",
             "uses_and_applications": "O MDF BERNECK® assegura excelente resultado em todos os tipos de móveis para peças com usinagens profundas e trabalhos de baixo relevo, além de embalagens, aplicações na construção civil, artesanatos, etc.",
@@ -15,6 +16,7 @@
         },
         {
             "id": 4,
+            "page_title": "MDF Berneck Plus",
             "subtitle": "É Plus porque tem mais proteção à umidade",
             "subtitle_description": "A qualidade do MDF BERNECK® aliada à máxima proteção contra umidade e cupins.",
             "uses_and_applications": "Indicado para móveis de cozinhas, banheiros, lavanderias e ambientes comerciais.",
