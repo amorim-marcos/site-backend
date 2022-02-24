@@ -9,7 +9,6 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
     return knex.schema.alterTable(table_name, table => {
-        table.string('section1_text').alter()
-        table.string('section5_text').alter()
+        // not know a method to return to varchar...
     })
 }
