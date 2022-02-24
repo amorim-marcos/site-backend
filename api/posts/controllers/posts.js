@@ -5,4 +5,16 @@
  * to customize this controller
  */
 
-module.exports = {};
+const { sanitizeEntity } = require('strapi-utils');
+
+
+module.exports = {
+    findOne: async ctx => {
+        // const id = ctx.params.id;
+        const { url_code } = ctx.params;
+
+        const entity = await strapi.services.posts.findOne({ url_code: url_code });
+
+        return sanitizeEntity(entity, { model: strapi.models.posts });
+    },
+};
