@@ -53,6 +53,14 @@
           "localized": false
         }
       }
+    },
+    "url_code": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
