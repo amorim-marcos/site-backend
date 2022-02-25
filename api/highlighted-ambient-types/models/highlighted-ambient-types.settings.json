@@ -25,6 +25,11 @@
     "ambient_type": {
       "unique": true,
       "model": "ambient-types"
+    },
+    "color": {
+      "type": "string",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+      "required": true
     }
   }
 }

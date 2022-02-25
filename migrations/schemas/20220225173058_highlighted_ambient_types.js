@@ -5,7 +5,8 @@ exports.up = function(knex) {
         if(!exists){
             return knex.schema.createTable(table_name, function(table) {
                 table.increments('id').unsigned().primary()
-        
+                
+                table.string('color')
                 table.integer('ambient_type')
         
                 // table.datetime('published_at').nullable() // only use if draft system is enabled.
