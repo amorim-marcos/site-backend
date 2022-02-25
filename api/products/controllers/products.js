@@ -11,8 +11,19 @@ module.exports = {
         // const id = ctx.params.id;
         const { url_code } = ctx.params;
 
-        const entity = await strapi.services.products.findOne({ url_code: url_code });
+        const products = await strapi.services.products.find({ '_sort': 'name:ASC' })
+        const totalProducts = products.length
 
-        return sanitizeEntity(entity, { model: strapi.models.products });
+        const productIndex = products.findIndex((p) => p.url_code == url_code) 
+
+        const nextIndex = (productIndex + 1) % totalProducts
+        const prevIndex = (productIndex - 1 < 0) ? totalProducts - 1 : productIndex - 1
+        
+        const product = sanitizeEntity(products[productIndex], { model: strapi.models.products });
+
+        product.next = sanitizeEntity(products[nextIndex], { model: strapi.models.products });
+        product.prev = sanitizeEntity(products[prevIndex], { model: strapi.models.products });
+
+        return product
     },
 };
