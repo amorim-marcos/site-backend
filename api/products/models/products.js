@@ -5,4 +5,10 @@
  * to customize this model
  */
 
-module.exports = {};
+module.exports = {
+    lifecycles: {
+        async beforeCreate(data) {
+            data.url_code = data.name.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
+        },
+    }
+};

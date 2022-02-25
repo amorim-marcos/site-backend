@@ -114,6 +114,14 @@
     },
     "product_coloration": {
       "model": "product-colorations"
+    },
+    "url_code": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
