@@ -26,7 +26,7 @@ module.exports = {
         let posts = []
 
         for(let category of categories){
-            let firstPost = await strapi.query('posts').findOne({'category.id': category.id, '_limit': 1})
+            let firstPost = await strapi.query('posts').findOne({'category.id': category.id, '_limit': 1, "_sort": "published_at:DESC"})
             posts.push(firstPost)
         }
 
