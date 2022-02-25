@@ -5,10 +5,28 @@
  * to customize this model
  */
 
+const MAX_HIGHLIGHTEDS = 5
+
 module.exports = {
     lifecycles: {
-        beforeCreate(data) {
+        async beforeCreate(data) {
+            if(data.is_highlighted){
+                let total_highliteds = await strapi.services.posts.count_highliteds()
+                if(total_highliteds >= MAX_HIGHLIGHTEDS){
+                    throw strapi.errors.badRequest(`Já existem ${MAX_HIGHLIGHTEDS} publicações em destaque. Por favor, remova uma publicação dos destaques para adicionar esta publicação aos destaques.`)
+                }
+            }
+            
             data.url_code = data.title.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
         },
+        async beforeUpdate(params, data){
+            let currentPost = await strapi.query('posts').findOne({ id: params.id })
+            if(data.is_highlighted && !currentPost.is_highlighted){
+                let total_highliteds = await strapi.services.posts.count_highliteds()
+                if(total_highliteds >= MAX_HIGHLIGHTEDS){
+                    throw strapi.errors.badRequest(`Já existem ${MAX_HIGHLIGHTEDS} publicações em destaque. Por favor, remova uma publicação dos destaques para adicionar esta publicação aos destaques.`)
+                }
+            }
+        }
     }
 };

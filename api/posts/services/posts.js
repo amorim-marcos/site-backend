@@ -5,4 +5,8 @@
  * to customize this service
  */
 
-module.exports = {};
+module.exports = {
+    count_highliteds: () => {
+        return strapi.query('posts').count({ is_highlighted: true })
+    }
+};
