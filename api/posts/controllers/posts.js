@@ -20,5 +20,16 @@ module.exports = {
     getHighlighted: async ctx => {
         const highlighted_posts = await strapi.services.posts.getHighlighted()
         return highlighted_posts.map(post => sanitizeEntity(post, { model: strapi.models.posts }))
+    },
+    latestByCategory: async ctx => {
+        const categories = await strapi.query('categories').find()
+        let posts = []
+
+        for(let category of categories){
+            let firstPost = await strapi.query('posts').findOne({'category.id': category.id, '_limit': 1})
+            posts.push(firstPost)
+        }
+
+        return posts.map(post => sanitizeEntity(post, { model: strapi.models.posts }))
     }
 };
