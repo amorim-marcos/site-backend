@@ -122,6 +122,23 @@
         }
       },
       "type": "string"
+    },
+    "launch": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "date"
+    },
+    "scale": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "default": 0
     }
   }
 }
