@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "highlighted_ambient_types",
+  "info": {
+    "name": "Highlighted Ambient Types",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "ambient_type": {
+      "unique": true,
+      "model": "ambient-types"
+    }
+  }
+}
