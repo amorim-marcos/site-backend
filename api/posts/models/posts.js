@@ -11,7 +11,7 @@ module.exports = {
     lifecycles: {
         async beforeCreate(data) {
             if(data.is_highlighted){
-                let total_highliteds = await strapi.services.posts.count_highliteds()
+                let total_highliteds = await strapi.services.posts.countHighliteds()
                 if(total_highliteds >= MAX_HIGHLIGHTEDS){
                     throw strapi.errors.badRequest(`Já existem ${MAX_HIGHLIGHTEDS} publicações em destaque. Por favor, remova uma publicação dos destaques para adicionar esta publicação aos destaques.`)
                 }
@@ -22,7 +22,7 @@ module.exports = {
         async beforeUpdate(params, data){
             let currentPost = await strapi.query('posts').findOne({ id: params.id })
             if(data.is_highlighted && !currentPost.is_highlighted){
-                let total_highliteds = await strapi.services.posts.count_highliteds()
+                let total_highliteds = await strapi.services.posts.countHighliteds()
                 if(total_highliteds >= MAX_HIGHLIGHTEDS){
                     throw strapi.errors.badRequest(`Já existem ${MAX_HIGHLIGHTEDS} publicações em destaque. Por favor, remova uma publicação dos destaques para adicionar esta publicação aos destaques.`)
                 }

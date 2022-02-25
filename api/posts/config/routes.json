@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/posts/highlights",
+      "handler": "posts.getHighlighted",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/posts/:url_code",
       "handler": "posts.findOne",
       "config": {

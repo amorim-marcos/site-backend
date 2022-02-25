@@ -17,4 +17,8 @@ module.exports = {
 
         return sanitizeEntity(entity, { model: strapi.models.posts });
     },
+    getHighlighted: async ctx => {
+        const highlighted_posts = await strapi.services.posts.getHighlighted()
+        return highlighted_posts.map(post => sanitizeEntity(post, { model: strapi.models.posts }))
+    }
 };

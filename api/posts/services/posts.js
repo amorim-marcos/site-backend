@@ -6,7 +6,10 @@
  */
 
 module.exports = {
-    count_highliteds: () => {
+    countHighliteds: () => {
         return strapi.query('posts').count({ is_highlighted: true })
+    },
+    getHighlighted: () => {
+        return strapi.query('posts').find({ is_highlighted: true})
     }
 };
