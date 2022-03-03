@@ -43,6 +43,15 @@
       },
       "required": true
     },
+    "uses_and_applications": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
     "background_image": {
       "model": "file",
       "via": "related",
