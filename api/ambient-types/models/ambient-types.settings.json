@@ -24,6 +24,14 @@
         }
       },
       "required": true
+    },
+    "url_code": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
