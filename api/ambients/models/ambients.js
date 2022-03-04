@@ -8,7 +8,12 @@
 module.exports = {
     lifecycles: {
         async beforeCreate(data) {
-            data.url_code = data.place.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
+            const totalWithSameTitle = await strapi.services.ambients.countWithSameTitle(data.title)
+            data.url_code = await strapi.services.ambients.generateSlug(data.title,totalWithSameTitle + 1)
+        },
+        async beforeUpdate(params, data) {
+            const totalWithSameTitle = await strapi.services.ambients.countWithSameTitle(data.title)
+            data.url_code = await strapi.services.ambients.generateSlug(data.title,totalWithSameTitle + 1)
         },
     }
 };
