@@ -1,7 +1,7 @@
 const tableA = 'ambients'
 const tableB = 'ambient_styles'
 const idNameForTableA = 'ambient'
-const idNameForTableB = 'ambient_style'
+const idNameForTableB = 'ambient-style'
 const relTableName = `${tableA}__${tableB}`
 
 exports.up = function(knex) {
