@@ -7,13 +7,9 @@
 
 module.exports = {
     lifecycles: {
-        async beforeCreate(data) {
-            const totalWithSameTitle = await strapi.services.ambients.countWithSameTitle(data.title)
-            data.url_code = await strapi.services.ambients.generateSlug(data.title,totalWithSameTitle + 1)
-        },
-        async beforeUpdate(params, data) {
-            const totalWithSameTitle = await strapi.services.ambients.countWithSameTitle(data.title)
-            data.url_code = await strapi.services.ambients.generateSlug(data.title,totalWithSameTitle + 1)
-        },
+        async afterCreate(result, data) {
+           const url_code = await strapi.services.ambients.generateSlug(data.title,result.id)
+           await strapi.query('ambients').update({ id: result.id }, { url_code: url_code})
+        }
     }
 };
