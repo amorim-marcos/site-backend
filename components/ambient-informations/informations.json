@@ -2,15 +2,13 @@
   "collectionName": "components_ambient_informations_informations",
   "info": {
     "name": "Informations",
-    "icon": "info-circle"
+    "icon": "info-circle",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "year": {
       "type": "integer"
-    },
-    "style": {
-      "type": "string"
     },
     "architect": {
       "type": "string"
