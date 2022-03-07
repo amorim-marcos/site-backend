@@ -7,6 +7,16 @@
 
 module.exports = {
     lifecycles: {
+        async beforeCreate(data){
+            if(!data.products || data.products.length == 0){
+                throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
+            }
+        },
+        async beforeUpdate(params, data){
+            if(data.products.length == 0){
+                throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
+            }
+        },
         async afterCreate(result, data) {
            const url_code = await strapi.services.ambients.generateSlug(data.title,result.id)
            await strapi.query('ambients').update({ id: result.id }, { url_code: url_code})
