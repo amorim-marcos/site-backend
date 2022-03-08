@@ -11,12 +11,17 @@ module.exports = {
             if(!data.product_texture){
                 throw strapi.errors.badRequest('Por favor, selecione uma textura para o BP.')
             }
+            const product_texture = await strapi.query('products-textures').findOne({ id: data.product_texture })
 
             data.name = data.name.toLowerCase().split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')
 
-            const product_texture = await strapi.query('products-textures').findOne({ id: data.product_texture })
-
-            data.complete_name = data.name + " " + product_texture.name
+            const productsWithSameName = await strapi.query('products').find({ name: data.name })
+            
+            if(productsWithSameName.length == 0){
+                data.complete_name = data.name
+            }else{
+                data.complete_name = data.name + " " + product_texture.name
+            }
 
             data.url_code = data.complete_name.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
 
@@ -33,6 +38,14 @@ module.exports = {
             const product_texture = await strapi.query('products-textures').findOne({ id: data.product_texture })
 
             data.name = data.name.toLowerCase().split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')
+
+            const productsWithSameName = await strapi.query('products').find({ name: data.name })
+            
+            if(productsWithSameName.length == 1 && productsWithSameName[0].id == data.id){
+                data.complete_name = data.name
+            }else{
+                data.complete_name = data.name + " " + product_texture.name
+            }
 
             data.complete_name = data.name + " " + product_texture.name
             data.url_code = data.complete_name.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
