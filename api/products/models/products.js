@@ -41,7 +41,7 @@ module.exports = {
 
             const productsWithSameName = await strapi.query('products').find({ name: data.name })
             
-            if(productsWithSameName.length == 1 && productsWithSameName[0].id == data.id){
+            if(productsWithSameName.length == 0 || (productsWithSameName.length == 1 && productsWithSameName[0].id == data.id)){
                 data.complete_name = data.name
             }else{
                 data.complete_name = data.name + " " + product_texture.name
