@@ -158,7 +158,7 @@
       "type": "integer",
       "default": 0
     },
-    "Assets": {
+    "assets": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
