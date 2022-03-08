@@ -25,6 +25,15 @@
       },
       "required": true
     },
+    "complete_name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
     "description": {
       "type": "text",
       "pluginOptions": {
