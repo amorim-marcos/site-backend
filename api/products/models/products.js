@@ -60,8 +60,8 @@ module.exports = {
                 data.url_code = data.complete_name.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
     
                 const productsWithSameUrlCode = await strapi.query('products').find({ url_code: data.url_code })
-    
-                if(productsWithSameUrlCode.length > 1 || ( productsWithSameUrlCode.length == 1 && productsWithSameUrlCode[0].id != data.id) ){
+
+                if(productsWithSameUrlCode.length > 1 || ( productsWithSameUrlCode.length == 1 && productsWithSameUrlCode[0].id != params.id) ){
                     throw strapi.errors.badRequest('Já existe uma combinação de nome e textura para outro BP. Por favor, introduza dados diferentes para esses campos.')
                 }
             }else{
