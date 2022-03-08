@@ -32,7 +32,7 @@
           "localized": true
         }
       },
-      "required": true
+      "required": false
     },
     "description": {
       "type": "text",
