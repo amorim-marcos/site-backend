@@ -25,6 +25,15 @@
       },
       "required": true
     },
+    "complete_name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": false
+    },
     "description": {
       "type": "text",
       "pluginOptions": {
@@ -35,6 +44,15 @@
       "required": true
     },
     "presentation": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "uses_and_applications": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -114,6 +132,45 @@
     },
     "product_coloration": {
       "model": "product-colorations"
+    },
+    "url_code": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "launch": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "date"
+    },
+    "scale": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "default": 0
+    },
+    "assets": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }

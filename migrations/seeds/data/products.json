@@ -1,0 +1,90 @@
+{
+    "collections": [
+        {
+            "id": 1,
+            "locale": "pt-BR",
+            "name": "Terraza",
+            "description": "Com a proposta do granilite e um mix de tonalidades de cimento branco, areia e diferentes minerais, este BP BERNECK® é um ícone da arquitetura em seus projetos.",
+            "presentation": "O padrão Solanum traz personalidade e um apelo estético único aos projetos de móveis e interiores. O novo padrão é inspirado no Cumaru, madeira proveniente da Amazônia, e valoriza a cultura brasileira. Lançamento da Coleção Nômade, ele chama a atenção pela tonalidade castanho-mel e pela facilidade de combinar com tudo, trazendo calor e beleza aos móveis e interiores.",
+            "video_url": "http://www.youtube.com",
+            "product_texture": 1,
+            "product_coloration": 1
+        }
+    ],
+    "product_textures": [
+        {
+            "id": 1,
+            "locale": "pt-BR",
+            "name": "MICRO",
+            "description": "Textura contemporânea com agradável sensação ao toque."
+        }
+    ],
+    "product_collections": [
+        {
+            "id": 1,
+            "locale": "pt-BR",
+            "name": "Origens"
+        }
+    ],
+    "product_colorations": [
+        {
+            "id": 1,
+            "locale": "pt-BR",
+            "name": "Madeiras Claras"
+        }
+    ],
+    "product_collection_rel": [
+        {
+            "product_id": 1,
+            "product-collection_id": 1
+        }
+    ],
+    "combine_with": [],
+    "panel_types": [
+        {
+            "id": 1,
+            "locale": "pt-BR",
+            "name": "MDF"
+        }
+    ],
+    "available_ats": [
+        {
+            "id": 1,
+            "panel_type": 1,
+            "thickness": "thickness",
+            "dimensions": "dimensions"
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "available_at",
+            "order": 1,
+            "component_type": "components_available_at_available_ats",
+            "component_id": 1,
+            "product_id": 1
+        }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 2,
+            "related_id": 1,
+            "related_type": "products",
+            "field": "background_image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 2,
+            "related_id": 1,
+            "related_type": "products",
+            "field": "pattern_image",
+            "order": 1
+        },
+        {
+            "upload_file_id": 1,
+            "related_id": 1,
+            "related_type": "products",
+            "field": "ebook",
+            "order": 1
+        }
+    ]
+}

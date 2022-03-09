@@ -16,6 +16,15 @@
     }
   },
   "attributes": {
+    "page_title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
     "header_title": {
       "pluginOptions": {
         "i18n": {

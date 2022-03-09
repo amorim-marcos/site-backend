@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/videos",
-      "handler": "videos.find",
+      "path": "/ambient-styles",
+      "handler": "ambient-styles.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/videos/count",
-      "handler": "videos.count",
+      "path": "/ambient-styles/count",
+      "handler": "ambient-styles.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/videos/:id",
-      "handler": "videos.findOne",
+      "path": "/ambient-styles/:id",
+      "handler": "ambient-styles.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/videos",
-      "handler": "videos.create",
+      "path": "/ambient-styles",
+      "handler": "ambient-styles.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/videos/:id",
-      "handler": "videos.update",
+      "path": "/ambient-styles/:id",
+      "handler": "ambient-styles.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/videos/:id",
-      "handler": "videos.delete",
+      "path": "/ambient-styles/:id",
+      "handler": "ambient-styles.delete",
       "config": {
         "policies": []
       }

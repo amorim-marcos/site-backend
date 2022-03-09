@@ -5,6 +5,7 @@
     "hdf_bernecks": [
         {
             "id": 1,
+            "page_title": "HDF Berneck",
             "subtitle": "Painel de Fibra de Alta Densidade",
             "subtitle_description": "É produzido 100% com Pinus, que possui fibras longas, proporcionando uma maior maleabilidade ao painel além de coloração bem clara, que assegura excelente resultado para os processos de pintura e impressão.",
             "uses_and_applications": "O HDF BERNECK® garante excelente resultado e custo/benefício em fundo de móveis, lateral e fundo de gavetas, capas de portas, peças curvas, para a produção de pisos, artesanatos, bem como na fabricação de painéis de grandes espessuras (tipo colmeias).",
@@ -15,6 +16,7 @@
         },
         {
             "id": 2,
+            "page_title": "HDF Berneck Plus",
             "subtitle": "É Plus porque tem mais proteção à umidade",
             "subtitle_description": "A qualidade do HDF BERNECK® aliada à máxima proteção contra umidade e cupins.",
             "uses_and_applications": "Indicado, por exemplo, para fundo de móveis e gavetas, peças curvas e pequenos nichos.",

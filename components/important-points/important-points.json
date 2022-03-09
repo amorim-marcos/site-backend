@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_important_points_important_points",
+  "info": {
+    "name": "important_points",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "point_text": {
+      "type": "text"
+    }
+  }
+}

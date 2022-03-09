@@ -18,7 +18,23 @@
     },
     {
       "method": "GET",
-      "path": "/posts/:id",
+      "path": "/posts/highlights",
+      "handler": "posts.getHighlighted",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/posts/latest",
+      "handler": "posts.latestByCategory",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/posts/:url_code",
       "handler": "posts.findOne",
       "config": {
         "policies": []

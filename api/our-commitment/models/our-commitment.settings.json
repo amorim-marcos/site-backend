@@ -16,6 +16,15 @@
     }
   },
   "attributes": {
+    "page_title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "header_text": {
       "type": "text",
       "required": true,
@@ -226,6 +235,24 @@
       }
     },
     "section7_text": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "section8_title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "section8_text": {
       "type": "text",
       "required": true,
       "pluginOptions": {

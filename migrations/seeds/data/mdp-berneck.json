@@ -5,6 +5,7 @@
     "hdf_bernecks": [
         {
             "id": 5,
+            "page_title": "MDP Berneck",
             "subtitle": "Painel de Partículas de Média Densidade",
             "subtitle_description": "Destaca-se pela coloração bem clara e homogênea, superfície lisa e camada interna bem compactada, assegurada pela perfeita distribuição das partículas",
             "uses_and_applications": "Especialmente indicado para os processos de pintura e impressão, que exigem superfícies uniformes e de baixa absorção e para o revestimento com qualquer material (BPs, laminados de PVC, laminados de Alta Pressão (AP), lâminas de madeira, lâminas pré-compostas, etc.). Proporciona excelente resultado em móveis para dormitórios, escritórios, cozinhas, além de eletro-eletrônicos, construção civil, painéis para decoração, entre outros.",
@@ -15,6 +16,7 @@
         },
         {
             "id": 6,
+            "page_title": "MDP Berneck Plus",
             "subtitle": "É Plus porque tem mais proteção à umidade",
             "subtitle_description": "A qualidade do MDP BERNECK® aliada à máxima proteção contra umidade e cupins.",
             "uses_and_applications": "Indicado para móveis de cozinhas, banheiros, lavanderias e ambientes comerciais.",
