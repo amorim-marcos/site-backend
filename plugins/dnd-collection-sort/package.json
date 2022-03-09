@@ -1,0 +1,29 @@
+{
+  "name": "strapi-plugin-dnd-collection-sort",
+  "version": "0.1.0",
+  "description": "Use this plugin to sort your collections with drag and drop",
+  "strapi": {
+    "name": "DNDCollectionSort",
+    "icon": "plug",
+    "description": "Sort with Drag and Drop"
+  },
+  "dependencies": {
+    "react-beautiful-dnd": "^13.1.0",
+    "styled-components": "^5.3.3"
+  },
+  "author": {
+    "name": "ZauJulio",
+    "email": "zauhdf@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "ZauJulio",
+      "email": "zauhdf@gmail.com"
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
