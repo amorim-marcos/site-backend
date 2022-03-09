@@ -29,7 +29,7 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "quality_norms": {
       "type": "component",
