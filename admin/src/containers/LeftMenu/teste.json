@@ -1,0 +1,9 @@
+{
+  "sections": [
+    {
+      "name": "canal",
+      "label": "Canal",
+      "items": ["Posts", "Tags", "Categories"]
+    }
+  ]
+}
