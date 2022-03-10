@@ -8,6 +8,22 @@ module.exports = () => ({
       {
         code: "ambients",
         label: "Ambients"
+      },
+      {
+        code: "pages",
+        label: "Pages"
+      },
+      {
+        code: "products",
+        label: "BPs"
+      },
+      {
+        code: "canal-bnk",
+        label: "Canal BNK"
+      },
+      {
+        code: "legislation",
+        label: "Legislation"
       }
     ]
   }
