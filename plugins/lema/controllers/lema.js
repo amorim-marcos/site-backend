@@ -26,13 +26,15 @@ module.exports = {
         currentSection = availableSections.find((section) => section.code == data.pluginOptions["lema"].section_code)
         section = sections.find((section) => section.code == data.pluginOptions["lema"].section_code)
 
+        console.log(section)
+
         item = {
           code: 'single_'+data.collectionName,
           label: data.info.name,
           url: `${strapi.config.admin.url}/plugins/content-manager/${data.kind}/${data.uid}`
         }
 
-        if(section){
+        if(section != undefined){
           section.items.push(item)
         }else{
           section = {
@@ -51,7 +53,6 @@ module.exports = {
           type: 'single',
           url: `${strapi.config.admin.url}/plugins/content-manager/${data.kind}/${data.uid}`
         })     
-        sections.push(section)  
       }
     }
     // Send 200 `ok`
