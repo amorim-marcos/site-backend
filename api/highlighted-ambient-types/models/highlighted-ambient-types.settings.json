@@ -10,7 +10,11 @@
     "timestamps": true,
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+      "lema": {
+        "section_code": "ambients"
+      }
+  },
   "attributes": {
     "image": {
       "model": "file",
