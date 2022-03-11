@@ -1,6 +1,5 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
-import menuItems from "./teste.json";
 import { useLocation } from "react-router-dom";
 import {
   LeftMenuLinksSection,
@@ -12,9 +11,14 @@ import Loader from "./Loader";
 import Wrapper from "./Wrapper";
 import useMenuSections from "./useMenuSections";
 import { values } from "lodash";
+import { useGlobalContext, request } from "strapi-helper-plugin";
 
 const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
   const location = useLocation();
+
+  const [lemaData, setLemaData] = useState([]);
+  const [menuGroups, setMenuGroups] = useState([]);
+  const [menuSingles, setMenuSingles] = useState([]);
 
   const {
     state: {
@@ -28,28 +32,81 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
     generateMenu,
   } = useMenuSections(plugins, shouldUpdateStrapi);
 
-  const filteredCollectionTypeLinks = collectionTypesSectionLinks.filter(
-    ({ isDisplayed }) => isDisplayed
+  const filteredCollectionTypeLinks = useMemo(
+    () => collectionTypesSectionLinks.filter(({ isDisplayed }) => isDisplayed),
+    [collectionTypesSectionLinks]
   );
-  const filteredSingleTypeLinks = singleTypesSectionLinks.filter(
-    ({ isDisplayed }) => isDisplayed
+  const filteredSingleTypeLinks = useMemo(
+    () => singleTypesSectionLinks.filter(({ isDisplayed }) => isDisplayed),
+    [singleTypesSectionLinks]
   );
 
-  const { sections } = menuItems;
+  function getLemaData() {
+    request("/lema").then((r) => {
+      const trated = r.map((item) => {
+        item.code = item.code.replaceAll("-", "").replaceAll(".", "");
+        return item;
+      });
+      setLemaData(trated);
+    });
+  }
 
-  const menuSections = sections.map((value) => {
-    return {
-      ...value,
-      items: filteredCollectionTypeLinks.filter((item) => {
-        return value.items.indexOf(item.label) > -1;
-      }),
-    };
-  });
+  function f() {
+    const singles = [];
+    const groups = [];
+
+    lemaData.forEach((item) => {
+      if (item.type === "group") {
+        const collection = filteredCollectionTypeLinks.filter((x) => {
+          return item.items.findIndex((v) => v.url === x.destination) > -1;
+        });
+        const single = filteredSingleTypeLinks.filter((x) => {
+          return item.items.findIndex((v) => v.url === x.destination) > -1;
+        });
+        const sectionItems = [];
+        collection.forEach((v) => sectionItems.push(v));
+        single.forEach((v) => sectionItems.push(v));
+        groups.push({
+          ...item,
+          items: sectionItems,
+        });
+      } else {
+        const c = filteredCollectionTypeLinks.findIndex((x) => {
+          return item.url === x.destination;
+        });
+
+        const s = filteredSingleTypeLinks.findIndex((x) => {
+          return item.url === x.destination;
+        });
+
+        let obj =
+          c >= 0 ? filteredCollectionTypeLinks[c] : filteredSingleTypeLinks[s];
+
+        singles.push(obj);
+      }
+
+      setMenuGroups(groups);
+      setMenuSingles(singles);
+    });
+  }
+
+  useEffect(() => {
+    if (
+      lemaData.length > 0 &&
+      !!filteredCollectionTypeLinks &&
+      !!filteredSingleTypeLinks &&
+      filteredCollectionTypeLinks.length > 0 &&
+      filteredSingleTypeLinks.length > 0
+    ) {
+      f();
+    }
+  }, [lemaData, filteredCollectionTypeLinks, filteredSingleTypeLinks]);
 
   // This effect is really temporary until we create the menu api
   // We need this because we need to regenerate the links when the settings are being changed
   // in the content manager configurations list
   useEffect(() => {
+    getLemaData();
     setUpdateMenu(() => {
       toggleLoading();
       generateMenu();
@@ -62,14 +119,14 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
       <Loader show={isLoading} />
       <LeftMenuHeader />
       <LinksContainer>
-        {menuSections.length > 0 &&
-          menuSections.map((item, i) => {
+        {menuGroups.length > 0 &&
+          menuGroups.map((item, i) => {
             if (item.items.length > 0) {
               return (
                 <LeftMenuLinksSection
                   key={i}
-                  section={item.name}
-                  name={item.name}
+                  section={item.code}
+                  name={item.code}
                   links={item.items}
                   location={location}
                   searchable
@@ -77,20 +134,12 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
               );
             }
           })}
-        {filteredCollectionTypeLinks.length > 0 && (
-          <LeftMenuLinksSection
-            section="collectionTipos"
-            name="collectionTipos"
-            links={filteredCollectionTypeLinks}
-            location={location}
-            searchable
-          />
-        )}
-        {filteredSingleTypeLinks.length > 0 && (
+
+        {menuSingles.length > 0 && (
           <LeftMenuLinksSection
             section="singleType"
             name="singleType"
-            links={filteredSingleTypeLinks}
+            links={menuSingles}
             location={location}
             searchable
           />

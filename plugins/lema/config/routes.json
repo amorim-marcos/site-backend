@@ -7,6 +7,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/add-section",
+      "handler": "lema.addMenuSection",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
