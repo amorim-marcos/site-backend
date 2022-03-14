@@ -51,7 +51,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
     });
   }
 
-  function filterMenu() {
+  function f() {
     const singles = [];
     const groups = [];
 
@@ -82,7 +82,9 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
         let obj =
           c >= 0 ? filteredCollectionTypeLinks[c] : filteredSingleTypeLinks[s];
 
-        singles.push(obj);
+        if (!!obj) {
+          singles.push(obj);
+        }
       }
 
       setMenuGroups(groups);
@@ -98,7 +100,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
       filteredCollectionTypeLinks.length > 0 &&
       filteredSingleTypeLinks.length > 0
     ) {
-      filterMenu();
+      f();
     }
   }, [lemaData, filteredCollectionTypeLinks, filteredSingleTypeLinks]);
 
@@ -114,11 +116,34 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // useEffect(() => {
+  //   console.log("ONE", collectionTypesSectionLinks, singleTypesSectionLinks);
+  //   console.log("TWO", menuGroups, menuSingles);
+  // }, [menuGroups, menuSingles]);
+
   return (
     <Wrapper>
       <Loader show={isLoading} />
       <LeftMenuHeader />
       <LinksContainer>
+        {/* {filteredCollectionTypeLinks.length > 0 && (
+          <LeftMenuLinksSection
+            section="collectionType"
+            name="collectionType"
+            links={filteredCollectionTypeLinks}
+            location={location}
+            searchable
+          />
+        )}
+        {filteredSingleTypeLinks.length > 0 && (
+          <LeftMenuLinksSection
+            section="singleType"
+            name="singleType"
+            links={filteredSingleTypeLinks}
+            location={location}
+            searchable
+          />
+        )} */}
         {menuGroups.length > 0 &&
           menuGroups.map((item, i) => {
             if (item.items.length > 0) {

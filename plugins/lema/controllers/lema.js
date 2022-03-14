@@ -96,6 +96,10 @@ module.exports = {
 };
 
 const defaultMessages = {
+  collectionType: {
+    id: "app.components.LeftMenuLinkContainer.collectionType",
+    defaultMessage: "collection Types",
+  },
   singleType: {
     id: "app.components.LeftMenuLinkContainer.singleTypes",
     defaultMessage: "Single Types",
