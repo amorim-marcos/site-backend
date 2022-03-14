@@ -17,7 +17,6 @@ module.exports = {
       "link",
       "bulletedList",
       "numberedList",
-      "insertImage",
       "strapiMediaLib",
       "|",
       "alignment",
