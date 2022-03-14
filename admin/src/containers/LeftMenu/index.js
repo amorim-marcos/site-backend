@@ -51,7 +51,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
     });
   }
 
-  function f() {
+  function filterMenu() {
     const singles = [];
     const groups = [];
 
@@ -98,7 +98,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
       filteredCollectionTypeLinks.length > 0 &&
       filteredSingleTypeLinks.length > 0
     ) {
-      f();
+      filterMenu();
     }
   }, [lemaData, filteredCollectionTypeLinks, filteredSingleTypeLinks]);
 
