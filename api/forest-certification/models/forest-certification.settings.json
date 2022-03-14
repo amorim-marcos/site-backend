@@ -41,6 +41,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "lema": {
+          "section_code": "pages"
         }
       }
     }
