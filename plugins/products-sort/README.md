@@ -1,3 +1,3 @@
-# Strapi plugin DNDCollectionSort
+# Strapi plugin Products Sort
 
-Use this plugin to sort your collections with drag and drop
+Use this plugin to sort products by bp with drag and drop
