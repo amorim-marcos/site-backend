@@ -2,6 +2,16 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/url",
+      "handler": "dnd-collection-sort.getUrl",
+      "config": {
+        "policies": [
+          "isAdmin"
+        ]
+      }
+    },
+    {
+      "method": "GET",
       "path": "/products",
       "handler": "dnd-collection-sort.getProducts",
       "config": {
