@@ -4,13 +4,14 @@ module.exports = async (ctx, next) => {
   if (!ctx.state.user) {
     ctx.unauthorized('Access refused : Please be logged in.')
   }
+  
   if (ctx.state.user.roles) {
     for (let i = 0; ctx.state.user.roles[i]; i++) {
-      if (ctx.state.user.roles[i].code === 'strapi-super-admin') {
+      if (ctx.state.user.roles[i].code === 'strapi-super-admin' || ctx.state.user.roles[i].code === 'strapi-editor') {
         return await next()
       }
     }
   }
 
-  return ctx.unauthorized('Access refused : You are not and administrator.')
+  return ctx.unauthorized('Access refused : You are not allowed to do this operation.')
 }
