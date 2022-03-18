@@ -11,7 +11,7 @@ module.exports = {
         // const id = ctx.params.id;
         const { url_code } = ctx.params;
 
-        const products = await strapi.services.products.find({ '_sort': 'complete_name:ASC' })
+        const products = await strapi.services.products.find({ '_sort': 'scale:ASC' })
         const totalProducts = products.length
 
         const productIndex = products.findIndex((p) => p.url_code == url_code) 
