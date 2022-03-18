@@ -13,13 +13,15 @@ module.exports = {
             }
         },
         async beforeUpdate(params, data){
-            if(data.products.length == 0){
+            if(!params.avoidHook && (!data.products || data.products.length == 0)){
                 throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
             }
+
+            if(params.avoidHook) delete params.avoidHook
         },
         async afterCreate(result, data) {
            const url_code = await strapi.services.ambients.generateSlug(data.title,result.id)
-           await strapi.query('ambients').update({ id: result.id }, { url_code: url_code})
+           await strapi.query('ambients').update({ id: result.id, avoidHook: true }, { url_code: url_code})
         }
     }
 };
