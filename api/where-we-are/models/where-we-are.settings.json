@@ -44,15 +44,6 @@
         }
       }
     },
-    "google_maps_url": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "state": {
       "type": "string",
       "required": true,
@@ -94,6 +85,24 @@
           "localized": false
         }
       }
+    },
+    "latitude": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "longitude": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }
