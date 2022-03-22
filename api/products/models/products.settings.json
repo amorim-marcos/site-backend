@@ -53,7 +53,7 @@
           "localized": true
         }
       },
-      "required": true
+      "required": false
     },
     "uses_and_applications": {
       "type": "text",
