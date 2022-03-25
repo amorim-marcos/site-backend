@@ -12,7 +12,10 @@ import { ContainerDND } from "../../components/ContainerDND";
 
 import pluginId from "../../pluginId";
 import getTrad from "../../utils/getTrad";
-import { errorNotifications, successNotification } from "../../utils/notifications";
+import {
+  errorNotifications,
+  successNotification,
+} from "../../utils/notifications";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -23,7 +26,12 @@ const HomePage = () => {
   const handleClickSave = async () => {
     request(`/${pluginId}/products/`, {
       method: "PUT",
-      body: { sortedProducts },
+      body: {
+        sortedProducts: sortedProducts.map((item) => ({
+          id: item.id,
+          scale: item.scale,
+        })),
+      },
     })
       .then(() => successNotification("Successfully saved"))
       .catch((err) => errorNotifications(err));
