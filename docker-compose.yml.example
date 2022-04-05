@@ -18,3 +18,9 @@ services:
       - ./.meilisearch/storage:/data.ms
       - ./.meilisearch/dumps:/dumps
     restart: unless-stopped
+  redis:
+    image: redis:5.0
+    container_name: Redis
+    ports:
+      - 6379:6379
+    restart: unless-stopped
