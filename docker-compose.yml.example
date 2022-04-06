@@ -23,4 +23,5 @@ services:
     container_name: Redis
     ports:
       - 6379:6379
+    command: --requirepass password
     restart: unless-stopped
