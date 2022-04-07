@@ -24,7 +24,6 @@ module.exports = {
             data.url_code = data.title.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
         },
         async beforeUpdate(params, data){
-            console.log(data)
             if(data.category === null){
                 throw strapi.errors.badRequest(`É necessário escolher uma categoria para a publicação.`)
             }
