@@ -38,6 +38,7 @@
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
     "knex": "0.21.18",
+    "koa2-ratelimit": "^1.1.0",
     "lodash": "^4.17.21",
     "meilisearch": "^0.24.0",
     "mocha": "^9.1.3",

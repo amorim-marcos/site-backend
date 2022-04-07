@@ -6311,6 +6311,11 @@ koa2-ratelimit@^0.9.0:
     promise-redis "0.0.5"
     sequelize "^5.8.7"
 
+koa2-ratelimit@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/koa2-ratelimit/-/koa2-ratelimit-1.1.0.tgz#5ab432fdda7b2d63a4fb1b9a0d994c1264396aff"
+  integrity sha512-AumRCI8YO9TMF9trVP6j68K5qzi21ajZUOCb5VuPWq9pZw+FHXam275S5P1IDAlZjs1cDFBOAAkhwTdTbVCcsg==
+
 koa@^2.13.1:
   version "2.13.4"
   resolved "https://registry.npmjs.org/koa/-/koa-2.13.4.tgz"
@@ -7278,7 +7283,7 @@ node-forge@^0.10.0:
   resolved "https://registry.npmjs.org/node-forge/-/node-forge-0.10.0.tgz"
   integrity sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA==
 
-"node-gyp-build@github:kriszyp/node-gyp-build#optional-packages":
+node-gyp-build@kriszyp/node-gyp-build#optional-packages:
   version "4.3.0"
   resolved "https://codeload.github.com/kriszyp/node-gyp-build/tar.gz/c9952cb77e89d2cd8b6c2d4d056a06d41834b305"
 
