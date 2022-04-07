@@ -11,7 +11,7 @@ module.exports = {
     lifecycles: {
         async beforeCreate(data) {
             if(!data.category){
-                throw strapi.errors.badRequest(`É necessário escolher uma categoria para a publicação.`)
+                throw strapi.errors.badRequest(`É necessário escolher uma categoria para a publicação antes de criar.`)
             }
 
             if(data.is_highlighted){
@@ -24,7 +24,7 @@ module.exports = {
             data.url_code = data.title.normalize("NFD").replace(/[^\w ]/g, "").split(' ').join('-').toLowerCase()
         },
         async beforeUpdate(params, data){
-            if(!data.category){
+            if(data.category === null){
                 throw strapi.errors.badRequest(`É necessário escolher uma categoria para a publicação.`)
             }
             
