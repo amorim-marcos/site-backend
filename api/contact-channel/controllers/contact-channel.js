@@ -1,8 +1,22 @@
-'use strict';
+"use strict";
 
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
- */
+const ContactChannelQueue = require("../../../scripts/bull/src/queues/ContactChannelQueue");
 
-module.exports = {};
+const queue = ContactChannelQueue.queue;
+const queueName = ContactChannelQueue.queueName;
+
+module.exports = {
+  create: async (ctx) => {
+    const data = {};
+
+    try {
+      queue.add(queueName, data);
+      ctx.response.status = 201;
+      ctx.send({ message: "Job added to queue" });
+    } catch (err) {
+      console.log(err);
+      ctx.response.status = 500;
+      ctx.send({ error: err });
+    }
+  },
+};
