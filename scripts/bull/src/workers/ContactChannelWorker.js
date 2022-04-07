@@ -1,4 +1,6 @@
-const ContactChannelQueue = require("../queues/ContactChannelQueue").queue;
+const ContactChannelQueue = require("../queues/ContactChannelQueue");
+const queue = ContactChannelQueue.queue;
+const queueName = ContactChannelQueue.queueName;
 
 function wait(ms) {
   const start = Date.now();
@@ -9,18 +11,26 @@ function wait(ms) {
   }
 }
 
-ContactChannelQueue.process(function (job, done) {
-  // job.data contains the custom data passed when the job was created
-  // job.id contains id of this job.
+function Job(job, done) {
+  console.log("[Bull] Job: Start processing job");
 
-  wait(500);
+  wait(1000);
 
-  // call done when finished
-  done();
+  done(null, { message: "Hello World!" });
+}
 
-  // or give a error if error
-  // done(new Error("error transcoding"));
+const nProcess = process.env.BULL_QUEUE_CONCURRENCY || 1;
 
-  // or pass it a result
-  // done(null, { framerate: 29.5 /* etc... */ });
+queue.process(queueName, nProcess, Job);
+
+queue.on("completed", (job, result) => {
+  console.log(`[Bull] Job completed: ${job.id}`);
+  console.log("[Bull] Job result:", result);
 });
+
+queue.on("failed", (job, err) => {
+  console.log(err);
+  console.log(`[Bull] Job failed: ${job.id} ${JSON.stringify(err)}`);
+});
+
+console.log(`[Bull] Worker: Start ${queueName} Worker`);

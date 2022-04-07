@@ -5,6 +5,7 @@ const QUEUE_NAME = "contact-channel";
 
 const ContactChannelQueue = new Queue(QUEUE_NAME, {
   redis: config.connection,
+  limiter: config.limiter,
 });
 
 module.exports = {

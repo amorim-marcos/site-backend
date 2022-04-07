@@ -5,6 +5,7 @@ const QUEUE_NAME = "mail";
 
 const MailQueue = new Queue(QUEUE_NAME, {
   redis: config.connection,
+  limiter: config.limiter,
 });
 
 module.exports = {
