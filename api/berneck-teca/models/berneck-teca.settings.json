@@ -62,7 +62,6 @@
         "files"
       ],
       "plugin": "upload",
-      "required": true,
       "pluginOptions": {}
     }
   }
