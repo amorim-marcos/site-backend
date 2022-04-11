@@ -23,6 +23,8 @@ module.exports = {
         
         const product = sanitizeEntity(products[productIndex], { model: strapi.models.products });
 
+        product.totalWithSameName = await strapi.services.products.countWithSameName(product.name);
+
         product.next = sanitizeEntity(products[nextIndex], { model: strapi.models.products });
         product.prev = sanitizeEntity(products[prevIndex], { model: strapi.models.products });
 
