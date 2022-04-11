@@ -20,4 +20,9 @@ module.exports = {
             }
         )
     },
+    countWithSameName: async (name) => {
+        const total = await strapi.query('products').count({ name_contains: name})
+
+        return total
+    }
 };
