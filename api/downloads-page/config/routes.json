@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/downloads-page",
+      "handler": "downloads-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/downloads-page",
+      "handler": "downloads-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/downloads-page",
+      "handler": "downloads-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
