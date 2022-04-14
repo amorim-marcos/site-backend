@@ -37,7 +37,6 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true,
       "pluginOptions": {}
     }
   }
