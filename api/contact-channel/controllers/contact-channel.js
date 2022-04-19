@@ -6,10 +6,17 @@ const queue = ContactChannelQueue.queue;
 const queueName = ContactChannelQueue.queueName;
 
 module.exports = {
-  create: async (ctx) => {
-    const data = {};
+  sendForm: async (ctx) => {
+    const contactChannelId = ctx.params.id
 
-    try {
+    const contactChannel = await strapi.query('contact-channel').findOne({ id: contactChannelId })
+
+    const data = ctx.request.body
+    data.service_code = contactChannel.service_code
+    data.channel = contactChannel.name
+
+    ctx.send(data)
+    /** try {
       queue.add(queueName, data);
       ctx.response.status = 201;
       ctx.send({ message: "Job added to queue" });
@@ -18,5 +25,6 @@ module.exports = {
       ctx.response.status = 500;
       ctx.send({ error: err });
     }
+    */
   },
 };

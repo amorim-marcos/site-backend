@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/contact-channels/:id/sendForm",
+      "handler": "contact-channel.sendForm",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/contact-channels/:id",
       "handler": "contact-channel.delete",
