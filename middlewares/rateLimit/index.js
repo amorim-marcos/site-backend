@@ -22,7 +22,7 @@ module.exports = (strapi) => {
             {},
             {
               interval: { min: 1 },
-              max: 10,
+              max: 100,
               prefixKey: "contact-channels",
               message,
             },
