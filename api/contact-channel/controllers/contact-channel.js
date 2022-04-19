@@ -2,8 +2,8 @@
 
 const ContactChannelQueue = require("../../../scripts/bull/src/queues/ContactChannelQueue");
 
-const queue = ContactChannelQueue.queue;
-const queueName = ContactChannelQueue.queueName;
+const ccqueue = ContactChannelQueue.queue;
+const ccqueueName = ContactChannelQueue.queueName;
 
 module.exports = {
   sendForm: async (ctx) => {
@@ -14,10 +14,9 @@ module.exports = {
     const data = ctx.request.body
     data.service_code = contactChannel.service_code
     data.channel = contactChannel.name
-
-    ctx.send(data)
-    /** try {
-      queue.add(queueName, data);
+    
+    try {
+      ccqueue.add(ccqueueName, data);
       ctx.response.status = 201;
       ctx.send({ message: "Job added to queue" });
     } catch (err) {
@@ -25,6 +24,5 @@ module.exports = {
       ctx.response.status = 500;
       ctx.send({ error: err });
     }
-    */
   },
 };
