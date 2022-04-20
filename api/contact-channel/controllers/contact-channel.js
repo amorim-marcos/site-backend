@@ -2,15 +2,21 @@
 
 const ContactChannelQueue = require("../../../scripts/bull/src/queues/ContactChannelQueue");
 
-const queue = ContactChannelQueue.queue;
-const queueName = ContactChannelQueue.queueName;
+const ccqueue = ContactChannelQueue.queue;
+const ccqueueName = ContactChannelQueue.queueName;
 
 module.exports = {
-  create: async (ctx) => {
-    const data = {};
+  sendForm: async (ctx) => {
+    const contactChannelId = ctx.params.id
 
+    const contactChannel = await strapi.query('contact-channel').findOne({ id: contactChannelId })
+
+    const data = ctx.request.body
+    data.service_code = contactChannel.service_code
+    data.channel = contactChannel.name
+    
     try {
-      queue.add(queueName, data);
+      ccqueue.add(ccqueueName, data, { timeout: 10000 });
       ctx.response.status = 201;
       ctx.send({ message: "Job added to queue" });
     } catch (err) {
