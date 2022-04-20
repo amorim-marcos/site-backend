@@ -39,7 +39,7 @@ async function SendFormJob(job, done) {
     })
 
     if(workflowData){
-        const workflowID = return1[0].RecordID
+        const workflowID = workflowData[0].RecordID
 
         const editRecordData = await client.editEntityRecordAsync({
             "WorkflowID": workflowID,
