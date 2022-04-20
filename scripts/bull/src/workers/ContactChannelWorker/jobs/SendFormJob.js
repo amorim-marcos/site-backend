@@ -13,7 +13,7 @@ async function SendFormJob(job, done) {
 
     // Form data
     const fcnome = job.data.name
-    const fcemail = job.data.mail
+    const fcemail = job.data.email
     const fcfone = job.data.phone
     const fccidade = job.data.city
     const fcuf = job.data.state
@@ -39,6 +39,7 @@ async function SendFormJob(job, done) {
     })
 
     if(workflowData){
+        console.log(workflowData[0])
         const workflowID = workflowData[0].RecordID
 
         const editRecordData = await client.editEntityRecordAsync({
@@ -98,9 +99,11 @@ async function SendFormJob(job, done) {
             if(activityData[0].Status != 'FAILURE'){
                 done(null, { message: "Everything is fine."})
             }else{
+                console.log(activityData[0])
                 throw new Error(activityData[0])
             }
         }else{
+            console.log(editRecordData[0])
             throw new Error(editRecordData[0])
         }
     }else{
