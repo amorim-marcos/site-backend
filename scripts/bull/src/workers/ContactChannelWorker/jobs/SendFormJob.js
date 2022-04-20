@@ -23,12 +23,13 @@ async function SendFormJob(job, done) {
     // Strapi data
     const fccanal = job.data.channel;
     const fcpapelcanal = job.data.service_code;
-
+    
     const client = await soap.createClientAsync(wsdl, {
         "trace": 1,
         "exceptons": 1,
         "location": location
     })
+    .catch((e)=> { throw new Error(e) })
 
     client.addHttpHeader("Authorization", authToken)
     
@@ -96,7 +97,7 @@ async function SendFormJob(job, done) {
             })
 
             if(activityData[0].Status != 'FAILURE'){
-                done(null, { message: "Everything is fine."})
+                done(null, { workflowID: workflowID})
             }else{
                 throw new Error(JSON.stringify(activityData[0]))
             }
