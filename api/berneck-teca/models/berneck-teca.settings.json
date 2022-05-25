@@ -28,15 +28,15 @@
       "required": true
     },
     "header_subtitle_description": {
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "description": {
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "uses_and_applications": {
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "machinability": {
@@ -58,9 +58,7 @@
     "technical_sheet": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": [
-        "files"
-      ],
+      "allowedTypes": ["files"],
       "plugin": "upload",
       "pluginOptions": {}
     }

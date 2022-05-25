@@ -7,7 +7,7 @@
   "options": {},
   "attributes": {
     "structure": {
-      "type": "text"
+      "type": "richtext"
     },
     "localization": {
       "type": "string"
@@ -16,7 +16,7 @@
       "type": "string"
     },
     "airport_distance": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }

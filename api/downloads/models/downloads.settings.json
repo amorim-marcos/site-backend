@@ -31,17 +31,13 @@
           "localized": true
         }
       },
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "file": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "files",
-        "images",
-        "videos"
-      ],
+      "allowedTypes": ["files", "images", "videos"],
       "plugin": "upload",
       "required": true,
       "pluginOptions": {
@@ -56,9 +52,7 @@
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}

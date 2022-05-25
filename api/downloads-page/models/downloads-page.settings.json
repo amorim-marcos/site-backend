@@ -30,7 +30,7 @@
           "localized": true
         }
       },
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "patterns_pack_title": {
@@ -48,15 +48,13 @@
           "localized": true
         }
       },
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "patterns_pack_file": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "files"
-      ],
+      "allowedTypes": ["files"],
       "plugin": "upload",
       "required": true,
       "pluginOptions": {

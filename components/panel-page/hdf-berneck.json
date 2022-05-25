@@ -19,15 +19,13 @@
     "technical_sheet": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "files"
-      ],
+      "allowedTypes": ["files"],
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}
     },
     "subtitle_description": {
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "_width": {
@@ -39,7 +37,7 @@
       "required": true
     },
     "uses_and_applications": {
-      "type": "text",
+      "type": "richtext",
       "required": true
     },
     "thickness": {
@@ -51,7 +49,7 @@
       "required": true
     },
     "description": {
-      "type": "text",
+      "type": "richtext",
       "required": true
     }
   }

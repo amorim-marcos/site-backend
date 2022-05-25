@@ -38,7 +38,7 @@
       }
     },
     "header_subtitle_description": {
-      "type": "text",
+      "type": "richtext",
       "required": true,
       "pluginOptions": {
         "i18n": {
@@ -47,7 +47,7 @@
       }
     },
     "description": {
-      "type": "text",
+      "type": "richtext",
       "required": true,
       "pluginOptions": {
         "i18n": {
@@ -56,7 +56,7 @@
       }
     },
     "uses_and_applications": {
-      "type": "text",
+      "type": "richtext",
       "required": true,
       "pluginOptions": {
         "i18n": {
@@ -103,9 +103,7 @@
     "technical_sheet": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "files"
-      ],
+      "allowedTypes": ["files"],
       "plugin": "upload",
       "required": true,
       "pluginOptions": {
