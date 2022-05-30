@@ -36,7 +36,7 @@
       }
     },
     "header_text": {
-      "type": "text",
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -44,7 +44,7 @@
       }
     },
     "section1_text": {
-      "type": "text",
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -52,7 +52,7 @@
       }
     },
     "quality_norms_text": {
-      "type": "text",
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -78,7 +78,7 @@
       }
     },
     "section2_text": {
-      "type": "text",
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true

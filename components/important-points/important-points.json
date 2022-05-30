@@ -7,7 +7,7 @@
   "options": {},
   "attributes": {
     "point_text": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }

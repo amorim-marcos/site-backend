@@ -32,7 +32,7 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "richtext"
     },
     "quality_norms": {
       "type": "component",
@@ -50,7 +50,7 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "richtext"
     }
   }
 }

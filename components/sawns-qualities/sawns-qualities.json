@@ -16,10 +16,10 @@
       "type": "string"
     },
     "description": {
-      "type": "text"
+      "type": "richtext"
     },
     "uses_and_applications": {
-      "type": "text"
+      "type": "richtext"
     },
     "thickness": {
       "type": "string"
@@ -33,9 +33,7 @@
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "plugin": "upload",
       "pluginOptions": {}
     }
