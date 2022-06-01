@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/representatives-list",
+      "handler": "representatives-list.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/representatives-list",
+      "handler": "representatives-list.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/representatives-list",
+      "handler": "representatives-list.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
