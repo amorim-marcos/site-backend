@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "downloads_pages",
   "info": {
-    "name": "Downloads Page"
+    "name": "Página de Downloads"
   },
   "options": {
     "increments": true,
@@ -12,6 +12,9 @@
   "pluginOptions": {
     "i18n": {
       "localized": true
+    },
+    "lema": {
+      "section_code": "bnkchannel"
     }
   },
   "attributes": {

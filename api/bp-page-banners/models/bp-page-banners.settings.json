@@ -2,14 +2,18 @@
   "kind": "collectionType",
   "collectionName": "bp_page_banners",
   "info": {
-    "name": "BP Page Banners"
+    "name": "Banners da Página de BPs"
   },
   "options": {
     "increments": true,
     "timestamps": true,
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "lema": {
+      "section_code": "bps"
+    }
+  },
   "attributes": {
     "link": {
       "type": "string"

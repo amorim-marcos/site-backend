@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "who_we_ares",
   "info": {
-    "name": "Who we are",
+    "name": "Somos Berneck",
     "description": ""
   },
   "options": {
@@ -13,6 +13,9 @@
   "pluginOptions": {
     "i18n": {
       "localized": true
+    },
+    "lema": {
+      "section_code": "pages"
     }
   },
   "attributes": {

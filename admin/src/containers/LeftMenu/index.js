@@ -146,6 +146,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
         )} */}
         {menuGroups.length > 0 &&
           menuGroups.map((item, i) => {
+            console.log(item, i)
             if (item.items.length > 0) {
               return (
                 <LeftMenuLinksSection

@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "plus_bernecks",
   "info": {
-    "name": "Plus Berneck",
+    "name": "Berneck Plus",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
       "localized": true
     },
     "lema": {
-      "section_code": "pages"
+      "section_code": "products"
     }
   },
   "attributes": {

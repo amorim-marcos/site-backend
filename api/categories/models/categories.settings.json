@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "categories",
   "info": {
-    "name": "Categories",
+    "name": "Categorias",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
       "localized": true
     },
     "lema": {
-      "section_code": "canal-bnk"
+      "section_code": "bnkchannel"
     }
   },
   "attributes": {

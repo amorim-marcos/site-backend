@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "highlighted_ambient_types",
   "info": {
-    "name": "Highlighted Ambient Types",
+    "name": "Tipos de Ambientes em Destaque",
     "description": ""
   },
   "options": {

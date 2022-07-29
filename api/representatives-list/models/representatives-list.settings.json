@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "representatives_lists",
   "info": {
-    "name": "Representatives List"
+    "name": "Lista de Representantes"
   },
   "options": {
     "increments": true,
@@ -12,6 +12,9 @@
   "pluginOptions": {
     "i18n": {
       "localized": true
+    },
+    "lema": {
+      "section_code": "wherebuy"
     }
   },
   "attributes": {

@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "products_textures",
   "info": {
-    "name": "Products Textures",
+    "name": "Texturas",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
       "localized": true
     },
     "lema": {
-      "section_code": "products"
+      "section_code": "bps"
     }
   },
   "attributes": {

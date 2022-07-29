@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "panel_types",
   "info": {
-    "name": "Panel Types",
+    "name": "Tipos de Painéis",
     "description": ""
   },
   "options": {
@@ -13,6 +13,9 @@
   "pluginOptions": {
     "i18n": {
       "localized": true
+    },
+    "lema": {
+      "section_code": "products"
     }
   },
   "attributes": {

@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "ambient_styles",
   "info": {
-    "name": "Ambient Styles"
+    "name": "Estilos de Ambiente"
   },
   "options": {
     "increments": true,

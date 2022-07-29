@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "where_we_ares",
   "info": {
-    "name": "Where we are",
+    "name": "Onde estamos",
     "description": ""
   },
   "options": {
@@ -13,6 +13,9 @@
   "pluginOptions": {
     "i18n": {
       "localized": true
+    },
+    "lema": {
+      "section_code": "pages"
     }
   },
   "attributes": {

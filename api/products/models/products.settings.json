@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "products",
   "info": {
-    "name": "Products",
+    "name": "BPs",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
       "localized": true
     },
     "lema": {
-      "section_code": "products"
+      "section_code": "bps"
     }
   },
   "attributes": {
