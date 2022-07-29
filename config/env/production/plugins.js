@@ -6,24 +6,28 @@ module.exports = () => ({
   lema: {
     sections: [
       {
-        code: "ambients",
-        label: "Ambients"
+        code: "ambients", // Galeria de Ambientes
       },
       {
-        code: "pages",
-        label: "Pages"
+        code: "pages", // Páginas institucionais
       },
       {
-        code: "products",
-        label: "BPs"
+        code: "bps", // BPs
       },
       {
-        code: "canal-bnk",
-        label: "Canal BNK"
+        code: "products", // Páginas de Produto
       },
       {
-        code: "legislation",
-        label: "Legislation"
+        code: "bnk_channel", // Canal BNK
+      },
+      {
+        code: "contact", // Fale Conosco
+      },
+      {
+        code: "legislation", // Legislação
+      },
+      {
+        code: "where_to_buy", // Onde Comprar
       }
     ]
   }

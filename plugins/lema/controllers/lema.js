@@ -58,26 +58,27 @@ module.exports = {
         section = sections.find(
           (section) => section.code == data.pluginOptions["lema"].section_code
         );
-
+        
         // console.log(section)
-
-        item = {
-          code: "single_" + data.collectionName,
-          label: data.info.name,
-          url: `/plugins/content-manager/${data.kind}/${data.uid}`,
-          // url: `${strapi.config.admin.url}/plugins/content-manager/${data.kind}/${data.uid}`,
-        };
-
-        if (section != undefined) {
-          section.items.push(item);
-        } else {
-          section = {
-            code: currentSection.code,
-            label: currentSection.label,
-            type: "group",
-            items: [item],
+        if(currentSection){
+          item = {
+            code: "single_" + data.collectionName,
+            label: data.info.name,
+            url: `/plugins/content-manager/${data.kind}/${data.uid}`,
+            // url: `${strapi.config.admin.url}/plugins/content-manager/${data.kind}/${data.uid}`,
           };
-          sections.push(section);
+  
+          if (section != undefined) {
+            section.items.push(item);
+          } else {
+            section = {
+              code: currentSection.code,
+              label: currentSection.label,
+              type: "group",
+              items: [item],
+            };
+            sections.push(section);
+          }
         }
       } else {
         // Single section line
