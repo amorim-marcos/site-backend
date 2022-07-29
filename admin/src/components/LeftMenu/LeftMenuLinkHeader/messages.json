@@ -15,8 +15,8 @@
     "id": "app.components.LeftMenuLinkContainer.item.bps",
     "defaultMessage": "BPs"
   },
-  "bnk_channel": {
-    "id": "app.components.LeftMenuLinkContainer.item.canalbnk",
+  "bnkchannel": {
+    "id": "app.components.LeftMenuLinkContainer.item.bnkchannel",
     "defaultMessage": "Canal BNK"
   },
   "legislation": {
@@ -27,8 +27,8 @@
     "id": "app.components.LeftMenuLinkContainer.item.contact",
     "defaultMessage": "Contato"
   },
-  "where_to_buy": {
-    "id": "app.components.LeftMenuLinkContainer.item.where_to_buy",
+  "wherebuy": {
+    "id": "app.components.LeftMenuLinkContainer.item.wherebuy",
     "defaultMessage": "Onde Comprar"
   },
   "collectionType": {

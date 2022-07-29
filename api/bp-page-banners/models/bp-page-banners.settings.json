@@ -9,7 +9,11 @@
     "timestamps": true,
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "lema": {
+      "section_code": "bps"
+    }
+  },
   "attributes": {
     "link": {
       "type": "string"

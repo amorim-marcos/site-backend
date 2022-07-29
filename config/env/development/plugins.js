@@ -18,7 +18,7 @@ module.exports = () => ({
         code: "products", // Páginas de Produto
       },
       {
-        code: "bnk_channel", // Canal BNK
+        code: "bnkchannel", // Canal BNK
       },
       {
         code: "contact", // Fale Conosco
@@ -27,7 +27,7 @@ module.exports = () => ({
         code: "legislation", // Legislação
       },
       {
-        code: "where_to_buy", // Onde Comprar
+        code: "wherebuy", // Onde Comprar
       }
     ]
   }
