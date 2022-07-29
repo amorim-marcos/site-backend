@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "certifications",
   "info": {
-    "name": "Certifications"
+    "name": "Certificações"
   },
   "options": {
     "increments": true,

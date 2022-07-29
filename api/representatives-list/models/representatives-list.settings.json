@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "representatives_lists",
   "info": {
-    "name": "Representatives List"
+    "name": "Lista de Representantes"
   },
   "options": {
     "increments": true,

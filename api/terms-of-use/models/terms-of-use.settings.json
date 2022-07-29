@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "terms_of_uses",
   "info": {
-    "name": "Terms of Use"
+    "name": "Termos de Uso"
   },
   "options": {
     "increments": true,

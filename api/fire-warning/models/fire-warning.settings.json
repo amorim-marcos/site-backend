@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "fire_warnings",
   "info": {
-    "name": "Fire Warning"
+    "name": "Aviso de Incêndio"
   },
   "options": {
     "increments": true,

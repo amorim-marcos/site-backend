@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "bp_page_banners",
   "info": {
-    "name": "BP Page Banners"
+    "name": "Banners da Página de BPs"
   },
   "options": {
     "increments": true,

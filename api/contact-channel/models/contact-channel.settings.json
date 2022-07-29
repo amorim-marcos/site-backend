@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "contact_channels",
   "info": {
-    "name": "Contact Channel",
+    "name": "Canais disponíveis",
     "description": ""
   },
   "options": {

@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "downloads_pages",
   "info": {
-    "name": "Downloads Page"
+    "name": "Página de Downloads"
   },
   "options": {
     "increments": true,
