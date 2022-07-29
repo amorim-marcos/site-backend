@@ -1,23 +1,35 @@
 {
   "ambients": {
     "id": "app.components.LeftMenuLinkContainer.item.ambients",
-    "defaultMessage": "Ambients"
+    "defaultMessage": "Galeria de Ambientes"
   },
   "pages": {
     "id": "app.components.LeftMenuLinkContainer.item.pages",
-    "defaultMessage": "Pages!"
+    "defaultMessage": "Páginas Institucionais"
   },
   "products": {
     "id": "app.components.LeftMenuLinkContainer.item.products",
+    "defaultMessage": "Produtos"
+  },
+  "bps": {
+    "id": "app.components.LeftMenuLinkContainer.item.bps",
     "defaultMessage": "BPs"
   },
-  "canalbnk": {
+  "bnk_channel": {
     "id": "app.components.LeftMenuLinkContainer.item.canalbnk",
     "defaultMessage": "Canal BNK"
   },
   "legislation": {
     "id": "app.components.LeftMenuLinkContainer.item.legislation",
-    "defaultMessage": "Legislation"
+    "defaultMessage": "Legislação"
+  },
+  "contact": {
+    "id": "app.components.LeftMenuLinkContainer.item.contact",
+    "defaultMessage": "Contato"
+  },
+  "where_to_buy": {
+    "id": "app.components.LeftMenuLinkContainer.item.where_to_buy",
+    "defaultMessage": "Onde Comprar"
   },
   "collectionType": {
     "id": "app.components.LeftMenuLinkContainer.collectionType",
