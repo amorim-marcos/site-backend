@@ -63,6 +63,7 @@ module.exports = {
         if(currentSection){
           item = {
             code: "single_" + data.collectionName,
+            order: currentSection.order,
             label: data.info.name,
             url: `/plugins/content-manager/${data.kind}/${data.uid}`,
             // url: `${strapi.config.admin.url}/plugins/content-manager/${data.kind}/${data.uid}`,
@@ -73,6 +74,7 @@ module.exports = {
           } else {
             section = {
               code: currentSection.code,
+              order: currentSection.order,
               label: currentSection.label,
               type: "group",
               items: [item],
@@ -91,6 +93,12 @@ module.exports = {
         });
       }
     }
+
+    sections = sections.sort((a,b) => {
+      if(a.order > b.order) return 1
+      else return -1
+    })
+
     // Send 200 `ok`
     ctx.send(sections);
   },

@@ -6,28 +6,36 @@ module.exports = () => ({
   lema: {
     sections: [
       {
-        code: "ambients", // Galeria de Ambientes
-      },
-      {
         code: "pages", // Páginas institucionais
-      },
-      {
-        code: "bps", // BPs
+        order: 0,
       },
       {
         code: "products", // Páginas de Produto
+        order: 1
+      },
+      {
+        code: "bps", // BPs
+        order: 2
+      },
+      {
+        code: "ambients", // Galeria de Ambientes
+        order: 3,
       },
       {
         code: "bnkchannel", // Canal BNK
+        order: 4
       },
       {
         code: "contact", // Fale Conosco
-      },
-      {
-        code: "legislation", // Legislação
+        order: 5
       },
       {
         code: "wherebuy", // Onde Comprar
+        order: 6
+      },
+      {
+        code: "legislation", // Legislação
+        order: 7
       }
     ]
   }
