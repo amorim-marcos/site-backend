@@ -3,7 +3,9 @@
 const client = require("./");
 const index = client.index("pages");
 
-index.updateFilterableAttributes(["locale"]);
+client.index("pages").updateFilterableAttributes(["locale"]);
+client.index("posts").updateFilterableAttributes(["locale"]);
+client.index("products").updateFilterableAttributes(["locale"]);
 
 /**
  * Use lifecycles hooks to create pages index.
