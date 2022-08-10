@@ -4,31 +4,29 @@ module.exports = (strapi) => {
   return {
     initialize: function () {
       strapi.app.use(async (ctx, next) => {
-        const ratelimit = require("koa2-ratelimit").RateLimit;
+        if(ctx.request.method == "POST" && ctx.request.url.includes('contact-channels')){
+          const ratelimit = require("koa2-ratelimit").RateLimit;
 
-        const message = [
-          {
-            messages: [
-              {
-                id: "Auth.form.error.ratelimit",
-                message: "Too many attempts, please try again in a minute.",
-              },
-            ],
-          },
-        ];
-
-        return ratelimit.middleware(
-          Object.assign(
-            {},
+          const message = [
             {
-              interval: { min: 1 },
-              max: 100,
-              prefixKey: "contact-channels",
-              message,
+              messages: [
+                {
+                  id: "Auth.form.error.ratelimit",
+                  message: "Too many attempts, please try again in a minute.",
+                },
+              ],
             },
-            strapi.config.get("plugin.users-permissions.ratelimit")
-          )
-        )(ctx, next);
+          ];
+  
+          return ratelimit.middleware({
+            interval: { min: 1 },
+            max: 50,
+            prefixKey: "contact-channels",
+            message,
+          })(ctx, next);
+        }
+
+        await next()
       });
     },
   };
