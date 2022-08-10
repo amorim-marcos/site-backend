@@ -3,6 +3,10 @@
 const client = require("./");
 const index = client.index("pages");
 
+client.index("pages").updateFilterableAttributes(["locale"]);
+client.index("posts").updateFilterableAttributes(["locale"]);
+client.index("products").updateFilterableAttributes(["locale"]);
+
 /**
  * Use lifecycles hooks to create pages index.
  * @memberof MeilisearchIndex
@@ -31,7 +35,8 @@ function useLifecycles(model) {
         data = transformData(data);
         const docs = await index.search("", { q: model });
 
-        await Promise.all( // Delete all locales of model
+        await Promise.all(
+          // Delete all locales of model
           docs.hits.map((doc) => {
             index.deleteDocument(doc.id);
           })
