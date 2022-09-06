@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "instagram_post",
+  "info": {
+    "name": "Instagram Post"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "lema": {
+      "section_code": "bnkchannel"
+    }
+  },
+  "attributes": {
+    "post_url": {
+      "type": "string"
+    }
+  }
+}
