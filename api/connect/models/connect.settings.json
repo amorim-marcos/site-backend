@@ -1,13 +1,13 @@
 {
   "kind": "singleType",
-  "collectionName": "instagram_post",
+  "collectionName": "connects",
   "info": {
-    "name": "Instagram Post"
+    "name": "connect"
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {
     "lema": {
@@ -15,7 +15,10 @@
     }
   },
   "attributes": {
-    "post_url": {
+    "instagram_post_link": {
+      "type": "string"
+    },
+    "youtube_video_link": {
       "type": "string"
     }
   }

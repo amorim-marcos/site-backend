@@ -1,4 +1,4 @@
-const table_name = "instagram_post";
+const table_name = "connect";
 
 exports.up = function (knex) {
   return knex.schema.hasTable(table_name).then(function (exists) {
@@ -9,7 +9,8 @@ exports.up = function (knex) {
         /**
          * The content fields come here
          */
-        table.text("post_url");
+        table.text("instagram_post");
+        table.text("youtube_video");
 
         // table.datetime('published_at').nullable() // only use if draft system is enabled.
         table.integer("created_by").nullable();

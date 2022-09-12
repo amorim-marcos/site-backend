@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/instagram-post",
-      "handler": "instagram-post.find",
+      "path": "/connect",
+      "handler": "connect.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/instagram-post",
-      "handler": "instagram-post.update",
+      "path": "/connect",
+      "handler": "connect.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/instagram-post",
-      "handler": "instagram-post.delete",
+      "path": "/connect",
+      "handler": "connect.delete",
       "config": {
         "policies": []
       }
