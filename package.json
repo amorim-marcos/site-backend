@@ -1,0 +1,75 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop:init": "npm-run-all migrate:all 'complete-config:restore' 'knex:init' 'strapi develop'",
+    "develop": "npm-run-all migrate:all 'strapi develop'",
+    "develop:nomigrate": "strapi develop",
+    "develop-test": "NODE_ENV=test strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "local-config:dump": "node scripts/complete_config_management/dump",
+    "local-config:restore": "node scripts/complete_config_management/restore",
+    "strapi-config:dump": "strapi config:dump -f migrations/configs/core_store.json",
+    "strapi-config:restore": "strapi config:restore -f migrations/configs/core_store.json",
+    "complete-config:dump": "npm-run-all local-config:dump strapi-config:dump",
+    "complete-config:restore": "npm-run-all local-config:restore strapi-config:restore",
+    "test": "mocha --exit",
+    "knex:init": "knex seed:run",
+    "migrate:all": "knex migrate:latest",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "migrate:make": "knex migrate:make",
+    "meili:run": "docker-compose up",
+    "meili:clear": "sudo rm -rf .meilisearch/dumps .meilisearch/storage && docker-compose rm",
+    "watch-admin": "strapi develop --watch-admin"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "shelljs": "^0.8.5",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "bull": "^4.8.1",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "knex": "0.21.18",
+    "koa2-ratelimit": "^1.1.0",
+    "lodash": "^4.17.21",
+    "meilisearch": "^0.24.0",
+    "mocha": "^9.1.3",
+    "mysql": "^2.18.1",
+    "soap": "^0.43.0",
+    "sqlite3": "^5.0.2",
+    "strapi": "3.6.8",
+    "strapi-admin": "3.6.8",
+    "strapi-connector-bookshelf": "3.6.8",
+    "strapi-plugin-ckeditor5": "^1.13.0",
+    "strapi-plugin-content-manager": "3.6.8",
+    "strapi-plugin-content-type-builder": "3.6.8",
+    "strapi-plugin-email": "3.6.8",
+    "strapi-plugin-i18n": "3.6.8",
+    "strapi-plugin-meilisearch": "^0.5.0",
+    "strapi-plugin-upload": "3.6.8",
+    "strapi-plugin-users-permissions": "3.6.8",
+    "strapi-utils": "3.6.8"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "d49c0a7f-4238-4894-bb33-bc0b6e5f7ffb"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
+  "workspaces": [
+    "plugins/*"
+  ],
+  "license": "MIT"
+}

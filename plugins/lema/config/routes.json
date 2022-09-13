@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "lema.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/add-section",
+      "handler": "lema.addMenuSection",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/plus-berneck",
+      "handler": "plus-berneck.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/plus-berneck",
+      "handler": "plus-berneck.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/plus-berneck",
+      "handler": "plus-berneck.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

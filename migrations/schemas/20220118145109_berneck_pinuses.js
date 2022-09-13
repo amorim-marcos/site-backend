@@ -1,0 +1,28 @@
+const table_name = 'berneck_pinuses'
+
+exports.up = function(knex) {
+    return knex.schema.hasTable(table_name).then(function(exists) {
+        if(!exists){
+            return knex.schema.createTable(table_name, function(table) {
+                table.increments('id').unsigned().primary()
+        
+                table.string('header_subtitle')
+                table.text('header_subtitle_description', 'longtext')
+                table.text('description', 'longtext')
+                table.text('uses_and_applications', 'longtext')
+                table.string('species')
+                table.string('standard_humity')
+                table.string('average_density')
+                table.string('average_measure')
+        
+                table.integer('created_by').nullable()
+                table.integer('updated_by').nullable()
+                table.timestamps(true, true)
+            });  
+        }
+    })
+};
+
+exports.down = function(knex) {
+    return knex.schema.dropTableIfExists(table_name);  
+};

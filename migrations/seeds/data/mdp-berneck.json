@@ -1,0 +1,109 @@
+{
+    "single_type": {
+        "locale": "pt-BR"
+    },
+    "hdf_bernecks": [
+        {
+            "id": 5,
+            "page_title": "MDP Berneck",
+            "subtitle": "Painel de Partículas de Média Densidade",
+            "subtitle_description": "Destaca-se pela coloração bem clara e homogênea, superfície lisa e camada interna bem compactada, assegurada pela perfeita distribuição das partículas",
+            "uses_and_applications": "Especialmente indicado para os processos de pintura e impressão, que exigem superfícies uniformes e de baixa absorção e para o revestimento com qualquer material (BPs, laminados de PVC, laminados de Alta Pressão (AP), lâminas de madeira, lâminas pré-compostas, etc.). Proporciona excelente resultado em móveis para dormitórios, escritórios, cozinhas, além de eletro-eletrônicos, construção civil, painéis para decoração, entre outros.",
+            "description": "O MDP BERNECK é formado por partículas de madeira de média densidade, Medium Density Particleboard. É produzido em prensas contínuas de ultima geração. É um dos produtos mais tecnológicos e econômicos para produção de móveis de linhas retas. Destaca-se por sua coloração clara e homogenia e pela menor absorção superficial por ter a camada externa com alta densidade e uniformidade, assegurada pela perfeita distribuição das partículas de madeira.",
+            "thickness": "12 / 15 / 18 / 25",
+            "_width": "2750",
+            "_length": "1850 a 2200"
+        },
+        {
+            "id": 6,
+            "page_title": "MDP Berneck Plus",
+            "subtitle": "É Plus porque tem mais proteção à umidade",
+            "subtitle_description": "A qualidade do MDP BERNECK® aliada à máxima proteção contra umidade e cupins.",
+            "uses_and_applications": "Indicado para móveis de cozinhas, banheiros, lavanderias e ambientes comerciais.",
+            "description": "O MDP BERNECK é formado por partículas de madeira de média densidade, Medium Density Particleboard. É produzido em prensas contínuas de última geração. É um dos produtos mais tecnológicos e econômicos para produção de móveis que não necessitem de trabalhos de baixo relevo. O MDP PLUS é um produto inovador! Além de ser um painel de madeira com maior resistência à umidade, ele traz inúmeras vantagens: leveza, custo competitivo e desempenho superior quando comparado às demais opções do mercado. Possui a coloração esverdeada no miolo como identificação internacional do produto com maior resistência à umidade, diferenciando-o dos painéis Standard. Essa pigmentação pode variar a cada lote de produção e não está associada ao princípio ativo de hidro resistência, ou seja, não é à prova d’água. Vale inovar nos projetos com MDP Plus. Um ótimo investimento, com incomparável custo benefício",
+            "thickness": "12 / 15 / 18 / 25",
+            "_width": "2750",
+            "_length": "1850"
+        }
+    ],
+    "finishes": [
+        {
+            "id": 8,
+            "finish": "Natural (sem revestimento)"
+        },
+        {
+            "id": 9,
+            "finish": "Revestido com laminado de baixa pressão BP BERNECK®"
+        },
+        {
+            "id": 10,
+            "finish": "Natural (sem revestimento)"
+        },
+        {
+            "id": 11,
+            "finish": "Revestido com laminado de baixa pressão BP BERNECK®"
+        }
+    ],
+    "component_rel": [
+        {
+            "field": "mdp_berneck",
+            "order": 1,
+            "component_type": "components_hdf_berneck_hdf_bernecks",
+            "component_id": 5,
+            "mdp_berneck_id": 1
+        },
+        {
+            "field": "mdp_berneck_plus",
+            "order": 2,
+            "component_type": "components_hdf_berneck_hdf_bernecks",
+            "component_id": 6,
+            "mdp_berneck_id": 1
+        }
+    ],
+    "hdf_bernecks_component_rel": [
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 8,
+            "components_hdf_berneck_hdf_berneck_id": 5
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 9,
+            "components_hdf_berneck_hdf_berneck_id": 5
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 10,
+            "components_hdf_berneck_hdf_berneck_id": 6
+        },
+        {
+            "field": "finishes",
+            "order": 1,
+            "component_type": "components_finishes_finishes",
+            "component_id": 11,
+            "components_hdf_berneck_hdf_berneck_id": 6
+        }
+    ],
+    "uploaded_files_morph": [
+        {
+            "upload_file_id": 1,
+            "related_id": 5,
+            "related_type": "components_hdf_berneck_hdf_bernecks",
+            "field": "technical_sheet",
+            "order": 1
+        },
+        {
+            "upload_file_id": 1,
+            "related_id": 6,
+            "related_type": "components_hdf_berneck_hdf_bernecks",
+            "field": "technical_sheet",
+            "order": 1
+        }
+    ]
+}

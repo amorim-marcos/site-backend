@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/our-commitment",
+      "handler": "our-commitment.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/our-commitment",
+      "handler": "our-commitment.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/our-commitment",
+      "handler": "our-commitment.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

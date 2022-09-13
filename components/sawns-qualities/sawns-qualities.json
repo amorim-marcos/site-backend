@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_sawns_qualities_sawns_qualities",
+  "info": {
+    "name": "SawnsQualities",
+    "icon": "wave-square"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "col": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "uses_and_applications": {
+      "type": "richtext"
+    },
+    "thickness": {
+      "type": "string"
+    },
+    "_length": {
+      "type": "string"
+    },
+    "_width": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "pluginOptions": {}
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_hdf_berneck_hdf_bernecks",
+  "info": {
+    "name": "PanelPage",
+    "icon": "pager",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "page_title": {
+      "type": "string",
+      "required": true
+    },
+    "finishes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "finishes.finishes"
+    },
+    "technical_sheet": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["files"],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "subtitle_description": {
+      "type": "richtext",
+      "required": true
+    },
+    "_width": {
+      "type": "string",
+      "required": true
+    },
+    "_length": {
+      "type": "string",
+      "required": true
+    },
+    "uses_and_applications": {
+      "type": "richtext",
+      "required": true
+    },
+    "thickness": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

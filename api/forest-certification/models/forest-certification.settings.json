@@ -1,0 +1,68 @@
+{
+  "kind": "singleType",
+  "collectionName": "forest_certifications",
+  "info": {
+    "name": "Certificação Florestal",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "pages"
+    }
+  },
+  "attributes": {
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "certifier": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "certificates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certificates.certificates",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "lema": {
+          "section_code": "pages"
+        }
+      }
+    },
+    "forest_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    }
+  }
+}

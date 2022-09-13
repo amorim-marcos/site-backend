@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_trajectories",
+  "info": {
+    "name": "Nossa trajetória",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "pages"
+    }
+  },
+  "attributes": {
+    "year": {
+      "type": "component",
+      "repeatable": true,
+      "component": "trajectory-year.year",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "mdp_bernecks",
+  "info": {
+    "name": "MDP",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "products"
+    }
+  },
+  "attributes": {
+    "mdp_berneck": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panel-page.hdf-berneck",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "mdp_berneck_plus": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panel-page.hdf-berneck",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bp_page_banners",
+  "info": {
+    "name": "Banners da Página de BPs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "lema": {
+      "section_code": "bps"
+    }
+  },
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "banner_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

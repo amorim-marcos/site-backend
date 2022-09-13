@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_public_resume_public_resumes",
+  "info": {
+    "name": "PublicResume",
+    "icon": "atlas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "public_resume_name": {
+      "type": "string",
+      "required": true
+    },
+    "public_resume_file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

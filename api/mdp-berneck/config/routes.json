@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/mdp-berneck",
+      "handler": "mdp-berneck.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/mdp-berneck",
+      "handler": "mdp-berneck.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/mdp-berneck",
+      "handler": "mdp-berneck.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

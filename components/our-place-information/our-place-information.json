@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_our_place_information_our_place_informations",
+  "info": {
+    "name": "Our Place Information",
+    "icon": "info"
+  },
+  "options": {},
+  "attributes": {
+    "structure": {
+      "type": "richtext"
+    },
+    "localization": {
+      "type": "string"
+    },
+    "phones": {
+      "type": "string"
+    },
+    "airport_distance": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/fire-warning",
+      "handler": "fire-warning.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/fire-warning",
+      "handler": "fire-warning.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/fire-warning",
+      "handler": "fire-warning.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

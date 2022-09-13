@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "connects",
+  "info": {
+    "name": "connect",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "lema": {
+      "section_code": "bnkchannel"
+    }
+  },
+  "attributes": {
+    "instagram_post_link": {
+      "type": "string",
+      "default": "https://www.instagram.com/p/Ch-FXJxLqb8/"
+    },
+    "youtube_video_link": {
+      "type": "string",
+      "default": "https://www.youtube.com/watch?v=6rZB6MF45sY"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/forest-certification",
+      "handler": "forest-certification.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/forest-certification",
+      "handler": "forest-certification.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/forest-certification",
+      "handler": "forest-certification.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

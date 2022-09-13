@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "mdf_bernecks",
+  "info": {
+    "name": "MDF",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "products"
+    }
+  },
+  "attributes": {
+    "mdf_berneck": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panel-page.hdf-berneck",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "lema": {
+          "section_code": "pages"
+        }
+      }
+    },
+    "mdf_berneck_plus": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panel-page.hdf-berneck",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

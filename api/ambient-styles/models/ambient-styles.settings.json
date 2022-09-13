@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ambient_styles",
+  "info": {
+    "name": "Estilos de Ambiente"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "ambients"
+    }
+  },
+  "attributes": {
+    "style": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    }
+  }
+}

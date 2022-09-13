@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "highlighted_ambient_types",
+  "info": {
+    "name": "Tipos de Ambientes em Destaque",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+      "lema": {
+        "section_code": "ambients"
+      }
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "ambient_type": {
+      "unique": true,
+      "model": "ambient-types"
+    },
+    "color": {
+      "type": "string",
+      "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
+      "required": true
+    }
+  }
+}

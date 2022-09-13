@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "fire_warnings",
+  "info": {
+    "name": "Aviso de Incêndio"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "legislation"
+    }
+  },
+  "attributes": {
+    "warning_text": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

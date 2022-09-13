@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_body_proof_body_proofs",
+  "info": {
+    "name": "body_proof",
+    "icon": "heartbeat"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "string"
+    },
+    "absorbed_water": {
+      "type": "decimal"
+    },
+    "absorption": {
+      "type": "decimal"
+    },
+    "thickness_increase": {
+      "type": "decimal"
+    },
+    "swelling": {
+      "type": "decimal"
+    }
+  }
+}

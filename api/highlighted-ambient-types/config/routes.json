@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/highlighted-ambient-types",
+      "handler": "highlighted-ambient-types.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/highlighted-ambient-types/count",
+      "handler": "highlighted-ambient-types.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/highlighted-ambient-types/:id",
+      "handler": "highlighted-ambient-types.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/highlighted-ambient-types",
+      "handler": "highlighted-ambient-types.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/highlighted-ambient-types/:id",
+      "handler": "highlighted-ambient-types.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/highlighted-ambient-types/:id",
+      "handler": "highlighted-ambient-types.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
