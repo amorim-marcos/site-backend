@@ -246,24 +246,6 @@
         }
       }
     },
-    "section8_title": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "section8_text": {
-      "type": "richtext",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "esg_report_file": {
       "model": "file",
       "via": "related",
@@ -330,20 +312,6 @@
       }
     },
     "section7_img": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "section8_img": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
