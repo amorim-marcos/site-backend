@@ -6,6 +6,7 @@ const index = client.index("pages");
 client.index("pages").updateFilterableAttributes(["locale"]);
 client.index("posts").updateFilterableAttributes(["locale"]);
 client.index("products").updateFilterableAttributes(["locale"]);
+client.index("products").updateSearchableAttributes(["name", "complete_name", "product_texture"]);
 
 /**
  * Use lifecycles hooks to create pages index.
