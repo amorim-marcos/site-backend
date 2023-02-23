@@ -29,7 +29,7 @@
       }
     },
     "release_date": {
-      "type": "datetime",
+      "type": "date",
       "required": true,
       "pluginOptions": {
         "i18n": {
