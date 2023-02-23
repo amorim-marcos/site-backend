@@ -27,16 +27,11 @@ module.exports = {
 
       const productsWithSameName = await strapi
         .query("products")
-        .find({ name: data.name });
+        .find({ name: data.name, locale: data.locale });
 
       if (productsWithSameName.length == 0) {
         data.complete_name = data.name;
       } else {
-        if (productsWithSameName.length == 1) {
-          await strapi.services.products.upgradeCompleteName(
-            productsWithSameName[0].id
-          );
-        }
         data.complete_name = data.name + " " + product_texture.name;
       }
 
@@ -49,16 +44,22 @@ module.exports = {
 
       const alreadyExistsProduct = await strapi
         .query("products")
-        .count({ url_code: data.url_code });
+        .count({ url_code: data.url_code, locale: data.locale });
 
       if (alreadyExistsProduct > 0) {
         throw strapi.errors.badRequest(
           "Já existe uma combinação de nome e textura para outro BP. Por favor, introduza dados diferentes para esses campos."
         );
+      }else{
+        if (productsWithSameName.length == 1) {
+          await strapi.services.products.upgradeCompleteName(
+            productsWithSameName[0].id
+          );
+        }
       }
     },
     async beforeUpdate(params, data) {
-      if (!params.avoidHook) {
+      if (!params.avoidHook && data.name) {
         // if (!data.product_texture) {
         //   throw strapi.errors.badRequest(
         //     "Por favor, selecione uma textura para o BP."
@@ -85,11 +86,6 @@ module.exports = {
         ) {
           data.complete_name = data.name;
         } else {
-          if (productsWithSameName.length == 1) {
-            await strapi.services.products.upgradeCompleteName(
-              productsWithSameName[0].id
-            );
-          }
           data.complete_name = data.name + " " + product_texture.name;
         }
 
@@ -113,6 +109,12 @@ module.exports = {
           throw strapi.errors.badRequest(
             "Já existe uma combinação de nome e textura para outro BP. Por favor, introduza dados diferentes para esses campos."
           );
+        }else{
+          if (productsWithSameName.length == 1) {
+            await strapi.services.products.upgradeCompleteName(
+              productsWithSameName[0].id
+            );
+          }
         }
       } else {
         delete params.avoidHook;
