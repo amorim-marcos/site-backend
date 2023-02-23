@@ -77,7 +77,7 @@ module.exports = {
 
         const productsWithSameName = await strapi
           .query("products")
-          .find({ name: data.name });
+          .find({ name: data.name, locale: data.locale });
 
         if (
           productsWithSameName.length == 0 ||
@@ -99,7 +99,7 @@ module.exports = {
 
         const productsWithSameUrlCode = await strapi
           .query("products")
-          .find({ url_code: data.url_code });
+          .find({ url_code: data.url_code, locale: data.locale });
 
         if (
           productsWithSameUrlCode.length > 1 ||
