@@ -28,6 +28,16 @@
         }
       }
     },
+    "release_date": {
+      "type": "date",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+
     "background_image_large": {
       "model": "file",
       "via": "related",
