@@ -8,7 +8,7 @@
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      console.log(!data.product_texture)
+      // console.log(!data.product_texture)
       if (!data.product_texture) {
         // console.log("hello???")
         throw strapi.errors.badRequest(
