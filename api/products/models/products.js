@@ -9,12 +9,12 @@ module.exports = {
   lifecycles: {
     async beforeCreate(data) {
       // console.log(!data.product_texture)
-      // if (!data.product_texture) {
-      //   // console.log("hello???")
-      //   throw strapi.errors.badRequest(
-      //     "Por favor, selecione uma textura para o BP."
-      //   );
-      // }
+      if (!data.product_texture) {
+        // console.log("hello???")
+        throw strapi.errors.badRequest(
+          "Por favor, selecione uma textura para o BP."
+        );
+      }
       const product_texture = await strapi
         .query("products-textures")
         .findOne({ id: data.product_texture });
@@ -59,11 +59,11 @@ module.exports = {
     },
     async beforeUpdate(params, data) {
       if (!params.avoidHook) {
-        // if (!data.product_texture) {
-        //   throw strapi.errors.badRequest(
-        //     "Por favor, selecione uma textura para o BP."
-        //   );
-        // }
+        if (!data.product_texture) {
+          throw strapi.errors.badRequest(
+            "Por favor, selecione uma textura para o BP."
+          );
+        }
         const product_texture = await strapi
           .query("products-textures")
           .findOne({ id: data.product_texture });

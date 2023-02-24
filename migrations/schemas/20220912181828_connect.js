@@ -9,10 +9,9 @@ exports.up = function (knex) {
         /**
          * The content fields come here
          */
-
+        table.text("instagram_post");
         table.text("youtube_video");
-        table.text("linkedin_post");
-
+        
         // table.datetime('published_at').nullable() // only use if draft system is enabled.
         table.integer("created_by").nullable();
         table.integer("updated_by").nullable();
