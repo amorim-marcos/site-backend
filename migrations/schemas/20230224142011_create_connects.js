@@ -7,7 +7,6 @@ exports.up = function(knex) {
       table.timestamp('created_at').defaultTo(knex.fn.now());
       table.timestamp('updated_at').defaultTo(knex.fn.now());
       table.string('linkedin_link', 255);
-      table.string('instagram_post_link', 255);
     });
   };
   
