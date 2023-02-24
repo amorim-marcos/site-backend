@@ -9,15 +9,20 @@ module.exports = {
   lifecycles: {
     async beforeCreate(data) {
       // console.log(!data.product_texture)
-      if (!data.product_texture) {
-        // console.log("hello???")
-        throw strapi.errors.badRequest(
-          "Por favor, selecione uma textura para o BP."
-        );
-      }
-      const product_texture = await strapi
-        .query("products-textures")
-        .findOne({ id: data.product_texture });
+      // if (!data.product_texture) {
+      //   // console.log("hello???")
+      //   throw strapi.errors.badRequest(
+      //     "Por favor, selecione uma textura para o BP."
+      //   );
+      // }
+      let product_texture;
+
+      if(data.product_texture)
+        product_texture = await strapi
+          .query("products-textures")
+          .findOne({ id: data.product_texture, locale: data.locale });
+      else
+        product_texture = { name: `temporary${Math.ceil(Math.random()*100000)}` } // modificação temporária
 
       data.name = data.name
         .toLowerCase()
@@ -27,16 +32,11 @@ module.exports = {
 
       const productsWithSameName = await strapi
         .query("products")
-        .find({ name: data.name });
+        .find({ name: data.name, locale: data.locale });
 
       if (productsWithSameName.length == 0) {
         data.complete_name = data.name;
       } else {
-        if (productsWithSameName.length == 1) {
-          await strapi.services.products.upgradeCompleteName(
-            productsWithSameName[0].id
-          );
-        }
         data.complete_name = data.name + " " + product_texture.name;
       }
 
@@ -49,24 +49,42 @@ module.exports = {
 
       const alreadyExistsProduct = await strapi
         .query("products")
-        .count({ url_code: data.url_code });
+        .count({ url_code: data.url_code, locale: data.locale });
 
       if (alreadyExistsProduct > 0) {
         throw strapi.errors.badRequest(
           "Já existe uma combinação de nome e textura para outro BP. Por favor, introduza dados diferentes para esses campos."
         );
+      }else{
+        if (productsWithSameName.length == 1) {
+          await strapi.services.products.upgradeCompleteName(
+            productsWithSameName[0].id
+          );
+        }
       }
     },
     async beforeUpdate(params, data) {
-      if (!params.avoidHook) {
-        if (!data.product_texture) {
-          throw strapi.errors.badRequest(
-            "Por favor, selecione uma textura para o BP."
-          );
+      let locale
+      let product_texture
+      if (!params.avoidHook && data.name) {
+        // if (!data.product_texture) {
+        //   throw strapi.errors.badRequest(
+        //     "Por favor, selecione uma textura para o BP."
+        //   );
+        // }
+        if(!data.locale){
+          locale = (await strapi.query("products").findOne( {id: params.id} ))?.locale
+        }else{
+          locale = data.locale
         }
-        const product_texture = await strapi
-          .query("products-textures")
-          .findOne({ id: data.product_texture });
+
+        if(data.product_texture){
+          product_texture = await strapi
+            .query("products-textures")
+            .findOne({ id: data.product_texture, locale: locale});
+        }else{
+          product_texture = { name: `temporary${Math.ceil(Math.random()*100000)}` } // modificação temporária
+        }
 
         data.name = data.name
           .toLowerCase()
@@ -76,24 +94,18 @@ module.exports = {
 
         const productsWithSameName = await strapi
           .query("products")
-          .find({ name: data.name });
+          .find({ name: data.name, locale: locale });
 
         if (
           productsWithSameName.length == 0 ||
           (productsWithSameName.length == 1 &&
-            productsWithSameName[0].id == data.id)
+            productsWithSameName[0].id == params.id)
         ) {
           data.complete_name = data.name;
         } else {
-          if (productsWithSameName.length == 1) {
-            await strapi.services.products.upgradeCompleteName(
-              productsWithSameName[0].id
-            );
-          }
           data.complete_name = data.name + " " + product_texture.name;
         }
 
-        data.complete_name = data.name + " " + product_texture.name;
         data.url_code = data.complete_name
           .normalize("NFD")
           .replace(/[^\w ]/g, "")
@@ -103,7 +115,7 @@ module.exports = {
 
         const productsWithSameUrlCode = await strapi
           .query("products")
-          .find({ url_code: data.url_code });
+          .find({ url_code: data.url_code, locale: locale });
 
         if (
           productsWithSameUrlCode.length > 1 ||
@@ -113,6 +125,12 @@ module.exports = {
           throw strapi.errors.badRequest(
             "Já existe uma combinação de nome e textura para outro BP. Por favor, introduza dados diferentes para esses campos."
           );
+        }else{
+          if (productsWithSameName.length == 1 && productsWithSameName[0].id != params.id) {
+            await strapi.services.products.upgradeCompleteName(
+              productsWithSameName[0].id
+            );
+          }
         }
       } else {
         delete params.avoidHook;
