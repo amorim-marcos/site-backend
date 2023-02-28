@@ -37,7 +37,6 @@
         }
       }
     },
-
     "background_image_large": {
       "model": "file",
       "via": "related",
