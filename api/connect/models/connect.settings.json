@@ -16,9 +16,9 @@
     }
   },
   "attributes": {
-    "instagram_post_link": {
+    "linkedin_link": {
       "type": "string",
-      "default": "https://www.instagram.com/p/Ch-FXJxLqb8/"
+      "default": "https://www.linkedin.com/embed/feed/update/urn:li:share:6868626499726012417"
     },
     "youtube_video_link": {
       "type": "string",
