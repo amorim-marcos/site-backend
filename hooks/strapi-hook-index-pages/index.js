@@ -17,7 +17,7 @@ const pages = [
 const transformData = (model, data) => {
   const { created_by, updated_by, id, ...rest } = data;
 
-  return { id: `${model}-${id}`, ...rest };
+  return { id: `${model}-${id}`, real_id: id, ...rest };
 };
 
 module.exports = (strapi) => {
