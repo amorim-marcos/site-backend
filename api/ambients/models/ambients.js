@@ -7,19 +7,15 @@
 
 module.exports = {
     lifecycles: {
-        // async beforeCreate(data){
-        //     // if(!data.products || data.products.length == 0){
-        //     //     throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
-        //     // }
-        // },
-
-
-        // async beforeUpdate(params, data){
-
+        async beforeCreate(data){
+            if(!data.products || data.products.length == 0){
+                throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
+            }
+        },
         async beforeUpdate(params, data){
-            // if(!params.avoidHook && (!data.products || data.products.length == 0)){
-            //     throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
-            // }
+            if(!params.avoidHook && data.title && (!data.products || data.products.length == 0)){
+                throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
+            }
 
             if(params.avoidHook) delete params.avoidHook
         },

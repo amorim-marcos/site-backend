@@ -8,21 +8,14 @@
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
-      // console.log(!data.product_texture)
-      // if (!data.product_texture) {
-      //   // console.log("hello???")
-      //   throw strapi.errors.badRequest(
-      //     "Por favor, selecione uma textura para o BP."
-      //   );
-      // }
+      if (!data.product_texture) {
+        throw strapi.errors.badRequest(
+          "Por favor, selecione uma textura para o BP."
+        );
+      }
       let product_texture;
 
-      if(data.product_texture)
-        product_texture = await strapi
-          .query("products-textures")
-          .findOne({ id: data.product_texture, locale: data.locale });
-      else
-        product_texture = { name: `temporary${Math.ceil(Math.random()*100000)}` } // modificação temporária
+      product_texture = await strapi.query("products-textures").findOne({ id: data.product_texture, locale: data.locale });
 
       data.name = data.name
         .toLowerCase()
@@ -67,24 +60,18 @@ module.exports = {
       let locale
       let product_texture
       if (!params.avoidHook && data.name) {
-        // if (!data.product_texture) {
-        //   throw strapi.errors.badRequest(
-        //     "Por favor, selecione uma textura para o BP."
-        //   );
-        // }
+        if (!data.product_texture) {
+          throw strapi.errors.badRequest(
+            "Por favor, selecione uma textura para o BP."
+          );
+        }
         if(!data.locale){
           locale = (await strapi.query("products").findOne( {id: params.id} ))?.locale
         }else{
           locale = data.locale
         }
 
-        if(data.product_texture){
-          product_texture = await strapi
-            .query("products-textures")
-            .findOne({ id: data.product_texture, locale: locale});
-        }else{
-          product_texture = { name: `temporary${Math.ceil(Math.random()*100000)}` } // modificação temporária
-        }
+        product_texture = await strapi.query("products-textures").findOne({ id: data.product_texture, locale: locale});
 
         data.name = data.name
           .toLowerCase()
