@@ -11,9 +11,12 @@
     "draftAndPublish": false
   },
   "pluginOptions": {
-      "lema": {
-        "section_code": "ambients"
-      }
+    "lema": {
+      "section_code": "ambients"
+    },
+    "i18n": {
+      "localized": true
+    }
   },
   "attributes": {
     "image": {
@@ -24,7 +27,11 @@
       ],
       "plugin": "upload",
       "required": true,
-      "pluginOptions": {}
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "ambient_type": {
       "unique": true,
@@ -33,7 +40,12 @@
     "color": {
       "type": "string",
       "regex": "^#(?:[0-9a-fA-F]{3}){1,2}$",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
