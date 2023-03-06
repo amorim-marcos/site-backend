@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "bp_page_banners",
   "info": {
-    "name": "Banners da Página de BPs"
+    "name": "Banners da Página de BPs",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,11 +13,19 @@
   "pluginOptions": {
     "lema": {
       "section_code": "bps"
+    },
+    "i18n": {
+      "localized": true
     }
   },
   "attributes": {
     "link": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "banner_image": {
       "model": "file",
@@ -26,7 +35,11 @@
       ],
       "plugin": "upload",
       "required": true,
-      "pluginOptions": {}
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
