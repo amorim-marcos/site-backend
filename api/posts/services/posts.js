@@ -18,7 +18,7 @@ module.exports = {
 
         for(let category of categories){
             let firstPost = await strapi.query('posts').findOne({'category.id': category.id, '_limit': 1, "_sort": "published_at:DESC"})
-            if(firstPost.published_at != null){
+            if(firstPost?.published_at != null){
                 posts.push(firstPost)
             }
         }
