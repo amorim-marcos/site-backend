@@ -6,6 +6,7 @@ const index = client.index("pages");
 client.index("pages").updateFilterableAttributes(["locale"]);
 client.index("posts").updateFilterableAttributes(["locale"]);
 client.index("products").updateFilterableAttributes(["locale"]);
+client.index("products").updateSearchableAttributes(["name", "complete_name", "product_texture"]);
 
 /**
  * Use lifecycles hooks to create pages index.
@@ -18,30 +19,43 @@ function useLifecycles(model) {
   const transformData = (data) => {
     const { created_by, updated_by, id, ...rest } = data;
 
-    return { id: `${model}-${id}`, ...rest };
+    return { id: `${model}-${id}`, real_id: id, ...rest };
   };
 
   return {
     lifecycles: {
       async afterCreate(data) {
-        data = transformData(data);
-        await index.addDocuments([data]);
+        if(data){
+          data = transformData(data);
+          await index.addDocuments([data]);
+        }
       },
       async afterUpdate(data) {
-        data = transformData(data);
-        await index.updateDocuments([data]);
+        if(data){
+          data = transformData(data);
+          await index.updateDocuments([data]);
+        }
       },
-      async afterDelete(data) {
-        data = transformData(data);
-        const docs = await index.search("", { q: model });
+      async beforeDelete(data){
+        console.log(data);
+        if(data.id){ // if deleting specifically document
+          const docs = await index.search("", { q: model });
+          const doc = docs.hits.find((doc) => doc.real_id == data.id);
 
-        await Promise.all(
-          // Delete all locales of model
-          docs.hits.map((doc) => {
-            index.deleteDocument(doc.id);
-          })
-        );
-      },
+          if(doc){
+            await index.deleteDocument(doc.id);
+          }
+        }else if(data.locale){ // if deleting locale
+          const docs = await index.search("");
+
+          await Promise.all(
+            // Delete all locales of model
+            docs.hits.filter((doc) => doc.locale == data.locale).map((doc) => {
+              index.deleteDocument(doc.id);
+            })
+          );
+        }
+      }
     },
   };
 }

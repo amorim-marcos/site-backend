@@ -11,9 +11,6 @@
     "draftAndPublish": false
   },
   "pluginOptions": {
-    "i18n": {
-      "localized": true
-    },
     "lema": {
       "section_code": "products"
     }
@@ -22,11 +19,7 @@
     "name": {
       "type": "string",
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "background_image_small": {
       "model": "file",
@@ -36,11 +29,7 @@
       ],
       "plugin": "upload",
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "pluginOptions": {}
     }
   }
 }

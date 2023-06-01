@@ -1,0 +1,13 @@
+const table_name = 'highlighted_ambient_types'
+
+exports.up = function(knex) {
+    return knex.schema.alterTable(table_name, table => {
+        table.string('locale');
+    })
+}
+
+exports.down = function(knex) {
+    return knex.schema.alterTable(table_name, table => {
+        table.dropColumn('locale')
+    })
+}

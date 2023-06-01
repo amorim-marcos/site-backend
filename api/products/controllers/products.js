@@ -10,8 +10,9 @@ module.exports = {
     findOne: async ctx => {
         // const id = ctx.params.id;
         const { url_code } = ctx.params;
+        const { _locale } = ctx.query;
 
-        const products = await strapi.services.products.find({ '_sort': 'scale:ASC' })
+        const products = await strapi.query('products').find({ 'locale': _locale, '_sort': 'scale:ASC' })
         const totalProducts = products.length
 
         const productIndex = products.findIndex((p) => p.url_code == url_code) 

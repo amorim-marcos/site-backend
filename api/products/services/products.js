@@ -9,7 +9,7 @@ module.exports = {
     upgradeCompleteName: async (productId) => {
         const product = await strapi.query('products').findOne({ id: productId })
 
-        const product_texture = product.product_texture
+        const product_texture = product.product_texture ?? { name: `temporary${Math.ceil(Math.random()*100000)}` } // temporary
 
         const complete_name = product.name + " " + product_texture.name
 

@@ -13,7 +13,7 @@ module.exports = {
             }
         },
         async beforeUpdate(params, data){
-            if(!params.avoidHook && (!data.products || data.products.length == 0)){
+            if(!params.avoidHook && data.title && (!data.products || data.products.length == 0)){
                 throw strapi.errors.badRequest(`É necessário escolher pelo menos um BP associado ao ambiente.`)
             }
 
