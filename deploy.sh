@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /home/admin/html/backend
 
-# $DEPLOYMENT_GROUP_NAME will be either qas or prd
+# $DEPLOYMENT_GROUP_NAME will be either qas or prd branches
 echo $DEPLOYMENT_GROUP_NAME
 
 git pull origin $DEPLOYMENT_GROUP_NAME
