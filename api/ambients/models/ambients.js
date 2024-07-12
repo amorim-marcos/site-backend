@@ -19,6 +19,10 @@ module.exports = {
 
             if (params.avoidHook) delete params.avoidHook
         },
+        async afterUpdate(result, data) {
+            const url_code = await strapi.services.ambients.generateSlug(data?.title ?? result?.title, result.id);
+            await strapi.query('ambients').update({ id: result.id, avoidHook: true }, { url_code: url_code });
+        },
         async afterCreate(result, data) {
             const url_code = await strapi.services.ambients.generateSlug(data?.title ?? result?.title, result.id);
             await strapi.query('ambients').update({ id: result.id, avoidHook: true }, { url_code: url_code });
