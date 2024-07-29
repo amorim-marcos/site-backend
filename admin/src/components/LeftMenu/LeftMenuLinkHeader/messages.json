@@ -23,6 +23,10 @@
     "id": "app.components.LeftMenuLinkContainer.item.legislation",
     "defaultMessage": "Legislação"
   },
+  "mainpages": {
+    "id": "app.components.LeftMenuLinkContainer.item.mainpages",
+    "defaultMessage": "Páginas Principais"
+  },
   "contact": {
     "id": "app.components.LeftMenuLinkContainer.item.contact",
     "defaultMessage": "Contato"
