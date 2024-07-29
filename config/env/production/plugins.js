@@ -38,7 +38,7 @@ module.exports = () => ({
         order: 7,
       },
       {
-        code: "mainpages", // Páginas Princiais
+        code: "mainpages", // Páginas Principais
         order: 8,
       },
     ],
