@@ -11,11 +11,11 @@ module.exports = () => ({
       },
       {
         code: "products", // Páginas de Produto
-        order: 1
+        order: 1,
       },
       {
         code: "bps", // BPs
-        order: 2
+        order: 2,
       },
       {
         code: "ambients", // Galeria de Ambientes
@@ -23,20 +23,24 @@ module.exports = () => ({
       },
       {
         code: "bnkchannel", // Canal BNK
-        order: 4
+        order: 4,
       },
       {
         code: "contact", // Fale Conosco
-        order: 5
+        order: 5,
       },
       {
         code: "wherebuy", // Onde Comprar
-        order: 6
+        order: 6,
       },
       {
         code: "legislation", // Legislação
-        order: 7
-      }
-    ]
-  }
-})
+        order: 7,
+      },
+      {
+        code: "mainpages", // Páginas Principais
+        order: 8,
+      },
+    ],
+  },
+});

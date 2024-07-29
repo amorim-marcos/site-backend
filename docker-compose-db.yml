@@ -1,0 +1,13 @@
+# used for local tests only
+
+version: "3.8"
+services:
+  db:
+    build: ./test/helpers/db-test
+    environment:
+      MYSQL_ROOT_PASSWORD: passwordtest
+      MYSQL_DATABASE: berneck
+      MYSQL_ROOT_USER: root
+    ports:
+      - "3306:3306"
+    restart: always
