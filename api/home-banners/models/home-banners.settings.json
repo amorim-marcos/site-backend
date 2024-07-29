@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home-banners",
+  "info": {
+    "name": "Banners da página inicial",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "lema": {
+      "section_code": "mainpages"
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "custom_order": {
+      "type": "integer",
+      "min": 1
+    },
+    "banner_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}
