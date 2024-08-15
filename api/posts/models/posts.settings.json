@@ -81,6 +81,16 @@
         }
       },
       "type": "date"
+    },
+    "meta_description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text",
+      "maxLength": 320,
+      "minLength": 120
     }
   }
 }
