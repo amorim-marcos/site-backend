@@ -2,14 +2,11 @@
   "collectionName": "components_gallery_imgs_galeria_de_imgs",
   "info": {
     "name": "Galeria de Imagens",
-    "icon": "images"
+    "icon": "images",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "custom_order": {
-      "type": "integer",
-      "min": 1
-    },
     "img": {
       "model": "file",
       "via": "related",
