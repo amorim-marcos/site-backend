@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_gallery_imgs_galeria_de_imgs",
+  "info": {
+    "name": "Galeria de Imagens",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

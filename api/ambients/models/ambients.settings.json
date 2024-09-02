@@ -58,7 +58,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true,
+      "required": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -75,6 +75,17 @@
     },
     "ambient_styles": {
       "collection": "ambient-styles"
+    },
+    "gallery_imgs": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "gallery-imgs.galeria-de-img",
+      "required": true
     }
   }
 }
