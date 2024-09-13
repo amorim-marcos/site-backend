@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_bps_page_catalog_bp_banners",
+  "info": {
+    "name": "catalog_bp_banner",
+    "icon": "file-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "maxLength": 35
+    },
+    "subTitle": {
+      "type": "text",
+      "maxLength": 45
+    },
+    "link": {
+      "type": "string"
+    },
+    "banner_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}
