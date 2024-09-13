@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/bps-page",
+      "handler": "bps-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/bps-page",
+      "handler": "bps-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/bps-page",
+      "handler": "bps-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
