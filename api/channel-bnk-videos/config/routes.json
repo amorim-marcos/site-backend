@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/channel-bnk-videos",
+      "handler": "channel-bnk-videos.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/channel-bnk-videos/count",
+      "handler": "channel-bnk-videos.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/channel-bnk-videos/:id",
+      "handler": "channel-bnk-videos.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/channel-bnk-videos",
+      "handler": "channel-bnk-videos.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/channel-bnk-videos/:id",
+      "handler": "channel-bnk-videos.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/channel-bnk-videos/:id",
+      "handler": "channel-bnk-videos.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
