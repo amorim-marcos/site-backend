@@ -45,6 +45,14 @@
       },
       "type": "integer",
       "min": 0
+    },
+    "document_type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }
