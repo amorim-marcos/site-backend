@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/country-representatives",
+      "handler": "country-representatives.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/country-representatives/count",
+      "handler": "country-representatives.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/country-representatives/:id",
+      "handler": "country-representatives.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/country-representatives",
+      "handler": "country-representatives.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/country-representatives/:id",
+      "handler": "country-representatives.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/country-representatives/:id",
+      "handler": "country-representatives.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
