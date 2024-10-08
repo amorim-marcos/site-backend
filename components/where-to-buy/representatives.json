@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_where_to_buy_representatives",
+  "info": {
+    "name": "representatives",
+    "icon": "user-tie"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "client": {
+      "type": "string",
+      "required": true
+    },
+    "name_fantasy": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "where-to-buy.contacts",
+      "required": true
+    }
+  }
+}

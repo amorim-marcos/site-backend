@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_where_to_buy_contacts",
+  "info": {
+    "name": "contacts",
+    "icon": "list-alt"
+  },
+  "options": {},
+  "attributes": {
+    "contact_type": {
+      "type": "string",
+      "default": "phone",
+      "required": true
+    },
+    "contact_text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

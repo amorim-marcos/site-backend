@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "country_representatives",
+  "info": {
+    "name": "Representantes por país"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "lema": {
+      "section_code": "wherebuy"
+    }
+  },
+  "attributes": {
+    "country_name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "country_svg_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "representatives": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "where-to-buy.representatives",
+      "required": true
+    }
+  }
+}
