@@ -1,0 +1,34 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/url",
+      "handler": "dnd-collection-sort.getUrl",
+      "config": {
+        "policies": [
+          "isAdmin"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ambients",
+      "handler": "dnd-collection-sort.getAmbients",
+      "config": {
+        "policies": [
+          "isAdmin"
+        ]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ambients",
+      "handler": "dnd-collection-sort.sortAmbients",
+      "config": {
+        "policies": [
+          "isAdmin"
+        ]
+      }
+    }
+  ]
+}
