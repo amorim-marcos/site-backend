@@ -1,0 +1,25 @@
+{
+  "name": "strapi-plugin-ambients-sort",
+  "version": "0.1.0",
+  "description": "Use this plugin to sort ambients by bp with drag and drop",
+  "strapi": {
+    "name": "Ambients Sort",
+    "icon": "sort-alpha-down",
+    "description": "Custom ambients sort"
+  },
+  "dependencies": {
+    "@buffetjs/core": "^3.3.8",
+    "@buffetjs/hooks": "^3.3.8",
+    "@buffetjs/styles": "^3.3.8",
+    "immutability-helper": "^3.1.1",
+    "prop-types": "^15.7.2",
+    "react-dnd": "^15.1.1",
+    "react-dnd-html5-backend": "^15.1.2",
+    "styled-components": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
