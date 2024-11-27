@@ -10,7 +10,8 @@ import { ItemTypes } from "../utils/ItemTypes";
 
 const Container = styled.div`
   z-index: 10;
-  width: 33%;
+  /* width: 33%; */
+  width: 47rem;
 
   cursor: move;
   -webkit-user-select: none;
@@ -34,8 +35,7 @@ const Image = styled.img`
 
   border-radius: 10px;
   object-fit: cover;
-  /* height: 5rem; */
-  height: 100%;
+  height: 30rem;
   width: 100%;
 `;
 
@@ -85,17 +85,25 @@ export const Widget = ({ id, index, text, moveCard, img }) => {
       data-handler-id={handlerId}
     >
       <Image src={img} alt="ambient" />
-      <Flex style={{ justifyContent: "space-between" }}>
+      <Flex
+        style={{
+          justifyContent: "space-between",
+
+          padding: 0,
+        }}
+      >
         <Text
           lineHeight={"6rem"}
           fontWeight="bold"
-          fontSize="md"
-          style={{ width: "20rem" }}
+          fontSize="normal"
+          style={{
+            width: "20rem",
+          }}
         >
           {text}
         </Text>
 
-        <Text lineHeight={"6rem"} fontWeight="bold" fontSize="md">
+        <Text lineHeight={"6rem"} fontSize="normal">
           Position: {index + 1}
         </Text>
       </Flex>
