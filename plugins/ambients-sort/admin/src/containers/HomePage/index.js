@@ -80,6 +80,25 @@ const HomePage = () => {
       >
         <DndProvider backend={HTML5Backend}>
           <div style={{ maxWidth: "1536px" }}>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <span
+                style={{
+                  color: "#626161",
+                  fontSize: "14px",
+                  fontWeight: "700",
+                  marginBottom: "20px",
+                }}
+              >
+                {ambients?.length} ambientes encontrados | Nenhum filtro
+                aplicado
+              </span>
+            </div>
             <ContainerDND
               collection={ambients}
               onSort={(data) => setSortedAmbients(data)}
