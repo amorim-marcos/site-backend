@@ -41,8 +41,8 @@ export const SiteHeader = () => {
                 height: "100%",
                 display: "flex",
                 flexDirection: "row",
-                rowGap: "10px",
-                columnGap: "10px",
+                rowGap: "20px",
+                columnGap: "20px",
               }}
             >
               <MenuItem itemText="SOMOS BERNECK" />
@@ -65,8 +65,8 @@ const ItemContainer = styled.li`
   justify-content: center;
   cursor: pointer;
   color: #fff;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   transition: background-color 0.3s;
   :hover {
     background-color: #388e3c;
