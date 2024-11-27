@@ -75,7 +75,8 @@ const ItemContainer = styled.li`
 
 const ItemText = styled.span`
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
+  color: #fff;
 `;
 
 const MenuItem = ({ itemText }) => {
