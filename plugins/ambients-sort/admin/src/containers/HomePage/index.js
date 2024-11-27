@@ -16,6 +16,7 @@ import {
   errorNotifications,
   successNotification,
 } from "../../utils/notifications";
+import { SiteHeader } from "../../components/SiteHeader";
 
 const HomePage = () => {
   const [ambients, setAmbients] = useState([]);
@@ -52,7 +53,7 @@ const HomePage = () => {
   if (!ambients.length) return null;
 
   return (
-    <div className="container-fluid" style={{ padding: "18px 30px 66px 30px" }}>
+    <div className="container-fluid" style={{ padding: "0px 30px 66px 30px" }}>
       <Flex>
         <Header
           title={{
@@ -73,12 +74,17 @@ const HomePage = () => {
         </Flex>
       </Flex>
 
-      <Wrapper style={{ width: "100%" }}>
+      <SiteHeader />
+      <Wrapper
+        style={{ width: "100%", justifyContent: "center", display: "flex" }}
+      >
         <DndProvider backend={HTML5Backend}>
-          <ContainerDND
-            collection={ambients}
-            onSort={(data) => setSortedAmbients(data)}
-          />
+          <div style={{ maxWidth: "1536px" }}>
+            <ContainerDND
+              collection={ambients}
+              onSort={(data) => setSortedAmbients(data)}
+            />
+          </div>
         </DndProvider>
       </Wrapper>
     </div>

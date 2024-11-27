@@ -16,9 +16,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   column-gap: 2rem;
+  row-gap: 2rem;
 
   width: 100%;
-  max-width: 1536px;
   height: 10%;
 `;
 
