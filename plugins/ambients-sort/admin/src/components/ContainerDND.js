@@ -15,6 +15,8 @@ const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  column-gap: 2rem;
+  row-gap: 2rem;
 
   width: 100%;
   height: 10%;
@@ -67,8 +69,10 @@ export const ContainerDND = ({ collection, onSort }) => {
   if (!url) return null;
 
   return (
-    <Container>
-      {ambients.map((ambient, i) => renderCard(ambient, i))}
-    </Container>
+    <div style={{ width: `100%`, display: `flex`, justifyContent: `center` }}>
+      <Container>
+        {ambients.map((ambient, i) => renderCard(ambient, i))}
+      </Container>
+    </div>
   );
 };
