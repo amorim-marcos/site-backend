@@ -16,7 +16,7 @@ import {
   errorNotifications,
   successNotification,
 } from "../../utils/notifications";
-import { SiteHeader } from "../../components/SiteHeader";
+import { SiteHeader } from "../../../../../components/SiteHeader";
 
 const HomePage = () => {
   const [ambients, setAmbients] = useState([]);
