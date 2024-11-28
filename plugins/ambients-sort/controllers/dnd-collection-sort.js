@@ -12,6 +12,7 @@ module.exports = {
   getAmbients: async () => {
     return await strapi.services.ambients.find({
       _sort: "custom_order:ASC",
+      _limit: -1,
     });
   },
   sortAmbients: async (ctx) => {
