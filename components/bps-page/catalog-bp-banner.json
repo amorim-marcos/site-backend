@@ -9,7 +9,7 @@
   "attributes": {
     "title": {
       "type": "richtext",
-      "maxLength": 65
+      "maxLength": 85
     },
     "subTitle": {
       "type": "text",
