@@ -6,6 +6,7 @@
   "scripts": {
     "develop:init": "npm-run-all migrate:all 'complete-config:restore' 'knex:init' 'strapi develop'",
     "develop": "npm-run-all migrate:all 'strapi develop'",
+    "develop-watch": "npm-run-all migrate:all 'strapi develop --watch-admin'",
     "develop:nomigrate": "strapi develop",
     "develop-test": "NODE_ENV=test strapi develop",
     "start": "strapi start",
