@@ -8,8 +8,8 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "text",
-      "maxLength": 35
+      "type": "richtext",
+      "maxLength": 85
     },
     "subTitle": {
       "type": "text",
