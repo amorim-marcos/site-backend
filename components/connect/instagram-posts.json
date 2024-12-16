@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_connect_instagram_posts",
+  "info": {
+    "name": "instagram_posts",
+    "icon": "camera-retro"
+  },
+  "options": {},
+  "attributes": {
+    "post_title": {
+      "type": "string"
+    },
+    "post_url": {
+      "type": "string"
+    }
+  }
+}
