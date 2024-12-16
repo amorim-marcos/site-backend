@@ -23,6 +23,11 @@
     "youtube_video_link": {
       "type": "string",
       "default": "https://www.youtube.com/watch?v=6rZB6MF45sY"
+    },
+    "instagram_posts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "connect.instagram-posts"
     }
   }
 }
