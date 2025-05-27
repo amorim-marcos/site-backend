@@ -63,6 +63,16 @@
           "localized": false
         }
       }
+    },
+    "forest_certifications": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "certificates.forest-certifications"
     }
   }
 }
