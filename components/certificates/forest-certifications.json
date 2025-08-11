@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_certificates_forest_certifications",
+  "info": {
+    "name": "forest_certifications",
+    "icon": "leaf"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "certifier": {
+      "type": "string",
+      "required": true
+    },
+    "certificates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certificates.certificates"
+    },
+    "forest_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "certificate_img_mini": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}
