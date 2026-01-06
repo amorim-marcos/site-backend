@@ -18,7 +18,16 @@ module.exports = {
     data.channel = contactChannel.name;
 
     try {
-      ccqueue.add(ccqueueName, data, { timeout: 60000 });
+      ccqueue.add(ccqueueName, data, {
+        timeout: 120000, // 2 minutos
+        attempts: 3,
+        backoff: {
+          type: "exponential",
+          delay: 2000,
+        },
+        removeOnComplete: true,
+        removeOnFail: false,
+      });
       ctx.response.status = 201;
       ctx.send({ message: "Job added to queue" });
     } catch (err) {
