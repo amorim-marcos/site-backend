@@ -7,16 +7,27 @@ const ccqueueName = ContactChannelQueue.queueName;
 
 module.exports = {
   sendForm: async (ctx) => {
-    const contactChannelId = ctx.params.id
+    const contactChannelId = ctx.params.id;
 
-    const contactChannel = await strapi.query('contact-channel').findOne({ id: contactChannelId })
+    const contactChannel = await strapi
+      .query("contact-channel")
+      .findOne({ id: contactChannelId });
 
-    const data = ctx.request.body
-    data.service_code = contactChannel.service_code
-    data.channel = contactChannel.name
-    
+    const data = ctx.request.body;
+    data.service_code = contactChannel.service_code;
+    data.channel = contactChannel.name;
+
     try {
-      ccqueue.add(ccqueueName, data, { timeout: 10000 });
+      ccqueue.add(ccqueueName, data, {
+        timeout: 120000, // 2 minutos
+        attempts: 3,
+        backoff: {
+          type: "exponential",
+          delay: 2000,
+        },
+        removeOnComplete: true,
+        removeOnFail: false,
+      });
       ctx.response.status = 201;
       ctx.send({ message: "Job added to queue" });
     } catch (err) {
