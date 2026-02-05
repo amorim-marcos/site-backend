@@ -1,14 +1,24 @@
 #!/bin/bash
+set -e
+
+echo "=== Deploy: $DEPLOYMENT_GROUP_NAME ==="
+
+# Carrega NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+nvm use 14
+
+# Navega até o diretório do backend
 cd /home/admin/html/backend
 
-# $DEPLOYMENT_GROUP_NAME will be either qas or prd branches
-echo $DEPLOYMENT_GROUP_NAME
+git pull origin "$DEPLOYMENT_GROUP_NAME"
 
-git pull origin $DEPLOYMENT_GROUP_NAME
+# Instala e builda
+yarn install
+yarn build
 
-yarn install &&
-yarn build &&
-# docker-compose restart &&
+# Reinicia usando o ecosystem config
+pm2 startOrReload ecosystem.backend.config.js --update-env
 
-echo "Restarting PM2 process..."
-pm2 restart backend
+echo "=== Deploy concluído ==="
+pm2 list
