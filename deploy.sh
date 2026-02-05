@@ -18,7 +18,8 @@ yarn install
 yarn build
 
 # Reinicia usando o ecosystem config
+echo "=== Reiniciando aplicação com PM2 ==="
 pm2 startOrReload ecosystem.backend.config.js --update-env
 
-echo "=== Deploy concluído ==="
+echo "=== Deploy concluído!!! ==="
 pm2 list
