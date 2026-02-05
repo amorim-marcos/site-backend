@@ -9,4 +9,6 @@ git pull origin $DEPLOYMENT_GROUP_NAME
 yarn install &&
 yarn build &&
 # docker-compose restart &&
+
+echo "Restarting PM2 process..."
 pm2 restart backend
