@@ -19,6 +19,15 @@
     }
   },
   "attributes": {
+    "custom_order": {
+      "type": "integer",
+      "min": 1,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "link": {
       "type": "string",
       "pluginOptions": {
