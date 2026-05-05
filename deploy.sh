@@ -1,7 +1,14 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-echo "=== Deploy: $DEPLOYMENT_GROUP_NAME ==="
+if [ -z "${DEPLOYMENT_GROUP_NAME:-}" ]; then
+  echo "DEPLOYMENT_GROUP_NAME nao definido"
+  exit 1
+fi
+
+BRANCH="$DEPLOYMENT_GROUP_NAME"
+
+echo "=== Deploy: $BRANCH ==="
 
 # Carrega NVM
 export NVM_DIR="$HOME/.nvm"
@@ -11,7 +18,11 @@ nvm use 14
 # Navega até o diretório do backend
 cd /home/admin/html/backend
 
-git pull origin "$DEPLOYMENT_GROUP_NAME"
+echo "=== Sincronizando codigo com origin/$BRANCH ==="
+git reset --hard
+git fetch --prune origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
+git checkout -B "$BRANCH" "origin/$BRANCH"
+git reset --hard "origin/$BRANCH"
 
 # Instala e builda
 yarn install
