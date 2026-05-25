@@ -79,6 +79,20 @@
         }
       }
     },
+    "section1_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "section2_title": {
       "type": "string",
       "required": true,
