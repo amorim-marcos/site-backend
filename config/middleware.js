@@ -5,6 +5,11 @@ module.exports = {
   settings: {
     rateLimit: {
       enabled: true,
+      interval: { min: 1 },
+      max: 60,
+      delayAfter: 1,
+      timeWait: 3 * 1000,
+      prefixKey: 'rl',
     },
     parser: {
       enabled: true,
