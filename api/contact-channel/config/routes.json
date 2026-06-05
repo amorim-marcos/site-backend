@@ -45,7 +45,7 @@
       "path": "/contact-channels/:id/sendForm",
       "handler": "contact-channel.sendForm",
       "config": {
-        "policies": []
+        "policies": ["application::contact-channel.contact-channel.formRateLimit"]
       }
     },
     {
