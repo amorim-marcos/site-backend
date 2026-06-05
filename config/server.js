@@ -6,5 +6,6 @@ module.exports = ({ env }) => ({
     auth: {
       secret: env('ADMIN_JWT_SECRET', 'a4817b9800018572a778dbab1c238fc5'),
     },
+    url: env('ADMIN_URL', '/painel-bnk')
   },
 });
