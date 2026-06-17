@@ -123,5 +123,22 @@ module.exports = {
         delete params.avoidHook;
       }
     },
+    async afterUpdate(result) {
+      // When a product is unpublished (set back to draft), the meilisearch plugin
+      // does not remove it from the index — only skips re-adding it.
+      // We must explicitly delete it so it stops appearing in search results.
+      if (!result.published_at) {
+        try {
+          const { MeiliSearch } = require('meilisearch')
+          const client = new MeiliSearch({
+            host: process.env.MEILI_HOST,
+            apiKey: process.env.MEILISEARCH_API_KEY,
+          })
+          await client.index('products').deleteDocument(`products-${result.id}`)
+        } catch (e) {
+          console.error('Meilisearch draft cleanup error (products):', e)
+        }
+      }
+    },
   },
 };
