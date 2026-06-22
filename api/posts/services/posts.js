@@ -6,6 +6,16 @@
  */
 
 module.exports = {
+    // Override default find/count to exclude drafts.
+    // The meilisearch plugin calls services.posts.find() with no publication filter,
+    // which in Strapi v3 returns all entries including drafts. This ensures only
+    // published posts are indexed during bulk reindexing and other service calls.
+    find: (params = {}) => {
+        return strapi.query('posts').find({ published_at_null: false, ...params })
+    },
+    count: (params = {}) => {
+        return strapi.query('posts').count({ published_at_null: false, ...params })
+    },
     countHighliteds: () => {
         return strapi.query('posts').count({ is_highlighted: true })
     },

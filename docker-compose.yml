@@ -1,27 +1,34 @@
 version: "3.8"
 
 services:
-  meilisearch-0.25.2:
+  meilisearch:
     container_name: meilisearch
+    labels:
+      - "managed-by=repo"
     image: "getmeili/meilisearch:v0.25.2"
     ports:
       - "7700:7700"
     environment:
-      - MEILI_ENV=development #production
-      - MEILI_MASTER_KEY=test_api_key
+      - MEILI_ENV=production
+      - MEILI_MASTER_KEY=${MEILISEARCH_API_KEY}
       - MEILI_DUMPS_DIR=./dumps/
       - MEILI_DB_PATH=data.ms/
-      - MEILI_LOG_LEVEL=INFO #ERROR, WARN, INFO, DEBUG, OR TRACE
+      - MEILI_LOG_LEVEL=INFO
       - MEILI_NO_ANALYTICS=true
       - MEILI_NO_SENTRY=true
     volumes:
       - ./.meilisearch/storage:/data.ms
       - ./.meilisearch/dumps:/dumps
+    mem_limit: ${MEILI_MEM_LIMIT:-1g}
+    mem_reservation: ${MEILI_MEM_RESERVATION:-256m}
     restart: unless-stopped
+
   redis:
     image: redis:5.0
     container_name: Redis
     ports:
       - 6379:6379
-    command: --requirepass password
+    command: redis-server --requirepass "${REDIS_PASSWORD}"
+    mem_limit: ${REDIS_MEM_LIMIT:-128m}
+    mem_reservation: ${REDIS_MEM_RESERVATION:-32m}
     restart: unless-stopped
