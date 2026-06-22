@@ -28,9 +28,9 @@ git reset --hard "origin/$BRANCH"
 yarn install
 yarn build
 
-# Atualiza containers (idempotente — só recria se a config mudou)
+# Para e remove containers antes de subir — evita bug 'ContainerConfig' em versões antigas do docker-compose
 echo "=== Atualizando containers Docker ==="
-sg docker -c "docker-compose up -d --remove-orphans"
+sg docker -c "docker-compose down --remove-orphans && docker-compose up -d"
 
 # Reinicia usando o ecosystem config
 echo "=== Reiniciando aplicação com PM2 ==="
