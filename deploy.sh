@@ -30,7 +30,7 @@ yarn build
 
 # Atualiza containers (idempotente — só recria se a config mudou)
 echo "=== Atualizando containers Docker ==="
-docker-compose up -d --remove-orphans
+sg docker -c "docker-compose up -d --remove-orphans"
 
 # Reinicia usando o ecosystem config
 echo "=== Reiniciando aplicação com PM2 ==="
