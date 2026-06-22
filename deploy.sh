@@ -28,6 +28,10 @@ git reset --hard "origin/$BRANCH"
 yarn install
 yarn build
 
+# Atualiza containers (idempotente — só recria se a config mudou)
+echo "=== Atualizando containers Docker ==="
+docker-compose up -d
+
 # Reinicia usando o ecosystem config
 echo "=== Reiniciando aplicação com PM2 ==="
 pm2 startOrReload ecosystem.backend.config.js --update-env
