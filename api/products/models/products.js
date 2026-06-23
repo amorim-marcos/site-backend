@@ -124,19 +124,20 @@ module.exports = {
       }
     },
     async afterUpdate(result) {
-      // When a product is unpublished (set back to draft), the meilisearch plugin
-      // does not remove it from the index — only skips re-adding it.
-      // We must explicitly delete it so it stops appearing in search results.
+      // The meilisearch plugin does not remove a product from the index when it is
+      // unpublished — it only skips re-adding it. We must explicitly delete it.
       if (!result.published_at) {
         try {
           const { MeiliSearch } = require('meilisearch')
+          const meiliConfig = strapi.config.plugins?.meilisearch || {}
           const client = new MeiliSearch({
-            host: process.env.MEILI_HOST,
-            apiKey: process.env.MEILISEARCH_API_KEY,
+            host: meiliConfig.host || process.env.MEILI_HOST,
+            apiKey: meiliConfig.apiKey || process.env.MEILISEARCH_API_KEY,
           })
+          strapi.log.info(`[meilisearch] removing draft product ${result.id} from index`)
           await client.index('products').deleteDocument(`products-${result.id}`)
         } catch (e) {
-          console.error('Meilisearch draft cleanup error (products):', e)
+          strapi.log.error(`[meilisearch] draft cleanup error (products): ${e.message}`)
         }
       }
     },
