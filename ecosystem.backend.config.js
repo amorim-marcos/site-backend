@@ -19,7 +19,8 @@ module.exports = {
       kill_timeout: 10000,
       exp_backoff_restart_delay: 100,
       env: {
-        NODE_ENV: 'production'
+        NODE_ENV: 'production',
+        NODE_OPTIONS: `--max-old-space-size=${heapMb}`
       }
     }
   ]
