@@ -5,6 +5,11 @@
  * to customize this model
  */
 
+// Must match plugin_i18n_default_locale in migrations/configs/core_store.json.
+// `scale` (display order) is stored per-locale-row but is meant to be a single
+// shared order across languages, with pt-BR as the source of truth.
+const MASTER_LOCALE = "pt-BR";
+
 module.exports = {
   lifecycles: {
     async beforeCreate(data) {
@@ -139,6 +144,35 @@ module.exports = {
         } catch (e) {
           strapi.log.error(`[meilisearch] draft cleanup error (products): ${e.message}`)
         }
+      }
+
+      // Cascade `scale` from the master locale (pt-BR) to its sibling
+      // translations, via Strapi i18n's `localizations` relation. Gated to
+      // the master locale only: a routine edit to a non-master translation
+      // (which always has *some* scale value, since the column defaults to
+      // 0) can never push a stale value back onto pt-BR. Propagation is
+      // one-directional by construction, and a sibling's own afterUpdate
+      // no-ops immediately (locale !== master), so there is no recursion to
+      // worry about.
+      if (
+        result.locale === MASTER_LOCALE &&
+        Array.isArray(result.localizations) &&
+        result.localizations.length > 0
+      ) {
+        const siblingIds = result.localizations.map((l) => l.id);
+        const siblings = await strapi
+          .query("products")
+          .find({ id_in: siblingIds });
+
+        await Promise.all(
+          siblings
+            .filter((sibling) => sibling.scale !== result.scale)
+            .map((sibling) =>
+              strapi
+                .query("products")
+                .update({ id: sibling.id }, { scale: result.scale })
+            )
+        );
       }
     },
   },
