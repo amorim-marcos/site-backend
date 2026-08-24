@@ -25,12 +25,11 @@ O `default.mysql8.0` em uso hoje não é editável, então será necessário cri
 
 ---
 
-## Parâmetros exigidos
+## Parâmetro exigido
 
 | Parâmetro | Valor | Por quê |
 |---|---|---|
 | `mysql_native_password` | `ON` | Sem isso a aplicação não conecta. É parâmetro estático, exige reboot. **Não remover em limpezas futuras.** |
-| `innodb_adaptive_hash_index` | `ON` | Está ligado hoje (verificado em 21/08). O 8.4 mudou o default para `OFF`. Manter ligado preserva o comportamento atual de performance e deixa a versão do engine como única variável do upgrade. |
 
 Os demais parâmetros podem ficar no default do 8.4.
 
@@ -44,14 +43,18 @@ aws rds create-db-parameter-group --region eu-west-3 \
 
 aws rds modify-db-parameter-group --region eu-west-3 \
   --db-parameter-group-name bnk-site-mysql84 \
-  --parameters \
-    "ParameterName=mysql_native_password,ParameterValue=ON,ApplyMethod=pending-reboot" \
-    "ParameterName=innodb_adaptive_hash_index,ParameterValue=ON,ApplyMethod=pending-reboot"
+  --parameters "ParameterName=mysql_native_password,ParameterValue=ON,ApplyMethod=pending-reboot"
 ```
 
 O nome do grupo é sugestão. Criar o grupo não afeta nenhuma instância; ele só passa a valer quando associado.
 
 ---
+
+## Diferença de comportamento a observar
+
+O `innodb_adaptive_hash_index` está ligado hoje nas instâncias; no 8.4 o default passou a ser `OFF`. Não estamos pedindo para sobrepor, o default do 8.4 serve.
+
+Fica registrado como primeiro lugar a investigar caso apareça degradação de performance depois do upgrade. É parâmetro dinâmico, ajustável em produção sem reboot.
 
 ## O parameter group precisa ser informado no comando de upgrade
 

@@ -161,7 +161,7 @@ Resultado na `bnk-db-site-dev-eu-west-3` (versão `8.0.44`):
 
 **A aplicação conecta como `admin`, o usuário master do RDS** — não existe usuário dedicado (`dev` é apenas a configuração local de desenvolvimento). Como `admin` está em `mysql_native_password`, **o passo 3 é obrigatório**: sem ele o Strapi para de autenticar após o upgrade. Os dois usuários em `caching_sha2_password` são contas internas do MySQL, acessadas por socket local.
 
-**Também confirmado:** `@@innodb_adaptive_hash_index = 1` (ligado), o que valida a decisão de setar `ON` no parameter group do 8.4.
+**Também confirmado:** `@@innodb_adaptive_hash_index = 1` (ligado). Ver a decisão revisada no passo 3: não será sobreposto.
 
 **Observação fora do escopo deste upgrade:** a aplicação usar a conta master do RDS é um desvio de menor privilégio. Vale registrar como item separado de segurança, não como parte desta migração.
 
@@ -179,7 +179,9 @@ No DBeaver, aba **SSH** → *Use SSH Tunnel* (host da EC2, usuário `admin`, cha
 
 Família `mysql8.4`, com `mysql_native_password = ON` (parâmetro estático, exige reboot). Pré-requisito inegociável — sem ele a aplicação não conecta após o upgrade.
 
-**Decisão tomada (2026-08-21): `innodb_adaptive_hash_index = ON`**, para preservar o comportamento do 8.0 e manter a major version como única variável do upgrade. Revisitar como experimento isolado depois de estabilizado — o AHI consome memória do buffer pool, e `db.t3.medium` tem 4 GB.
+**Decisão revisada (2026-08-21): não sobrepor o `innodb_adaptive_hash_index`.** A justificativa inicial (preservar o comportamento do 8.0 para isolar variáveis) não se sustentou por dois motivos: não há medição de performance no escopo, então não haveria com o que comparar; e o parâmetro é **dinâmico**, ajustável em produção sem reboot, o que torna o custo de errar praticamente nulo. O 8.4 desligou por padrão após evidência de contenção de latch, e sobrepor um default do fornecedor exigiria justificativa positiva.
+
+Fica como observação: está ligado hoje (`@@innodb_adaptive_hash_index = 1`, verificado), o 8.4 usa `OFF`, e é o primeiro lugar a investigar se aparecer degradação depois do upgrade.
 
 Contexto do parâmetro: É a maior fonte de delta de performance entre as versões, e é uma escolha de configuração sob controle de vocês — não um risco a descobrir. O 8.4 desligou por bons motivos (contenção), então manter ligado não é automaticamente certo; o que não pode é ninguém ter olhado.
 
