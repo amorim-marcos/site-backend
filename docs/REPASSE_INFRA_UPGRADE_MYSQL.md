@@ -50,12 +50,6 @@ O nome do grupo é sugestão. Criar o grupo não afeta nenhuma instância; ele s
 
 ---
 
-## Diferença de comportamento a observar
-
-O `innodb_adaptive_hash_index` está ligado hoje nas instâncias; no 8.4 o default passou a ser `OFF`. Não estamos pedindo para sobrepor, o default do 8.4 serve.
-
-Fica registrado como primeiro lugar a investigar caso apareça degradação de performance depois do upgrade. É parâmetro dinâmico, ajustável em produção sem reboot.
-
 ## O parameter group precisa ser informado no comando de upgrade
 
 Criar o grupo não basta. Se ele não for passado no comando que sobe a versão, o RDS atribui o `default.mysql8.4` e a aplicação cai quando a instância volta.
