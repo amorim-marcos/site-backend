@@ -197,7 +197,22 @@ Contexto do parâmetro: É a maior fonte de delta de performance entre as versõ
 
 O Strapi sobe e conecta. Confirmado por SQL na instância: `VERSION()` = `8.4.10`, plugin `mysql_native_password` = `ACTIVE`, usuário `admin@%` = `mysql_native_password`. O upgrade funcionou pelo mecanismo especificado, não por acaso.
 
-Seção 1 do checklist (configuração) concluída em 2026-08-21. Seções 2 a 6 pendentes.
+Seções 1, 2 e 3 do checklist concluídas em 2026-08-21. Seções 4 a 6 (admin, integrações, frontend) pendentes.
+
+**Seção 2 validada por comparação direta entre ambientes.** Como a produção ainda está em 8.0.45, foi possível rodar o diff 8.0 contra 8.4 que havia sido cortado do escopo, agora com dados reais:
+
+| Campo | dev (8.4.10) | prd (8.0.45) |
+|---|---|---|
+| `is_highlighted` | `bool` | `bool` |
+| `inauguration_soon` | `bool` | `bool` |
+| `emphasis` | todos null | todos null |
+| `carbon_sequestration` | `float` | `float` |
+| `atmospheric_emissions` | `float` | `float` |
+| `in_ambients` (griseo-grann) | 2 ambientes | 2 ambientes |
+
+Nenhuma divergência de tipo. O `typeCast` do conector se comporta igual nas duas versões.
+
+**Achado não relacionado ao upgrade:** o `findOne` de produtos calcula anterior/próximo com `findIndex`, e quando o produto não é encontrado na lista o `-1` faz o cálculo devolver o primeiro e o último produto silenciosamente. Ocorre ao chamar a rota sem `_locale`, e o comportamento é idêntico nas duas versões. Merece item próprio.
 
 Validação funcional em andamento: ver [`CHECKLIST_VALIDACAO_MYSQL_8.4.md`](./CHECKLIST_VALIDACAO_MYSQL_8.4.md).
 

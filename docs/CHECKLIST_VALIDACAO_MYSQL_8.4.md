@@ -69,19 +69,25 @@ Um `"absorption":"12.50"` com aspas indica regressão. Sem aspas está correto.
 ## 3. Caminhos de query customizada
 
 São os dois pontos do backend que não usam o caminho padrão do Strapi.
-Ambos se testam abrindo página.
 
 - [ ] **Detalhe de produto.** Exercita o filtro relacional em
       `api/products/controllers/products.js:27`, que busca ambientes
       atravessando a tabela de junção.
-      Conferir: seção de ambientes relacionados aparece, e a navegação
-      para produto anterior e próximo funciona.
+      Conferir: um produto que pertence a algum ambiente retorna
+      `in_ambients` preenchido, e a navegação anterior/próximo funciona.
+      **Chamar sempre com `_locale`**, veja a observação abaixo.
 
-- [ ] **Ambiente por slug.** Exercita o `LIKE` em
-      `api/ambients/services/ambients.js:17`, que desce direto no bookshelf.
-      Conferir: a página resolve pelo `url_code`.
+- [ ] **Salvar um ambiente no admin.** O `LIKE` em
+      `api/ambients/services/ambients.js:17` é a função `countWithSameTitle`,
+      usada na geração de slug. Roda na **escrita**, não na leitura, então
+      não se testa abrindo página. É coberto ao criar ou salvar um ambiente.
 
----
+> **Observação, não relacionada ao upgrade.** O `findOne` de produtos usa
+> `findIndex` para calcular anterior/próximo. Se o produto não for encontrado
+> na lista, `findIndex` retorna `-1`, e o cálculo devolve o primeiro e o
+> último produto sem sinalizar erro. Acontece quando a rota é chamada sem
+> `_locale`. Comportamento idêntico em 8.0.45 e 8.4.10, ou seja, é anterior
+> ao upgrade. Vale abrir item separado.
 
 ## 4. Painel admin
 
