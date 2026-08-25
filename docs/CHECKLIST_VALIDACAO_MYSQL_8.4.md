@@ -66,9 +66,9 @@ Um `"absorption":"12.50"` com aspas indica regressão. Sem aspas está correto.
 
 ---
 
-## 3. Caminhos de query customizada
+## 3. Caminho de query customizada
 
-São os dois pontos do backend que não usam o caminho padrão do Strapi.
+Só existe um trecho do backend que não usa o caminho padrão do Strapi.
 
 - [ ] **Detalhe de produto.** Exercita o filtro relacional em
       `api/products/controllers/products.js:27`, que busca ambientes
@@ -77,10 +77,10 @@ São os dois pontos do backend que não usam o caminho padrão do Strapi.
       `in_ambients` preenchido, e a navegação anterior/próximo funciona.
       **Chamar sempre com `_locale`**, veja a observação abaixo.
 
-- [ ] **Salvar um ambiente no admin.** O `LIKE` em
-      `api/ambients/services/ambients.js:17` é a função `countWithSameTitle`,
-      usada na geração de slug. Roda na **escrita**, não na leitura, então
-      não se testa abrindo página. É coberto ao criar ou salvar um ambiente.
+> O `LIKE` em `api/ambients/services/ambients.js:17` (`countWithSameTitle`)
+> não precisa ser testado: a função não é chamada em nenhum ponto do código.
+> O que roda ao salvar um ambiente é o `generateSlug`, manipulação de string
+> sem consulta ao banco.
 
 > **Observação, não relacionada ao upgrade.** O `findOne` de produtos usa
 > `findIndex` para calcular anterior/próximo. Se o produto não for encontrado
@@ -93,7 +93,7 @@ São os dois pontos do backend que não usam o caminho padrão do Strapi.
 
 - [ ] Login
 - [ ] Listagem de conteúdo
-- [ ] Editar e **salvar** um registro (valida escrita, não só leitura)
+- [ ] Editar e **salvar** um registro (valida escrita e os lifecycle hooks)
 - [ ] Busca do admin (único consumidor do `_q` do Strapi)
 - [ ] Upload de mídia
 
