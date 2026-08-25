@@ -195,7 +195,9 @@ Contexto do parâmetro: É a maior fonte de delta de performance entre as versõ
 | Parameter group | `bnk-site-mysql84` |
 | Status dos parâmetros | `in-sync` |
 
-O Strapi sobe e conecta. O `in-sync` confirma que o `mysql_native_password` está vigorando, ou seja, funcionou pelo motivo especificado e não por acaso.
+O Strapi sobe e conecta. Confirmado por SQL na instância: `VERSION()` = `8.4.10`, plugin `mysql_native_password` = `ACTIVE`, usuário `admin@%` = `mysql_native_password`. O upgrade funcionou pelo mecanismo especificado, não por acaso.
+
+Seção 1 do checklist (configuração) concluída em 2026-08-21. Seções 2 a 6 pendentes.
 
 Validação funcional em andamento: ver [`CHECKLIST_VALIDACAO_MYSQL_8.4.md`](./CHECKLIST_VALIDACAO_MYSQL_8.4.md).
 

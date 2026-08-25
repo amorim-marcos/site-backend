@@ -36,17 +36,33 @@ SELECT user, host, plugin FROM mysql.user WHERE user = 'admin';
 O risco silencioso: o driver devolver `0`/`1` no lugar de boolean, ou string
 no lugar de número. Não lança erro, só chega errado no frontend.
 
-Booleanos, precisam vir `true` ou `false`:
+Rodar a partir da EC2, ou pelo navegador se o backend estiver acessível.
+Substituir `<host>` pela URL do Strapi do ambiente.
+
+Booleanos, precisam vir `true` ou `false`, nunca `1` ou `0`:
+
+```bash
+curl -s '<host>/posts?_limit=5'            | grep -o '"is_highlighted":[^,]*'     | sort -u
+curl -s '<host>/contact-channels?_limit=5' | grep -o '"emphasis":[^,]*'           | sort -u
+curl -s '<host>/where-we-ares?_limit=5'    | grep -o '"inauguration_soon":[^,]*'  | sort -u
+```
 
 - [ ] `posts`, campo `is_highlighted`
 - [ ] `contact-channels`, campo `emphasis`
-- [ ] `where-we-are`, campo `inauguration_soon`
+- [ ] `where-we-ares`, campo `inauguration_soon`
 
-Decimais, precisam vir como número e não string:
+Decimais, precisam vir como número e não string (sem aspas no JSON):
+
+```bash
+curl -s '<host>/our-commitment' | grep -oE '"(carbon_sequestration|atmospheric_emissions)":[^,]*'
+curl -s '<host>/products/<url_code>' | grep -oE '"(absorbed_water|absorption|thickness_increase|swelling)":[^,]*'
+```
 
 - [ ] `our-commitment`, campos `carbon_sequestration` e `atmospheric_emissions`
 - [ ] Produto com o componente `body-proof`, campos `absorbed_water`,
       `absorption`, `thickness_increase`, `swelling`
+
+Um `"absorption":"12.50"` com aspas indica regressão. Sem aspas está correto.
 
 ---
 
