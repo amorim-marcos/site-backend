@@ -185,7 +185,19 @@ Fica como observação: está ligado hoje (`@@innodb_adaptive_hash_index = 1`, v
 
 Contexto do parâmetro: É a maior fonte de delta de performance entre as versões, e é uma escolha de configuração sob controle de vocês — não um risco a descobrir. O 8.4 desligou por bons motivos (contenção), então manter ligado não é automaticamente certo; o que não pode é ninguém ter olhado.
 
-### Passo 4 — Upgrade da dev e validação *(2–3h)*
+### Passo 4 — Upgrade da dev e validação *(2–3h)* — **em andamento desde 2026-08-21**
+
+**Upgrade executado pela infra em 2026-08-21.** Confirmado:
+
+| Item | Valor |
+|---|---|
+| Versão | `8.4.10` |
+| Parameter group | `bnk-site-mysql84` |
+| Status dos parâmetros | `in-sync` |
+
+O Strapi sobe e conecta. O `in-sync` confirma que o `mysql_native_password` está vigorando, ou seja, funcionou pelo motivo especificado e não por acaso.
+
+Validação funcional em andamento: ver [`CHECKLIST_VALIDACAO_MYSQL_8.4.md`](./CHECKLIST_VALIDACAO_MYSQL_8.4.md).
 
 > Este passo **é** a validação de QAS — "QAS" e "dev" são o mesmo ambiente. As decisões de janela de manutenção e de tempo de vida do ambiente azul dependem da conclusão deste passo.
 
