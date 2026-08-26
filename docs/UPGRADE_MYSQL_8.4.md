@@ -197,7 +197,7 @@ Contexto do parâmetro: É a maior fonte de delta de performance entre as versõ
 
 O Strapi sobe e conecta. Confirmado por SQL na instância: `VERSION()` = `8.4.10`, plugin `mysql_native_password` = `ACTIVE`, usuário `admin@%` = `mysql_native_password`. O upgrade funcionou pelo mecanismo especificado, não por acaso.
 
-Seções 1 a 5 do checklist concluídas. Seção 6 (frontend) pendente.
+**Validação da dev concluída em 2026-08-26.** As seis seções do checklist foram aprovadas.
 
 **Seção 4 (admin), 2026-08-26:** editar e salvar ambiente, upload de imagem de galeria e busca do admin (o `_q`) funcionando.
 
@@ -208,6 +208,12 @@ Seções 1 a 5 do checklist concluídas. Seção 6 (frontend) pendente.
 - `pm2 restart backend` **não reproduziu** o erro
 - Processo estável: `restarts: 0`, `unstable restarts: 0`
 - `/var/www/html/backend` foi modificado no mesmo minuto, indicando que era um **deploy** e não um restart simples
+
+**Seção 6 (frontend), 2026-08-26:** home, listagem de produtos, detalhe de produto com ambientes relacionados e navegação, ambientes e página com dados técnicos, todos verificados no `devtestesite.berneck.com.br`.
+
+### Conclusão da validação
+
+Nenhum problema atribuível ao upgrade. A dev roda MySQL 8.4.10 com o driver `mysql` v2.18.1 sem alteração de código na aplicação. Liberada para prosseguir com a produção após período de uso.
 
 **Seção 2 validada por comparação direta entre ambientes.** Como a produção ainda está em 8.0.45, foi possível rodar o diff 8.0 contra 8.4 que havia sido cortado do escopo, agora com dados reais:
 
