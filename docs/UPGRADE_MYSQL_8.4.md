@@ -197,7 +197,17 @@ Contexto do parâmetro: É a maior fonte de delta de performance entre as versõ
 
 O Strapi sobe e conecta. Confirmado por SQL na instância: `VERSION()` = `8.4.10`, plugin `mysql_native_password` = `ACTIVE`, usuário `admin@%` = `mysql_native_password`. O upgrade funcionou pelo mecanismo especificado, não por acaso.
 
-Seções 1, 2 e 3 do checklist concluídas em 2026-08-21. Seções 4 a 6 (admin, integrações, frontend) pendentes.
+Seções 1 a 5 do checklist concluídas. Seção 6 (frontend) pendente.
+
+**Seção 4 (admin), 2026-08-26:** editar e salvar ambiente, upload de imagem de galeria e busca do admin (o `_q`) funcionando.
+
+**Seção 5 (integrações), 2026-08-26:** requisições em `200` com latência de 14 a 100 ms, sem degradação. Uma ocorrência de `bootstrap function in admin failed / CustomError: No Rows Updated` no restart das 17:55. **Investigado e descartado como bloqueador:**
+
+- Ocorrência única em 21 MB de log
+- Dos 5 `strapi start` registrados no arquivo, só esse falhou
+- `pm2 restart backend` **não reproduziu** o erro
+- Processo estável: `restarts: 0`, `unstable restarts: 0`
+- `/var/www/html/backend` foi modificado no mesmo minuto, indicando que era um **deploy** e não um restart simples
 
 **Seção 2 validada por comparação direta entre ambientes.** Como a produção ainda está em 8.0.45, foi possível rodar o diff 8.0 contra 8.4 que havia sido cortado do escopo, agora com dados reais:
 
