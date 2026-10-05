@@ -1,9 +1,9 @@
 # Plano de Upgrade — MySQL 8.0 → 8.4 (RDS)
 
-**Status:** levantamento concluído, execução não iniciada
+**Status:** dev em 8.4.10 e validada (2026-08-26); produção aguardando o cutover pela infra
 **Branch:** `sb-154-upgrade-mysql8`
 **Base da auditoria:** `deaa5b2` (idêntica a `prd`)
-**Última atualização:** 2026-08-21
+**Última atualização:** 2026-10-05
 **Região / perfil:** `eu-west-3` (Paris) / `mp-coinov-eu`
 **Versão navegável:** https://claude.ai/code/artifact/dbc0cafd-4abb-4c3f-a11c-613f3bc6d393
 
@@ -175,7 +175,7 @@ ssh -f -N -L 13306:bnk-db-site-dev-eu-west-3.cvtrpbjmzydv.eu-west-3.rds.amazonaw
 
 No DBeaver, aba **SSH** → *Use SSH Tunnel* (host da EC2, usuário `admin`, chave privada), mantendo o endpoint do RDS na aba Main.
 
-### Passo 3 — Parameter group custom *(1h)*
+### Passo 3 — Parameter group custom *(1h)* — ✅ **CONCLUÍDO 2026-08-21** (`bnk-site-mysql84`, criado pela infra)
 
 Família `mysql8.4`, com `mysql_native_password = ON` (parâmetro estático, exige reboot). Pré-requisito inegociável — sem ele a aplicação não conecta após o upgrade.
 
@@ -185,7 +185,7 @@ Fica como observação: está ligado hoje (`@@innodb_adaptive_hash_index = 1`, v
 
 Contexto do parâmetro: É a maior fonte de delta de performance entre as versões, e é uma escolha de configuração sob controle de vocês — não um risco a descobrir. O 8.4 desligou por bons motivos (contenção), então manter ligado não é automaticamente certo; o que não pode é ninguém ter olhado.
 
-### Passo 4 — Upgrade da dev e validação *(2–3h)* — **em andamento desde 2026-08-21**
+### Passo 4 — Upgrade da dev e validação *(2–3h)* — ✅ **CONCLUÍDO 2026-08-26**
 
 **Upgrade executado pela infra em 2026-08-21.** Confirmado:
 
@@ -230,26 +230,28 @@ Nenhuma divergência de tipo. O `typeCast` do conector se comporta igual nas dua
 
 **Achado não relacionado ao upgrade:** o `findOne` de produtos calcula anterior/próximo com `findIndex`, e quando o produto não é encontrado na lista o `-1` faz o cálculo devolver o primeiro e o último produto silenciosamente. Ocorre ao chamar a rota sem `_locale`, e o comportamento é idêntico nas duas versões. Merece item próprio.
 
-Validação funcional em andamento: ver [`CHECKLIST_VALIDACAO_MYSQL_8.4.md`](./CHECKLIST_VALIDACAO_MYSQL_8.4.md).
+Validação funcional concluída: ver [`CHECKLIST_VALIDACAO_MYSQL_8.4.md`](./CHECKLIST_VALIDACAO_MYSQL_8.4.md).
 
 > Este passo **é** a validação de QAS — "QAS" e "dev" são o mesmo ambiente. As decisões de janela de manutenção e de tempo de vida do ambiente azul dependem da conclusão deste passo.
 
 A validação real: RDS de verdade, build da AWS, schema de verdade, aplicação de verdade — mais fiel que qualquer container.
 
-Navegar site e painel admin com atenção, conferindo:
+Itens conferidos na validação (resultado detalhado no checklist):
 
-- [ ] Strapi sobe e conecta sem erro de autenticação
-- [ ] Login no painel admin
-- [ ] Listagem e edição de conteúdo
-- [ ] Campos booleanos retornam `true`/`false`, não `0`/`1`
-- [ ] Campos decimais retornam número, não string
-- [ ] Busca do painel admin
-- [ ] Upload de mídia
-- [ ] Sincronia com o Meilisearch continua indexando
+- [x] Strapi sobe e conecta sem erro de autenticação
+- [x] Login no painel admin
+- [x] Listagem e edição de conteúdo
+- [x] Campos booleanos retornam `true`/`false`, não `0`/`1`
+- [x] Campos decimais retornam número, não string
+- [x] Busca do painel admin
+- [x] Upload de mídia
+- [x] Sincronia com o Meilisearch continua indexando
 
 Sai do Extended Support e já corta metade do custo mensal.
 
-### Passo 5 — Produção via Blue/Green *(2–3h)*
+### Passo 5 — Produção via Blue/Green *(2–3h)* — **aguardando a infra**
+
+A execução é da equipe de infra, a partir do [`REPASSE_INFRA_UPGRADE_MYSQL.md`](./REPASSE_INFRA_UPGRADE_MYSQL.md). O parameter group já existe. Depois do switchover, rodar o checklist de validação na produção.
 
 Único pré-requisito no RDS MySQL: **backups automáticos habilitados** — ✅ confirmado, 7 dias de retenção nas duas instâncias. O parameter group e a versão-alvo entram na própria criação:
 
@@ -314,7 +316,7 @@ Hoje a suíte roda em **sqlite** (`config/env/test/database.json`) e cobre apena
 - [x] ~~**Plugins de autenticação**~~ — **resolvido (2026-08-21):** a app conecta como `admin`, em `mysql_native_password`. Passo 3 confirmado como obrigatório.
 - [x] ~~**Manutenções pendentes e retenção de backup**~~ — **resolvido (2026-08-21):** retenção de **7 dias** nas duas instâncias, então o pré-requisito do Blue/Green está satisfeito. Pendente na dev: upgrade automático de minor para 8.0.45 em 27/08 (decidido deixar acontecer).
 - [x] ~~**Minor 8.4 alvo**~~ — **resolvido (2026-08-21): `8.4.10`.** O RDS oferece de 8.4.3 a 8.4.11 como alvo a partir de 8.0.45; a escolha é nossa via `--target-engine-version`. Com `AutoMinorVersionUpgrade: True`, o RDS avança os minors sozinho depois — o minor inicial é ponto de partida, não decisão duradoura.
-- [ ] ⚠️ **Permissões IAM para executar o upgrade** — o usuário `mamorin.ext` tem *explicit deny* em `ec2:DescribeSecurityGroups` pela policy `zDevelop_Coinov`. **Verificar antes de agendar qualquer janela** se há permissão para: `rds:CreateDBParameterGroup`, `rds:ModifyDBParameterGroup`, `rds:ModifyDBInstance`, `rds:CreateBlueGreenDeployment`, `rds:SwitchoverBlueGreenDeployment`. Sem elas, os passos 3 a 6 dependem de outra pessoa — é um bloqueador de execução, não técnico.
+- [x] ~~**Permissões IAM para executar o upgrade**~~ — **não se aplica (2026-10-05):** a execução é da equipe de infra.
 - [x] ~~**Acesso ao banco**~~ — **resolvido (2026-08-21):** túnel SSH pela EC2. A VPN resolve DNS e roteia, mas a porta 3306 dá timeout — o Security Group filtra por origem.
 - [ ] **Valor real da cobrança de Extended Support** na fatura de agosto
 
