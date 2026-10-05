@@ -11,3 +11,18 @@ services:
     ports:
       - "3306:3306"
     restart: always
+
+  # Alvo do upgrade — usado para validar que o driver mysql v2 conecta no 8.4
+  # antes de subir a instância dev na AWS (upgrade de RDS não tem downgrade).
+  db84:
+    # Fixado no minor que o RDS oferece como alvo do upgrade.
+    # NAO usar a tag flutuante 'mysql:8.4': ela traz 8.4.11, que o RDS ainda nao oferece.
+    # Confirmar com: aws rds describe-db-engine-versions --engine mysql --engine-version 8.0.45
+    image: mysql:8.4.10
+    environment:
+      MYSQL_ROOT_PASSWORD: passwordtest
+      MYSQL_DATABASE: berneck
+    ports:
+      - "3307:3306"
+    command: ["mysqld", "--mysql-native-password=ON"]
+    restart: unless-stopped
