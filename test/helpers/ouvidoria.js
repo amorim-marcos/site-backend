@@ -62,7 +62,7 @@ function writeTemp(dir, name, content) {
 }
 
 function silentLog() {
-  return { log() {}, warn() {}, error() {} };
+  return { log() {}, info() {}, warn() {}, error() {} };
 }
 
 function baseConfig(overrides = {}) {
