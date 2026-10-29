@@ -19,6 +19,7 @@
     "complete-config:dump": "npm-run-all local-config:dump strapi-config:dump",
     "complete-config:restore": "npm-run-all local-config:restore strapi-config:restore",
     "test": "mocha --exit",
+    "test:ouvidoria": "mocha --exit \"test/ouvidoria*.test.js\"",
     "knex:init": "knex seed:run",
     "migrate:all": "knex migrate:latest",
     "migrate:up": "knex migrate:up",
@@ -35,9 +36,11 @@
     "supertest": "^6.1.6"
   },
   "dependencies": {
+    "aws-sdk": "2.1692.0",
     "bull": "^4.8.1",
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
+    "formidable": "1.2.6",
     "knex": "0.21.18",
     "koa2-ratelimit": "^1.1.0",
     "lodash": "^4.17.21",
