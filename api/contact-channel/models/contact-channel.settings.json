@@ -63,6 +63,15 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "flow": {
+      "type": "string",
+      "default": "default",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
