@@ -28,7 +28,12 @@ services:
     container_name: Redis
     ports:
       - 6379:6379
-    command: redis-server --requirepass "${REDIS_PASSWORD}"
+    # AOF + volume: o deploy recria o contêiner (docker-compose down/up), e sem isto a
+    # fila (denúncias pendentes da Ouvidoria incluídas) é perdida a cada release.
+    # Disco local da instância; não usar o EFS (/var/www/html) para o Redis.
+    command: redis-server --requirepass "${REDIS_PASSWORD}" --appendonly yes
+    volumes:
+      - /home/admin/data/redis:/data
     mem_limit: ${REDIS_MEM_LIMIT:-128m}
     mem_reservation: ${REDIS_MEM_RESERVATION:-32m}
     restart: unless-stopped

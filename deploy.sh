@@ -28,6 +28,9 @@ git reset --hard "origin/$BRANCH"
 yarn install
 yarn build
 
+# Pasta local do volume do Redis (AOF); sem ela o Docker a cria como root.
+mkdir -p /home/admin/data/redis
+
 # Para e remove containers antes de subir — evita bug 'ContainerConfig' em versões antigas do docker-compose
 echo "=== Atualizando containers Docker ==="
 sg docker -c "docker-compose down --remove-orphans && docker-compose up -d"
