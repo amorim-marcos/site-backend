@@ -1,13 +1,20 @@
 const table_name = 'bp_page_banners'
+const column_name = 'custom_order'
 
-exports.up = function(knex) {
-    return knex.schema.alterTable(table_name, table => {
-        table.integer('custom_order').nullable()
+// Idempotente: o Strapi cria a coluna a partir do modelo na subida, então ela
+// pode já existir quando esta migration rodar.
+exports.up = async function(knex) {
+    if (await knex.schema.hasColumn(table_name, column_name)) return
+
+    await knex.schema.alterTable(table_name, table => {
+        table.integer(column_name).nullable()
     })
 }
 
-exports.down = function(knex) {
-    return knex.schema.alterTable(table_name, table => {
-        table.dropColumn('custom_order')
+exports.down = async function(knex) {
+    if (!(await knex.schema.hasColumn(table_name, column_name))) return
+
+    await knex.schema.alterTable(table_name, table => {
+        table.dropColumn(column_name)
     })
 }
