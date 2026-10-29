@@ -49,6 +49,22 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/contact-channels/:id/ouvidoria/config",
+      "handler": "contact-channel.ouvidoriaConfig",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contact-channels/:id/sendOuvidoria",
+      "handler": "contact-channel.sendOuvidoria",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/contact-channels/:id",
       "handler": "contact-channel.delete",
