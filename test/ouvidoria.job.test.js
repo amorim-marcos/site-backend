@@ -289,9 +289,61 @@ describe("ouvidoria/OuvidoriaSendJob", () => {
     const fault = await outcome({ root: { Envelope: { Body: { Fault: { faultstring: "Usuário inválido" } } } } });
     expect(fault).to.contain("fault=Usuário inválido");
 
+    const envelope = `<?xml version="1.0" encoding="ISO-8859-1"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><SOAP-ENV:Fault><faultstring>Atributo inexistente</faultstring></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>`;
+    const soapBody = await outcome({ statusCode: 200, body: envelope });
+    expect(soapBody).to.contain("faultstring=Atributo inexistente");
+    expect(soapBody).to.not.contain("<?xml");
+
+    const noFault = await outcome({
+      statusCode: 200,
+      body: `<?xml version="1.0"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="x"><SOAP-ENV:Body><ns1:editEntityRecordResponse><Detail>Atributo anexo1 invalido</Detail></ns1:editEntityRecordResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>`,
+    });
+    expect(noFault).to.contain("body=Atributo anexo1 invalido");
+    expect(noFault).to.not.contain("<?xml");
+
     expect(await outcome({ code: "ECONNRESET" })).to.contain("code=ECONNRESET");
     expect(await outcome({})).to.contain("tipo=object");
     expect(await outcome("texto solto")).to.contain("message=texto solto");
+  });
+
+  it("falha de autenticação do gateway (401/403) descarta o job: sem novas tentativas", async () => {
+    for (const statusCode of [401, 403]) {
+      const job = makeJob(baseData());
+      let discarded = 0;
+      job.discard = () => {
+        discarded += 1;
+      };
+      let error;
+      try {
+        await run(job, {
+          createSeClient: async () => ({
+            newWorkflow: async () => {
+              throw { statusCode, body: "Valid GatewayJWT not found" };
+            },
+          }),
+        });
+      } catch (e) {
+        error = e;
+      }
+      expect(error.message).to.contain(`http=${statusCode}`);
+      expect(discarded).to.equal(1);
+      expect(logged.some(([level, msg]) => level === "error" && /sem novas tentativas/.test(msg))).to.equal(true);
+    }
+  });
+
+  it("outras falhas do SE continuam com novas tentativas (o job não é descartado)", async () => {
+    const job = makeJob(baseData());
+    let discarded = 0;
+    job.discard = () => {
+      discarded += 1;
+    };
+    failOn = "newWorkflow";
+    try {
+      await run(job);
+    } catch (e) {
+      /* esperado */
+    }
+    expect(discarded).to.equal(0);
   });
 
   it("retoma do estágio pendente e não cria outro workflow nem repete a varredura no retry", async () => {
@@ -352,7 +404,7 @@ describe("ouvidoria/OuvidoriaSendJob", () => {
       error = e;
     }
     expect(error.message).to.contain("SE_OUVIDORIA_PROCESS_ID");
-    expect(error.message).to.contain("SE_AUTH_TOKEN");
+    expect(error.message).to.contain("SE_OUVIDORIA_AUTH_TOKEN");
     expect(calls).to.have.length(0);
   });
 });

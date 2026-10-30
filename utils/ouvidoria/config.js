@@ -108,7 +108,8 @@ function getConfig(env = process.env) {
     se: {
       wsdlUrl: env.SE_WSDL_URL || "",
       wsdlLocation: env.SE_WSDL_LOCATION || "",
-      authToken: env.SE_AUTH_TOKEN || "",
+      // Token próprio da Ouvidoria; sem ele usa o do Fale Conosco.
+      authToken: env.SE_OUVIDORIA_AUTH_TOKEN || env.SE_AUTH_TOKEN || "",
       processId: env.SE_OUVIDORIA_PROCESS_ID || "",
       userId: env.SE_OUVIDORIA_USER_ID || "",
       entityId: env.SE_OUVIDORIA_ENTITY_ID || "",
@@ -136,7 +137,7 @@ function missingRouteVariables(config) {
 function missingSeVariables(config) {
   const required = {
     SE_WSDL_URL: config.se.wsdlUrl,
-    SE_AUTH_TOKEN: config.se.authToken,
+    SE_OUVIDORIA_AUTH_TOKEN: config.se.authToken,
     SE_OUVIDORIA_PROCESS_ID: config.se.processId,
     SE_OUVIDORIA_USER_ID: config.se.userId,
     SE_OUVIDORIA_ENTITY_ID: config.se.entityId,

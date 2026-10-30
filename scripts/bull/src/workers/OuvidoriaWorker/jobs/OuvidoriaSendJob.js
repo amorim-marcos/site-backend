@@ -35,6 +35,16 @@ const NOTE_SCAN_TIMEOUT = "A verificação de segurança do anexo não terminou 
 
 const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// O início de um envelope SOAP é só cabeçalho; o motivo está no faultstring ou no texto do Body.
+function describeSoapBody(body) {
+  const faultString = /<faultstring[^>]*>([\s\S]*?)<\/faultstring>/i.exec(body);
+  if (faultString) return `faultstring=${faultString[1].trim().slice(0, 200)}`;
+
+  const afterBody = body.split(/Body>/i)[1];
+  if (afterBody === undefined) return `body=${body.slice(0, 200)}`;
+  return `body=${afterBody.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 300)}`;
+}
+
 // O node-soap pode rejeitar com objetos sem `message` (falha HTTP ou fault do SOAP).
 // Só vão ao log o status, o código e um trecho curto da resposta do SE, nunca os dados enviados.
 function describeSeError(error) {
@@ -48,16 +58,25 @@ function describeSeError(error) {
   const body = error.root && error.root.Envelope && error.root.Envelope.Body;
   const fault = body && body.Fault;
   if (fault) parts.push(`fault=${String(fault.faultstring || fault.Reason || "").slice(0, 200)}`);
-  if (typeof error.body === "string" && error.body) parts.push(`body=${error.body.slice(0, 200)}`);
+  if (typeof error.body === "string" && error.body) parts.push(describeSoapBody(error.body));
   if (parts.length === 0) parts.push(`tipo=${typeof error} chaves=${Object.keys(error).join(",")}`);
   return parts.join(" ");
+}
+
+// 401/403 do gateway: repetir só prolonga o bloqueio por excesso de falhas de autenticação,
+// que vale para todas as integrações que usam o mesmo token (inclusive o Fale Conosco).
+function isAuthFailure(error) {
+  const status = error && (error.statusCode || (error.response && error.response.status));
+  return status === 401 || status === 403;
 }
 
 async function callSe(step, call) {
   try {
     return await call();
   } catch (error) {
-    throw new Error(`${step} falhou: ${describeSeError(error)}`);
+    const wrapped = new Error(`${step} falhou: ${describeSeError(error)}`);
+    wrapped.authFailure = isAuthFailure(error);
+    throw wrapped;
   }
 }
 
@@ -123,7 +142,7 @@ async function waitForScan({ storage, key, config, receivedAt, sleep, now, log, 
   }
 }
 
-async function OuvidoriaSendJob(job, deps = {}) {
+async function processJob(job, deps = {}) {
   const startedAt = Date.now();
   const getCfg = deps.getConfig || getConfig;
   const makeClient = deps.createSeClient || createSeClient;
@@ -246,6 +265,21 @@ async function OuvidoriaSendJob(job, deps = {}) {
   await job.progress(100);
   log.log(`${LOG} job ${job.id} concluído em ${Date.now() - startedAt}ms (workflow ${state.workflowId})`);
   return { workflowID: state.workflowId };
+}
+
+async function OuvidoriaSendJob(job, deps = {}) {
+  try {
+    return await processJob(job, deps);
+  } catch (error) {
+    if (error.authFailure && typeof job.discard === "function") {
+      // O job fica na fila de falhas para ser reprocessado à mão quando o token for corrigido.
+      job.discard();
+      (deps.log || console).error(
+        `${LOG} job ${job.id}: o SE recusou a autenticação; sem novas tentativas para não bloquear o gateway`
+      );
+    }
+    throw error;
+  }
 }
 
 module.exports = { OuvidoriaSendJob, entityAttributes, waitForScan };

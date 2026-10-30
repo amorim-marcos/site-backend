@@ -16,7 +16,7 @@
  *
  * Uso (rede com acesso ao SE, ex.: VPN):
  *   source ~/.nvm/nvm.sh && nvm use 14
- *   export SE_WSDL_URL=... SE_WSDL_LOCATION=... SE_AUTH_TOKEN=...      # token da QAS
+ *   export SE_WSDL_URL=... SE_WSDL_LOCATION=... SE_OUVIDORIA_AUTH_TOKEN=...      # token da Ouvidoria (QAS)
  *   export SE_OUVIDORIA_PROCESS_ID=CPL002 SE_OUVIDORIA_USER_ID=ouvidoria \
  *          SE_OUVIDORIA_ENTITY_ID=ouvidoria SE_OUVIDORIA_ACTIVITY_ID=ATV.0591
  *   node scripts/se-proof/ouvidoria-proof.js --describe         # só lê o WSDL (não cria nada)

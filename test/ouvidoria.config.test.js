@@ -16,6 +16,12 @@ describe("ouvidoria/config", () => {
     expect(config.job).to.deep.include({ attempts: 8, concurrency: 2, timeoutMs: 20 * 60 * 1000 });
   });
 
+  it("o token do SE é o da Ouvidoria, com o do Fale Conosco como reserva", () => {
+    expect(getConfig({ SE_AUTH_TOKEN: "fale", SE_OUVIDORIA_AUTH_TOKEN: "ouv" }).se.authToken).to.equal("ouv");
+    expect(getConfig({ SE_AUTH_TOKEN: "fale" }).se.authToken).to.equal("fale");
+    expect(getConfig({}).se.authToken).to.equal("");
+  });
+
   it("a identificação volta a ser obrigatória com OUVIDORIA_ALLOW_ANONYMOUS=false", () => {
     expect(getConfig({ OUVIDORIA_ALLOW_ANONYMOUS: "false" }).allowAnonymous).to.equal(false);
   });
