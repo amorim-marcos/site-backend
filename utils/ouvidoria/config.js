@@ -44,6 +44,8 @@ function getConfig(env = process.env) {
 
   return {
     enabled: toBool(env.OUVIDORIA_ENABLED, false),
+    // Nome do canal que usa o fluxo da Ouvidoria (as traduções são achadas pelas localizações).
+    channelName: env.OUVIDORIA_CHANNEL_NAME || "Ouvidoria",
     // Identificação opcional (denúncia anônima). `false` volta a exigir os campos.
     allowAnonymous: toBool(env.OUVIDORIA_ALLOW_ANONYMOUS, true),
 

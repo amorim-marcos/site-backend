@@ -3,6 +3,7 @@
 const { applyTrustedProxyHops } = require('../../utils/trusted-proxy');
 const { getConfig: getOuvidoriaConfig } = require('../../utils/ouvidoria/config');
 const { ensurePublicPermissions } = require('../../utils/ouvidoria/permissions');
+const { syncChannelFlow } = require('../../utils/ouvidoria/channelFlow');
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -23,9 +24,11 @@ module.exports = async () => {
     strapi.log.warn('Ouvidoria ativa com PROXY_ENABLED desligado: o rate limit verá o IP do proxy, não o do cliente');
   }
 
+  const ouvidoria = getOuvidoriaConfig();
   try {
-    await ensurePublicPermissions({ strapi, config: getOuvidoriaConfig(), log: strapi.log });
+    await ensurePublicPermissions({ strapi, config: ouvidoria, log: strapi.log });
+    await syncChannelFlow({ strapi, config: ouvidoria, log: strapi.log });
   } catch (error) {
-    strapi.log.error(`[OUVIDORIA] falha ao garantir as permissões públicas: ${error.message}`);
+    strapi.log.error(`[OUVIDORIA] falha ao preparar permissões e fluxo do canal: ${error.message}`);
   }
 };
