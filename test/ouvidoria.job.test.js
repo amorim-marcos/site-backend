@@ -265,6 +265,35 @@ describe("ouvidoria/OuvidoriaSendJob", () => {
     expect(Object.keys(attrs())).to.not.include.members(["fcnome", "fcemail"]);
   });
 
+  it("descreve falhas do SE que chegam sem `message` (HTTP ou fault do SOAP), sem expor o corpo enviado", async () => {
+    const failWith = (rejection) => async () => ({
+      newWorkflow: async () => {
+        throw rejection;
+      },
+    });
+    const outcome = async (rejection) => {
+      let error;
+      try {
+        await run(makeJob(baseData()), { createSeClient: failWith(rejection) });
+      } catch (e) {
+        error = e;
+      }
+      return error.message;
+    };
+
+    const http = await outcome({ statusCode: 502, body: "<html>Bad Gateway</html>" });
+    expect(http).to.contain("newWorkflow falhou");
+    expect(http).to.contain("http=502");
+    expect(http).to.contain("Bad Gateway");
+
+    const fault = await outcome({ root: { Envelope: { Body: { Fault: { faultstring: "Usuário inválido" } } } } });
+    expect(fault).to.contain("fault=Usuário inválido");
+
+    expect(await outcome({ code: "ECONNRESET" })).to.contain("code=ECONNRESET");
+    expect(await outcome({})).to.contain("tipo=object");
+    expect(await outcome("texto solto")).to.contain("message=texto solto");
+  });
+
   it("retoma do estágio pendente e não cria outro workflow nem repete a varredura no retry", async () => {
     s3.setScan(KEY, "NO_THREATS_FOUND");
     const job = makeJob(baseData(fileData()));

@@ -35,6 +35,32 @@ const NOTE_SCAN_TIMEOUT = "A verificação de segurança do anexo não terminou 
 
 const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// O node-soap pode rejeitar com objetos sem `message` (falha HTTP ou fault do SOAP).
+// Só vão ao log o status, o código e um trecho curto da resposta do SE, nunca os dados enviados.
+function describeSeError(error) {
+  if (!error) return "erro desconhecido";
+  const parts = [];
+  const status = error.statusCode || (error.response && error.response.status);
+  if (status) parts.push(`http=${status}`);
+  if (error.code) parts.push(`code=${error.code}`);
+  const message = error.message || (typeof error === "string" ? error : "");
+  if (message) parts.push(`message=${message}`);
+  const body = error.root && error.root.Envelope && error.root.Envelope.Body;
+  const fault = body && body.Fault;
+  if (fault) parts.push(`fault=${String(fault.faultstring || fault.Reason || "").slice(0, 200)}`);
+  if (typeof error.body === "string" && error.body) parts.push(`body=${error.body.slice(0, 200)}`);
+  if (parts.length === 0) parts.push(`tipo=${typeof error} chaves=${Object.keys(error).join(",")}`);
+  return parts.join(" ");
+}
+
+async function callSe(step, call) {
+  try {
+    return await call();
+  } catch (error) {
+    throw new Error(`${step} falhou: ${describeSeError(error)}`);
+  }
+}
+
 function assertSuccess(step, result) {
   if (!result || result.Status === "FAILURE") {
     const code = result && result.Code;
@@ -169,11 +195,13 @@ async function OuvidoriaSendJob(job, deps = {}) {
   if (!state.workflowId) {
     const workflow = assertSuccess(
       "newWorkflow",
-      await client.newWorkflow({
-        ProcessID: se.processId,
-        WorkflowTitle: workflowTitle(data.fields, new Date(data.receivedAt)),
-        UserID: se.userId,
-      })
+      await callSe("newWorkflow", () =>
+        client.newWorkflow({
+          ProcessID: se.processId,
+          WorkflowTitle: workflowTitle(data.fields, new Date(data.receivedAt)),
+          UserID: se.userId,
+        })
+      )
     );
     if (!workflow.RecordID) throw new Error("newWorkflow não retornou RecordID");
     state.workflowId = workflow.RecordID;
@@ -185,11 +213,13 @@ async function OuvidoriaSendJob(job, deps = {}) {
   if (!state.entityEdited) {
     assertSuccess(
       "editEntityRecord",
-      await client.editEntityRecord({
-        WorkflowID: state.workflowId,
-        EntityID: se.entityId,
-        EntityAttributeList: { EntityAttribute: entityAttributes(data, config, state.attachment) },
-      })
+      await callSe("editEntityRecord", () =>
+        client.editEntityRecord({
+          WorkflowID: state.workflowId,
+          EntityID: se.entityId,
+          EntityAttributeList: { EntityAttribute: entityAttributes(data, config, state.attachment) },
+        })
+      )
     );
     state.entityEdited = true;
     await persist();
@@ -200,12 +230,14 @@ async function OuvidoriaSendJob(job, deps = {}) {
   if (!state.activityExecuted) {
     assertSuccess(
       "executeActivity",
-      await client.executeActivity({
-        WorkflowID: state.workflowId,
-        ActivityID: se.activityId,
-        ActionSequence: se.actionSequence,
-        UserID: se.userId,
-      })
+      await callSe("executeActivity", () =>
+        client.executeActivity({
+          WorkflowID: state.workflowId,
+          ActivityID: se.activityId,
+          ActionSequence: se.actionSequence,
+          UserID: se.userId,
+        })
+      )
     );
     state.activityExecuted = true;
     await persist();
