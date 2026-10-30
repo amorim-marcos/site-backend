@@ -246,14 +246,12 @@ describe("ouvidoria/OuvidoriaSendJob", () => {
   it("envia os atributos da entidade e omite os vazios", async () => {
     await run(makeJob(baseData()));
     expect(attrs()).to.deep.equal({
-      fcnome: "Maria Silva",
-      fcemail: "maria@exemplo.com.br",
-      fcmensagem: "Relato",
-      fctelefone: "41988885544",
-      fcestado: "PR",
-      fccidade: "Curitiba",
-      fccanal: "Ouvidoria",
-      fcpapelcanal: "MKT001.02.12",
+      solnome: "Maria Silva",
+      solemail: "maria@exemplo.com.br",
+      solmensagem: "Relato",
+      solfone: "41988885544",
+      soluf: "PR",
+      solcidade: "Curitiba",
     });
   });
 
@@ -262,7 +260,7 @@ describe("ouvidoria/OuvidoriaSendJob", () => {
     data.fields = { name: "", email: "", phone: "", city: "", state: "", company: "", message: "Relato" };
     await run(makeJob(data));
     expect(calls[0].args.WorkflowTitle).to.equal("Denúncia anônima 2026-10-19T12:00:00.000Z");
-    expect(Object.keys(attrs())).to.not.include.members(["fcnome", "fcemail"]);
+    expect(Object.keys(attrs())).to.not.include.members(["solnome", "solemail"]);
   });
 
   it("descreve falhas do SE que chegam sem `message` (HTTP ou fault do SOAP), sem expor o corpo enviado", async () => {

@@ -12,15 +12,13 @@ const MB = 1024 * 1024;
 
 // Atributos da entidade do SE, assumidos iguais aos do `pfaleconosco`.
 const ENTITY_ATTRIBUTES = {
-  name: "fcnome",
-  email: "fcemail",
-  message: "fcmensagem",
-  phone: "fctelefone",
-  state: "fcestado",
-  company: "fcempresa",
-  city: "fccidade",
-  channel: "fccanal",
-  roleId: "fcpapelcanal",
+  name: "solnome",
+  email: "solemail",
+  message: "solmensagem",
+  phone: "solfone",
+  state: "soluf",
+  company: "solempresa",
+  city: "solcidade",
   // URL do anexo no download seguro (campo criado pela TI Berneck; 255 caracteres).
   attachment: "anexo1",
 };

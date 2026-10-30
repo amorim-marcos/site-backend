@@ -99,8 +99,6 @@ function entityAttributes(data, config, attachment = {}) {
     [ENTITY_ATTRIBUTES.state, fields.state],
     [ENTITY_ATTRIBUTES.company, fields.company],
     [ENTITY_ATTRIBUTES.city, fields.city],
-    [ENTITY_ATTRIBUTES.channel, data.channel],
-    [ENTITY_ATTRIBUTES.roleId, data.serviceCode],
     [ENTITY_ATTRIBUTES.attachment, attachment.url],
   ];
   if (config.se.attachmentNoteAttribute) {
