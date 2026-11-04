@@ -15,6 +15,11 @@ const UF_CODES = [
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[0-9()+\-.\s]{8,30}$/;
+const PHONE_MIN_DIGITS = 8;
+
+function isValidPhone(phone) {
+  return PHONE_PATTERN.test(phone) && phone.replace(/\D/g, "").length >= PHONE_MIN_DIGITS;
+}
 
 // Campos exigidos hoje no formulário do Fale Conosco. Em modo anônimo
 // (OUVIDORIA_ALLOW_ANONYMOUS) nenhum é obrigatório.
@@ -63,7 +68,7 @@ function validateFields(body, config) {
   if (values.email !== "" && !EMAIL_PATTERN.test(values.email)) {
     errors.push({ field: "email", code: "INVALID" });
   }
-  if (values.phone !== "" && !PHONE_PATTERN.test(values.phone)) {
+  if (values.phone !== "" && !isValidPhone(values.phone)) {
     errors.push({ field: "phone", code: "INVALID" });
   }
   if (values.state !== "" && !UF_CODES.includes(values.state)) {

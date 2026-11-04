@@ -45,6 +45,15 @@ describe("ouvidoria/submission", () => {
     expect(result.errors.map((e) => e.field)).to.have.members(["email", "phone", "state"]);
   });
 
+  it("exige ao menos 8 dígitos no telefone e aceita formatos internacionais", () => {
+    const invalid = validateFields({ ...valid, phone: "(((( ))))" }, { allowAnonymous: false });
+    expect(invalid.errors).to.deep.include({ field: "phone", code: "INVALID" });
+    ["+1 415 555 0100", "0800 123 4567", "(41) 3333-4444"].forEach((phone) => {
+      const result = validateFields({ ...valid, phone }, { allowAnonymous: false });
+      expect(result.errors.map((e) => e.field)).to.not.include("phone");
+    });
+  });
+
   it("aplica os limites do SE (255 e 4000)", () => {
     const longShort = validateFields({ ...valid, name: "x".repeat(256) }, { allowAnonymous: false });
     expect(longShort.errors).to.deep.include({ field: "name", code: "TOO_LONG" });
